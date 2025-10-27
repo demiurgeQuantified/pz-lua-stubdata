@@ -1,6 +1,6 @@
-# pz-lua-stub-data
+# pz-lua-stubdata
 
-This repository hosts the YAML definition files used to generate Lua [typestubs](https://github.com/omarkmu/pz-lua-stubs) for Project Zomboid.
-The data conforms to version 1.1 of the [Rosetta](https://github.com/asledgehammer/PZ-Rosetta-Schema) schema.
+This repository hosts the [Rosetta](https://github.com/asledgehammer/PZ-Rosetta-Schema) data files used to generate typestubs for Project Zomboid's Lua source.
 
+For the combined typestubs, including those generated from this data, see [Umbrella](https://github.com/PZ-Umbrella/Umbrella).  
 The program used for typestub generation is available at [pz-lua-stubgen](https://github.com/omarkmu/pz-lua-stubgen).
