@@ -12,7 +12,7 @@ languages:
                 type: IsoAnimal
               - name: hook
                 type: IsoButcherHook
-              - name: luaHook
+              - name: luaHookUI
                 type: ISButcherHookUI
         staticFields:
           Type:
@@ -43,6 +43,8 @@ languages:
           - name: update
           - name: start
           - name: stop
+          - name: serverStart
+          - name: serverStop
           - name: perform
           - name: complete
             return:

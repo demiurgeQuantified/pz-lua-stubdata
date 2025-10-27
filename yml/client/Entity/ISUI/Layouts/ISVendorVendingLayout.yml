@@ -2,6 +2,79 @@ version: "1.1"
 languages:
   lua:
     classes:
+      ISVendorVendingLayout.ISVendingAnim:
+        extends: ISPanel
+        local: true
+        constructors:
+          - parameters:
+              - name: _x
+                type: number
+              - name: _y
+                type: number
+              - name: _w
+                type: number
+              - name: _h
+                type: number
+              - name: _terminationY
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"ISVendingAnim"'
+        fields:
+          running:
+            type: boolean
+          option:
+            type: boolean
+          terminationY:
+            type: number
+          stage:
+            type: number
+          STAGE_SPIRAL:
+            type: number
+          STAGE_DROP:
+            type: number
+          spiralDelta:
+            type: number
+          drawY:
+            type: number
+          drawX:
+            type: number
+          drawW:
+            type: number
+          drawH:
+            type: number
+          speed:
+            type: number
+          speedMulti:
+            type: number
+          speedMax:
+            type: number
+          forceItemDraw:
+            type: boolean
+          angle:
+            type: number
+          maxAngle:
+            type: number
+          angleDir:
+            type: number
+          hideItemSlotItem:
+            type: boolean
+          itemSlot:
+            type: boolean
+          item:
+            type: boolean
+          itemTex:
+            type: boolean
+          isRunning:
+            type: boolean
+        methods:
+          - name: start
+            parameters:
+              - name: _vendingOption
+                type: table
+          - name: stop
+          - name: prerender
+          - name: render
       ISVendorVendingLayout:
         extends: ISPanel
         constructors:
@@ -22,7 +95,8 @@ languages:
             type: IS9Patch
           moneyLcd:
             type: ISLcdBar
-          resourceMoney: {}
+          resourceMoney:
+            type: Resource
           itemSlotMoney:
             type: ISItemSlot
           buttons:
@@ -35,7 +109,8 @@ languages:
             type: table
           trayPanel:
             type: IS9Patch
-          resourceOutput: {}
+          resourceOutput:
+            type: Resource
           itemSlotOutput:
             type: ISItemSlot
           anim:

@@ -24,9 +24,6 @@ languages:
             type: boolean
           item:
             type: BarricadeAble
-          maxTime:
-            type: number
-            nullable: true
           isMetal:
             type: boolean
           isMetalBar:
@@ -49,4 +46,3 @@ languages:
           - name: getDuration
             return:
               - type: number
-                nullable: true

@@ -63,6 +63,12 @@ languages:
             nullable: true
           joypadFocused:
             type: boolean
+          joypadNavigatePrevRect:
+            type: table
+            nullable: true
+          joypadNavigateTransition:
+            type: table
+            nullable: true
           javaObject:
             type: UIElement
           removed:
@@ -225,6 +231,15 @@ languages:
                 type: number
             return:
               - type: boolean
+          - name: isMouseOverChild
+            return:
+              - type: boolean
+          - name: isPointOverChild
+            parameters:
+              - name: screenX
+              - name: screenY
+            return:
+              - type: boolean
           - name: suspendStencil
           - name: resumeStencil
           - name: setStencilRect
@@ -239,6 +254,18 @@ languages:
                 type: number
             return:
               - type: nil
+          - name: setStencilCircle
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: w
+                type: number
+              - name: h
+                type: number
+            return:
+              - type: unknown
           - name: clearStencilRect
             return:
               - type: nil
@@ -301,6 +328,9 @@ languages:
           - name: getIsCaptured
             return:
               - type: boolean
+          - name: isCapture
+            return:
+              - type: unknown
           - name: setFollowGameWorld
             parameters:
               - name: bFollow
@@ -480,6 +510,17 @@ languages:
             parameters:
               - name: playerNum
                 type: integer
+          - name: renderJoypadNavigateCurrent
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: w
+                type: number
+              - name: h
+                type: number
+          - name: renderJoypadNavigateSelf
           - name: renderJoypadNavigateHighlight
             parameters:
               - name: joypadData
@@ -494,6 +535,11 @@ languages:
                 type: ISUIElement
               - name: texture
                 type: Texture
+          - name: isDescendant
+            parameters:
+              - name: ui
+            return:
+              - type: boolean
           - name: instantiate
           - name: createChildren
           - name: drawTextureAllPoint

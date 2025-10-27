@@ -32,7 +32,6 @@ languages:
         fields:
           mouseOverTile:
             type: number
-            nullable: true
           columns:
             type: integer
           rows:
@@ -52,7 +51,6 @@ languages:
             nullable: true
           lastMouseOverTile:
             type: number
-            nullable: true
           dataArrayList:
             type: ArrayList
           callbackTarget:
@@ -130,7 +128,6 @@ languages:
                 type: number
             return:
               - type: integer
-                nullable: true
           - name: getDataElement
             parameters:
               - name: _index

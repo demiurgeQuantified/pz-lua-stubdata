@@ -14,8 +14,6 @@ languages:
         - type: ClimateFloat
       Fixing.Fixer:
         - type: Fixer
-      HandcraftLogic.InputItemNode:
-        - type: InputItemNode
       IsoHutch.NestBox:
         - type: NestBox
       MultiStageBuilding.Stage:
@@ -76,8 +74,6 @@ languages:
         - type: ComponentUiStyle
       XuiSkin.EntityUiStyle:
         - type: EntityUiStyle
-      XuiSkinScript.ComponentUiScript:
-        - type: ComponentUiScript
     classes:
       umbrella.HSB:
         fields:

@@ -2,4 +2,39 @@ version: "1.1"
 languages:
   lua:
     classes:
-      debugScenarios: {}
+      debugScenarios.Trailer3Scenario_Fishing:
+        local: true
+        staticFields:
+          name:
+            defaultValue: '"LIFE 3 - FISHING"'
+          startLoc: {}
+        staticMethods:
+          - name: setSandbox
+          - name: onStart
+          - name: onLoadGS
+            parameters:
+              - name: sq
+                type: IsoGridSquare
+          - name: addItem
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+              - name: tile
+          - name: getSQ
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+            return:
+              - type: unknown
+      debugScenarios:
+        staticFields:
+          Trailer3Scenario_Fishing:
+            type: debugScenarios.Trailer3Scenario_Fishing

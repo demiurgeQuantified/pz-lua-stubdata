@@ -29,6 +29,29 @@ languages:
           tableLayout:
             type: ISTableLayout
             nullable: true
+          recipeListMode:
+            type: boolean
+          recipeColumn:
+            type: ISTableLayoutColumn
+            nullable: true
+          recipesPanel:
+            type: ISWidgetRecipesPanel
+            nullable: true
+          recipePanel:
+            type: ISCraftLogicRecipePanel
+            nullable: true
+          recipePanelColumn:
+            type: ISTableLayoutColumn
+            nullable: true
+          inventoryPanelColumn:
+            type: ISTableLayoutColumn
+            nullable: true
+          inventoryPanel:
+            type: ISCraftInventoryPanel
+            nullable: true
+          resourceInventoryPanel:
+            type: ISCraftInventoryPanel
+            nullable: true
           energyInputs:
             type: ISEnergySlotPanel
             nullable: true
@@ -56,14 +79,8 @@ languages:
           energyOutputs:
             type: ISEnergySlotPanel
             nullable: true
-          recipeIconPanel:
-            type: ISTiledIconPanel
-            nullable: true
-          tooltipRecipe:
-            type: CraftRecipe
-          tooltipCounter:
-            type: number
-          recipePanel:
+          _filterString:
+            type: string
             nullable: true
           inputsGroupName:
             type: string
@@ -73,13 +90,13 @@ languages:
             type: Resources
           craftLogicComponent:
             type: CraftLogic
-          recipes:
-            type: ArrayList<CraftRecipe>
           logic:
-            type: Component
+            type: CraftLogicUILogic
         methods:
           - name: initialise
           - name: createChildren
+          - name: updateContainers
+          - name: onResourceSlotContentsChanged
           - name: createItemSlotPanel
             parameters:
               - name: _style
@@ -110,8 +127,44 @@ languages:
           - name: prerender
           - name: render
           - name: update
-          - name: createRecipeIconPanel
+          - name: createRecipesColumn
           - name: createRecipePanel
+          - name: createInventoryPanel
+          - name: createLegacyRecipePanel
+          - name: onRecipeChanged
+            parameters:
+              - name: _recipe
+                type: CraftRecipe
+          - name: onUpdateRecipeList
+            parameters:
+              - name: _recipeList
+                type: ArrayList<string>
+          - name: setRecipeListMode
+            parameters:
+              - name: _useListMode
+                type: boolean
+          - name: setRecipeFilter
+            parameters:
+              - name: _filterString
+                type: string
+                nullable: true
+          - name: filterRecipeList
+          - name: setSortMode
+            parameters:
+              - name: _sortMode
+                type: string
+          - name: sortRecipeList
+          - name: onShowManualSelectChanged
+            parameters:
+              - name: _showManualSelectInputs
+                type: boolean
+          - name: OnCloseWindow
+          - name: onItemSlotAddItems
+            parameters:
+              - name: _itemSlot
+                type: ISItemSlot
+              - name: _itemList
+                type: InventoryItem[]
         staticMethods:
           - name: CanCreatePanelFor
             parameters:
@@ -122,7 +175,19 @@ languages:
               - name: _component
                 type: Component
               - name: _componentUiScript
-                type: XuiSkinScript.ComponentUiScript
+                type: XuiSkin.ComponentUiStyle
             return:
               - type: boolean
                 nullable: true
+          - name: ItemSlotAddItems
+            parameters:
+              - name: _player
+                type: IsoPlayer
+              - name: _entity
+                type: GameEntity
+              - name: _itemSlot
+                type: ISItemSlot
+              - name: _itemList
+                type: InventoryItem[]
+              - name: _component
+                type: CraftLogic

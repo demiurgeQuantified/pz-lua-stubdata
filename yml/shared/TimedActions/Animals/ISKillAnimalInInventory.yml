@@ -1,0 +1,40 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISKillAnimalInInventory:
+        extends: ISBaseTimedAction
+        constructors:
+          - parameters:
+              - name: character
+                type: IsoPlayer
+              - name: animalItem
+                type: AnimalInventoryItem
+        staticFields:
+          Type:
+            defaultValue: '"ISKillAnimalInInventory"'
+        fields:
+          animalItem:
+            type: AnimalInventoryItem
+            nullable: true
+        methods:
+          - name: isValid
+            return:
+              - type: boolean
+          - name: waitToStart
+            return:
+              - type: boolean
+          - name: update
+          - name: start
+          - name: stop
+          - name: canKillAnimal
+            return:
+              - type: boolean
+          - name: perform
+          - name: complete
+            return:
+              - type: boolean
+          - name: kill
+          - name: getDuration
+            return:
+              - type: number

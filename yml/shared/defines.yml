@@ -73,11 +73,15 @@ languages:
           BurnCorpsePetrolAmount:
             defaultValue: "0.1"
           CleanBloodBleachAmount:
-            defaultValue: "0.25"
+            defaultValue: "0.24999"
           CleanGraffitiPetrolAmount:
-            defaultValue: "1.25"
+            defaultValue: "1.24999"
           LightFromPetrolAmount:
             defaultValue: "0.1"
+          farmingFluidContainerMillilitresPerUse:
+            defaultValue: "200"
+          fireFightingFluidContainerMillilitresPerUse:
+            defaultValue: "100"
           IdleIncrease:
             defaultValue: "0.0005"
           IdleDecrease:

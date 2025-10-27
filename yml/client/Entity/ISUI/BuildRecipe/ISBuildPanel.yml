@@ -27,10 +27,10 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISBuildPanel"'
-        fields:
-          buildEntity:
-            type: ISBuildIsoEntity
+          drawDirty:
+            type: boolean
             nullable: true
+        fields:
           rootTable:
             type: ISTableLayout
             nullable: true
@@ -58,8 +58,14 @@ languages:
           _filterString:
             type: string
             nullable: true
+          _filterMode:
+            type: string
+            nullable: true
           _categoryString:
             type: string
+            nullable: true
+          buildEntity:
+            type: ISBuildIsoEntity
             nullable: true
           logic:
             type: BuildLogic
@@ -77,9 +83,11 @@ languages:
             type: boolean
           drawDebugLines:
             type: boolean
+          windowInstance:
+            type: ISUIElement
+            nullable: true
         methods:
           - name: initialise
-          - name: close
           - name: createChildren
           - name: refreshList
           - name: ReselectRecipeOrFirst
@@ -111,6 +119,10 @@ languages:
               - type: boolean
                 nullable: true
           - name: updateContainers
+            parameters:
+              - name: _forceRefresh
+                type: boolean
+                nullable: true
           - name: setRecipeListMode
             parameters:
               - name: _useListMode
@@ -133,7 +145,15 @@ languages:
             parameters:
               - name: _filterString
                 type: string
+                nullable: true
+              - name: _filterMode
+                type: string
+                nullable: true
           - name: filterRecipeList
+          - name: setSortMode
+            parameters:
+              - name: _sortMode
+          - name: sortRecipeList
           - name: onCategoryChanged
             parameters:
               - name: _category
@@ -143,14 +163,19 @@ languages:
             parameters:
               - name: dontSetDrag
                 type: boolean
+          - name: updateManualInputs
           - name: onUpdateRecipeList
             parameters:
               - name: _recipeList
                 type: ArrayList<CraftRecipe>
+          - name: onManualSelectChanged
+            parameters:
+              - name: _manualSelectInputs
           - name: onShowManualSelectChanged
             parameters:
               - name: _showManualSelectInputs
                 type: boolean
+          - name: OnCloseWindow
           - name: onStopCraft
           - name: getCategoryList
             return:

@@ -11,9 +11,6 @@ languages:
                 nullable: true
             return:
               - type: number
-          - name: getFluidContainerMillilitresPerUse
-            return:
-              - type: integer
           - name: getWaterUsesFloat
             parameters:
               - name: item

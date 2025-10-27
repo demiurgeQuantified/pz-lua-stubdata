@@ -601,6 +601,10 @@ languages:
             parameters:
               - name: item
                 type: InventoryItem
+          - name: OnCreateSnowGlobe
+            parameters:
+              - name: item
+                type: InventoryItem
           - name: OnCreateRecipeClipping
             parameters:
               - name: item
@@ -637,11 +641,19 @@ languages:
             parameters:
               - name: item
                 type: InventoryItem
+          - name: OnCreateSewingPattern
+            parameters:
+              - name: item
+                type: InventoryItem
           - name: OnCreatePhotoBook
             parameters:
               - name: item
                 type: InventoryItem
           - name: OnCreateChildsPictureBook
+            parameters:
+              - name: item
+                type: InventoryItem
+          - name: OnCreateRecipeMagazine
             parameters:
               - name: item
                 type: InventoryItem

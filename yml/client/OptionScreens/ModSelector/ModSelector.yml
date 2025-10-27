@@ -39,12 +39,12 @@ languages:
             type: ISButton
           helpButton:
             type: ISButton
-          joypadIndex:
-            type: integer
-            nullable: true
+          joypadNavigate:
+            type: table
         methods:
           - name: create
           - name: prerender
+          - name: render
           - name: onResolutionChange
           - name: onOptionMouseDown
             parameters:
@@ -72,30 +72,26 @@ languages:
                 type: umbrella.ModSelector.FinalFunction
           - name: reloadMods
           - name: setNewGame
+          - name: onKeyRelease
+            parameters:
+              - name: key
+                type: integer
           - name: onGainJoypadFocus
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDown
-            parameters:
-              - name: button
-                type: integer
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirUp
+          - name: onLoseJoypadFocus
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDirDown
+          - name: onJoypadNavigateStart
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDirLeft
+          - name: onJoypadNavigateStart_Descendant
             parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirRight
-            parameters:
+              - name: descendant
+                type: ISUIElement
               - name: joypadData
                 type: JoypadData
         staticMethods:

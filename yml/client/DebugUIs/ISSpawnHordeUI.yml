@@ -30,6 +30,10 @@ languages:
             type: ISLabel
           radius:
             type: ISTextEntryBox
+          heightOffsetLbl:
+            type: ISLabel
+          heightOffset:
+            type: ISTextEntryBox
           outfitLbl:
             type: ISLabel
           outfit:
@@ -63,6 +67,8 @@ languages:
             type: number
           selectZ:
             type: number
+          isShiftDown:
+            type: boolean
           marker:
             type: WorldMarkers.GridSquareMarker
             nullable: true
@@ -90,6 +96,9 @@ languages:
               - name: _slider
                 type: ISSliderPanel
           - name: getRadius
+            return:
+              - type: number
+          - name: getHeightOffset
             return:
               - type: number
           - name: onSpawn

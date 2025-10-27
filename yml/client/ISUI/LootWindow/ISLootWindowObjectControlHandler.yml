@@ -1,0 +1,41 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISLootWindowObjectControlHandler:
+        extends: ISBaseObject
+        constructors:
+          - {}
+        staticFields:
+          Type:
+            defaultValue: '"ISLootWindowObjectControlHandler"'
+        fields:
+          control:
+            type: ISButton
+          altColor:
+            type: boolean
+        methods:
+          - name: shouldBeVisible
+            return:
+              - type: boolean
+          - name: getControl
+            return:
+              - type: unknown
+          - name: getButtonControl
+            parameters:
+              - name: title
+                type: string
+            return:
+              - type: ISButton
+          - name: handleJoypadContextMenu
+            parameters:
+              - name: context
+                type: ISContextMenu
+          - name: addJoypadContextMenuOption
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: text
+            return:
+              - type: unknown
+          - name: perform

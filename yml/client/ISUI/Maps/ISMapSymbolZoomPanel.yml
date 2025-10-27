@@ -1,0 +1,47 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISMapSymbolZoomPanel:
+        extends: ISPanelJoypad
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"ISMapSymbolZoomPanel"'
+        fields:
+          minZoomBox:
+            type: ISSpinBox
+          maxZoomBox:
+            type: ISSpinBox
+        methods:
+          - name: createChildren
+          - name: initSpinBox
+            parameters:
+              - name: spinBox
+          - name: onChangeMinZoom
+          - name: onChangeMaxZoom
+          - name: setMinMaxZoom
+            parameters:
+              - name: minZoomF
+              - name: maxZoomF
+          - name: findClosestZoom
+            parameters:
+              - name: spinBox
+              - name: zoomF
+            return:
+              - type: number
+          - name: getZoom
+            parameters:
+              - name: spinBox
+            return:
+              - type: number
+                nullable: true

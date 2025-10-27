@@ -87,20 +87,28 @@ languages:
           - name: removeBait
             parameters:
               - name: character
+                type: IsoPlayer
                 nullable: true
+          - name: clearAnimalAndChangeSprite
           - name: addAliveAnimal
+            parameters:
+              - name: character
+                type: IsoPlayer
+          - name: removeAnimal
             parameters:
               - name: character
                 type: IsoPlayer
             return:
               - type: unknown
                 nullable: true
-          - name: removeAnimal
+          - name: removeAnimalCorpse
             parameters:
               - name: character
-            return:
-              - type: unknown
-                nullable: true
+                type: IsoPlayer
+              - name: isoAnimal
+          - name: removeAnimalItem
+            parameters:
+              - name: character
           - name: testForAnimal
             parameters:
               - name: zoneType

@@ -34,6 +34,10 @@ languages:
             type: string
           titleLabel:
             type: ISLabel
+          fluidTitleText:
+            type: string
+          fluidTitleLabel:
+            type: ISLabel
           errorText:
             type: string
           errorLabel:
@@ -74,6 +78,12 @@ languages:
             type: boolean
           action:
             type: ISFluidTransferAction | false
+          fromPreviousOwner:
+            type: ItemContainer | IsoGridSquare
+            nullable: true
+          toPreviousOwner:
+            type: ItemContainer | IsoGridSquare
+            nullable: true
           variableColor:
             type: umbrella.RGBA
           buttonBorderColor:

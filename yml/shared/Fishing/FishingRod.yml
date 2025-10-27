@@ -12,6 +12,8 @@ languages:
           - parameters:
               - name: player
                 type: IsoPlayer
+              - name: joypad
+                type: integer
         fields:
           player:
             type: IsoPlayer
@@ -52,6 +54,18 @@ languages:
             type: number
           mpAimY:
             type: number
+          joypad:
+            type: integer
+          prevReelValue:
+            type: number
+          reelDelta:
+            type: number
+          isGamepadReel:
+            type: boolean
+            nullable: true
+          isGamepadRelease:
+            type: boolean
+            nullable: true
           spawnBobberX:
             type: number
           spawnBobberY:

@@ -54,28 +54,10 @@ languages:
                 type: umbrella.FeedingTroughDefinition
               - name: north
                 type: boolean
-              - name: slave
-                type: boolean
-          - name: getSquare2Pos
-            parameters:
-              - name: square
-                type: IsoGridSquare
-              - name: north
-                type: boolean
-            return:
-              - type: number
-              - type: number
-              - type: number
-          - name: getSquare2PosReverse
-            parameters:
-              - name: square
-                type: IsoGridSquare
-              - name: north
-                type: boolean
-            return:
-              - type: number
-              - type: number
-              - type: number
+              - name: spriteGridX
+                type: integer
+              - name: spriteGridY
+                type: integer
           - name: addFeed
             parameters:
               - name: type

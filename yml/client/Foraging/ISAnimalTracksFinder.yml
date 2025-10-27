@@ -40,7 +40,7 @@ languages:
             parameters:
               - name: chr
                 type: IsoPlayer
-              - name: tracks
+              - name: track
                 type: AnimalTracks
           - name: isTrack
             parameters:

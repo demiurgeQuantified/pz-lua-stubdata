@@ -22,6 +22,8 @@ languages:
           sound:
             type: integer
             nullable: true
+          soundNoTrigger:
+            type: boolean
           fromHotbar:
             type: boolean
           clothingAction:

@@ -139,6 +139,10 @@ languages:
             type: ISColorPickerHSB
           comboWid:
             type: number
+          labelRight:
+            type: number
+          nonComboWidth:
+            type: number
           clothingDebugCreated:
             type: boolean
           clothingWidgets:
@@ -159,6 +163,8 @@ languages:
             nullable: true
           skinColor:
             type: integer
+          joypadNavigate:
+            type: table
           itemheightoverride:
             type: table
           colorPanel:
@@ -213,6 +219,10 @@ languages:
               - name: bodyLocation
                 type: string
           - name: arrangeClothingUI
+          - name: arrangeClothingRightSideElements
+            parameters:
+              - name: bodyLocation
+                type: string
           - name: debugClothingDefinitions
           - name: shouldShowAllOutfits
             return:
@@ -372,6 +382,7 @@ languages:
           - name: initPlayer
           - name: update
           - name: prerender
+          - name: render
           - name: onGainJoypadFocus
             parameters:
               - name: joypadData
@@ -380,16 +391,14 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDirLeft
+          - name: onJoypadNavigateStart
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDirRight
+          - name: onJoypadNavigateStart_Descendant
             parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirUp
-            parameters:
+              - name: descendant
+                type: ISUIElement
               - name: joypadData
                 type: JoypadData
           - name: loadJoypadButtons
@@ -427,6 +436,10 @@ languages:
             parameters:
               - name: picker
                 type: ISColorPicker
+          - name: onKeyRelease
+            parameters:
+              - name: key
+                type: integer
         staticMethods:
           - name: loadOutfit
             parameters:
@@ -475,6 +488,8 @@ languages:
             type: ISComboBox[]
           dividerResizeTable:
             type: ISRect[]
+          joypadNavigate:
+            type: table
         methods:
           - name: prerender
           - name: render
@@ -491,10 +506,6 @@ languages:
             parameters:
               - name: button
                 type: integer
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirLeft
-            parameters:
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirRight
@@ -535,11 +546,52 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDirLeft
+      CharacterCreationMain.ClothingPanel:
+        extends: ISPanelJoypad
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"CharacterCreationClothingPanel"'
+        fields:
+          joypadButtons:
+            type: ISButton[]
+          prevJoypadIndexY:
+            type: number
+          joypadNavigate:
+            type: table
+        methods:
+          - name: prerender
+          - name: render
+          - name: tryRemoveChild
+            parameters:
+              - name: child
+                type: ISUIElement
+                nullable: true
+          - name: onMouseWheel
+            parameters:
+              - name: del
+                type: number
+          - name: onGainJoypadFocus
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDirRight
+          - name: onLoseJoypadFocus
             parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
               - name: joypadData
                 type: JoypadData

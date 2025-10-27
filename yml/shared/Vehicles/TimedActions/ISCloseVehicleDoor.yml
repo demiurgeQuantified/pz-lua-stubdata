@@ -34,6 +34,7 @@ languages:
             return:
               - type: boolean
                 nullable: true
+          - name: collapseLootWindow
           - name: getDuration
             return:
               - type: number

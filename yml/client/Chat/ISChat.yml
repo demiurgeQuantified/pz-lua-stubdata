@@ -98,6 +98,10 @@ languages:
             type: table<string, true?>
           locked:
             type: boolean
+          showSlowModeFeedback:
+            type: boolean
+          timerMessageSlowMode:
+            type: number
           timerTextEntry:
             type: number
           chatText:
@@ -114,6 +118,8 @@ languages:
             type: Texture
           chatUnLockedButtonTexture:
             type: Texture
+          slowTimeRemainingRatio:
+            type: number
           servermsg:
             type: string
           servermsgTimer:

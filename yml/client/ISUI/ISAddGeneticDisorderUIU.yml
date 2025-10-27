@@ -38,8 +38,6 @@ languages:
             type: ISButton
           variableColor:
             type: table
-          target:
-            type: unknown
           onclick:
             type: umbrella.ISAddGeneticDisorderUI.OnClick
             nullable: true

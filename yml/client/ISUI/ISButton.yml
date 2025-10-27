@@ -135,8 +135,22 @@ languages:
           textureBackground:
             type: Texture
             nullable: true
+          iconRight:
+            nullable: true
+          iconRightHeight:
+            type: number
+          iconRightWidth:
+            type: number
+          iconRightColor:
+            type: table
+          titleLeft:
+            type: boolean
         methods:
           - name: initialise
+          - name: setVisible
+            parameters:
+              - name: visible
+                type: boolean
           - name: onMouseMove
             parameters:
               - name: dx

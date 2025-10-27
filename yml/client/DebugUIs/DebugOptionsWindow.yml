@@ -48,3 +48,33 @@ languages:
                 type: number
               - name: y
                 type: number
+      DebugOptionsWindow.TickBox:
+        extends: ISTickBox
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"DebugOptionsWindow_TickBox"'
+        methods:
+          - name: getTextColor
+            parameters:
+              - name: index
+                type: integer
+              - name: color
+                type: umbrella.RGBA
+      DebugOptionsWindow.ListBox:
+        extends: ISScrollingListBox
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"DebugOptionsWindow_ListBox"'
+        methods:
+          - name: doDrawItem
+            parameters:
+              - name: y
+                type: number
+              - name: item
+                type: umbrella.ISScrollingListBox.Item
+              - name: alt
+                type: boolean
+            return:
+              - type: number

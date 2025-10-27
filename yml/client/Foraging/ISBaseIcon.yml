@@ -38,8 +38,6 @@ languages:
             type: number
           zoom:
             type: number
-          pinAlpha:
-            type: number
           itemObj:
             type: InventoryItem
             nullable: true
@@ -157,8 +155,6 @@ languages:
             type: number
           maxPosChanges:
             type: number
-          itemRotation:
-            type: integer
           onMouseDoubleClick:
             type: function
           modifiers:
@@ -179,6 +175,8 @@ languages:
             type: number
           updateTickMax:
             type: number
+          itemRotation:
+            type: integer
         methods:
           - name: isValid
             return:

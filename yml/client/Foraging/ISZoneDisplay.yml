@@ -2,6 +2,66 @@ version: "1.1"
 languages:
   lua:
     classes:
+      ISZoneDisplay.zdImage:
+        extends: ISPanel
+        local: true
+        constructors:
+          - parameters:
+              - name: zoneDisplay
+                type: ISZoneDisplay
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: texture
+                type: Texture
+        staticFields:
+          Type:
+            defaultValue: '"zdImage"'
+        fields:
+          alphaTarget:
+            type: number
+          zoneDisplay:
+            type: ISZoneDisplay
+          texture:
+            type: Texture
+          alphaStep:
+            type: number
+        methods:
+          - name: initialise
+          - name: getAlpha
+            return:
+              - type: number
+          - name: getAlphaTarget
+            return:
+              - type: number
+          - name: setAlpha
+            parameters:
+              - name: _a
+                type: number
+          - name: setAlphaTarget
+            parameters:
+              - name: _a
+                type: number
+          - name: setGreyscale
+            parameters:
+              - name: _rgb
+                type: number
+          - name: setColor
+            parameters:
+              - name: _r
+                type: number
+              - name: _g
+                type: number
+              - name: _b
+                type: number
+          - name: update
+          - name: prerender
+          - name: render
       ISZoneDisplay:
         extends: ISPanel
         constructors:
@@ -111,22 +171,16 @@ languages:
                 type: boolean
                 nullable: true
           - name: updateTips
+          - name: getHoursBetween
+            parameters:
+              - name: _start
+                type: number
+              - name: _finish
+                type: number
+            return:
+              - type: number
           - name: updateMoonPosition
-            parameters:
-              - name: _dawn
-                type: number
-              - name: _dusk
-                type: number
-              - name: _timeOfDay
-                type: number
           - name: updateSunPosition
-            parameters:
-              - name: _dawn
-                type: number
-              - name: _dusk
-                type: number
-              - name: _timeOfDay
-                type: number
           - name: canSeeThroughObject
             parameters:
               - name: _object

@@ -33,17 +33,27 @@ languages:
             nullable: true
           isDirty:
             type: boolean
+          itemSlot:
+            type: ISItemSlot
           inputScriptFilter:
             type: InputScript
             nullable: true
           selectedItem:
             type: umbrella.ISCraftInventoryPanel.ListItem
+          previousSelected:
+            type: number
           unavailablesExpanded:
+            type: boolean
+          unavailableFluidsExpanded:
             type: boolean
           player:
             type: IsoPlayer
           logic:
             type: HandcraftLogic
+          isResourceItemSlot:
+            type: boolean
+          showCurrentContents:
+            type: boolean
           margin:
             type: number
           autoFillContents:
@@ -83,7 +93,7 @@ languages:
           - name: createListItemNode
             parameters:
               - name: _node
-                type: HandcraftLogic.InputItemNode
+                type: InputItemNode
               - name: _isUsedItems
                 type: boolean
             return:
@@ -91,7 +101,7 @@ languages:
           - name: createListItemEntry
             parameters:
               - name: _node
-                type: HandcraftLogic.InputItemNode
+                type: InputItemNode
               - name: _inventoryItem
                 type: InventoryItem
               - name: _index
@@ -108,6 +118,14 @@ languages:
                 type: integer
             return:
               - type: umbrella.ISCraftInventoryPanel.ListItem
+          - name: createUnavailableListFluidEntry
+            parameters:
+              - name: _fluid
+                type: Fluid
+              - name: _index
+                type: integer
+            return:
+              - type: umbrella.ISCraftInventoryPanel.ListItem
           - name: drawListItem
             parameters:
               - name: y
@@ -118,10 +136,17 @@ languages:
                 type: boolean
             return:
               - type: number
+          - name: onListDoubleClick
+            parameters:
+              - name: _item
+                type: umbrella.ISCraftInventoryPanel.ListItem
           - name: onListSelected
             parameters:
               - name: _item
                 type: umbrella.ISCraftInventoryPanel.ListItem
+          - name: onListItemClicked
+            parameters:
+              - name: _item
           - name: onRebuildItemNodes
             parameters:
               - name: _inputItems
@@ -153,8 +178,18 @@ languages:
           script:
             type: Item
             nullable: true
+          fluid:
+            type: Fluid
+            nullable: true
+          iconTexture:
+            type: Texture
+            nullable: true
+          iconColor:
+            type: umbrella.RGB
+            nullable: true
           node:
-            type: HandcraftLogic.InputItemNode
+            type: InputItemNode
             nullable: true
           inventoryItem:
             type: InventoryItem
+            nullable: true

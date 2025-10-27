@@ -36,6 +36,8 @@ languages:
             type: ISButton
           moveBtn:
             type: ISButton
+          rotateBtn:
+            type: ISButton
           removeBtn:
             type: ISButton
           sharingBtn:
@@ -76,6 +78,7 @@ languages:
             type: umbrella.MapUI
           mapAPI:
             type: UIWorldMapV2
+          styleAPI: {}
           symbolsAPI:
             type: WorldMapSymbolsV2
           buttonList:
@@ -122,6 +125,21 @@ languages:
                 type: number
               - name: y
                 type: number
+          - name: renderSymbolAux
+            parameters:
+              - name: symbol
+                type: table
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: degrees
+                type: number
+              - name: scale
+                type: number
+              - name: bMatchPerspective
+              - name: bApplyZoom
+                type: boolean
           - name: renderNoteBeingAddedOrEdited
             parameters:
               - name: modal
@@ -194,8 +212,8 @@ languages:
           - name: checkAnnotationForMoveJoypad
           - name: checkAnnotationForRemoveMouse
           - name: checkAnnotationForRemoveJoypad
-          - name: checkTextForEditMouse
-          - name: checkTextForEditJoypad
+          - name: checkAnnotationForEditMouse
+          - name: checkAnnotationForEditJoypad
           - name: checkAnnotationForSharingMouse
           - name: checkAnnotationForSharingJoypad
           - name: hitTestAnnotations
@@ -270,6 +288,7 @@ languages:
             type: umbrella.MapUI
           mapAPI:
             type: UIWorldMapV2
+          styleAPI: {}
           symbolsAPI:
             type: WorldMapSymbolsV2
         methods:
@@ -418,7 +437,7 @@ languages:
               - name: y
                 type: number
           - name: render
-          - name: onAddNote
+          - name: onNoteAdded
             parameters:
               - name: button
                 type: ISButton
@@ -433,7 +452,7 @@ languages:
           - name: getJoypadAButtonText
             return:
               - type: string
-      ISWorldMapSymbolTool_EditNote:
+      ISWorldMapSymbolTool_EditAnnotation:
         extends: ISWorldMapSymbolTool
         constructors:
           - parameters:
@@ -441,10 +460,10 @@ languages:
                 type: ISWorldMapSymbols
         staticFields:
           Type:
-            defaultValue: '"ISWorldMapSymbolTool_EditNote"'
+            defaultValue: '"ISWorldMapSymbolTool_EditAnnotation"'
         fields:
           modal:
-            type: ISTextBoxMap
+            type: ISTextBoxMap | ISMapSymbolDialog
             nullable: true
         methods:
           - name: activate
@@ -457,8 +476,13 @@ languages:
                 type: number
             return:
               - type: boolean
-                nullable: true
           - name: editNote
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: editSymbol
             parameters:
               - name: x
                 type: number
@@ -473,7 +497,12 @@ languages:
             return:
               - type: boolean
           - name: render
-          - name: onEditNote
+          - name: onNoteEdited
+            parameters:
+              - name: button
+                type: ISButton
+              - name: symbol
+          - name: onSymbolEdited
             parameters:
               - name: button
                 type: ISButton
@@ -481,7 +510,7 @@ languages:
           - name: onJoypadDownInMap
             parameters:
               - name: button
-                type: ISButton
+                type: integer
               - name: joypadData
                 type: JoypadData
           - name: getJoypadAButtonText
@@ -501,6 +530,10 @@ languages:
           dragging:
             type: WorldMapSymbolsV2.WorldMapBaseSymbolV2
             nullable: true
+          originalSymbol:
+            nullable: true
+          isCopying:
+            type: boolean
           originalX:
             type: number
           originalY:
@@ -556,6 +589,7 @@ languages:
                 type: integer
             return:
               - type: boolean
+          - name: checkCopying
           - name: cancelDrag
             return:
               - type: boolean
@@ -564,6 +598,104 @@ languages:
             parameters:
               - name: button
                 type: ISButton
+              - name: joypadData
+                type: JoypadData
+          - name: getJoypadAButtonText
+            return:
+              - type: string
+                nullable: true
+      ISWorldMapSymbolTool_RotateAnnotation:
+        extends: ISWorldMapSymbolTool
+        constructors:
+          - parameters:
+              - name: symbolsUI
+                type: ISWorldMapSymbols
+        staticFields:
+          Type:
+            defaultValue: '"ISWorldMapSymbolTool_RotateAnnotation"'
+        fields:
+          dragging:
+            nullable: true
+          originalRotation: {}
+          startAngle:
+            type: number
+          clickX:
+            type: number
+          clickY:
+            type: number
+          rotateAccumulator:
+            type: number
+          originalX: {}
+          originalY: {}
+          deltaX:
+            type: number
+          deltaY:
+            type: number
+        methods:
+          - name: activate
+          - name: deactivate
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: boolean
+          - name: onMouseUp
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: boolean
+          - name: onMouseMove
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+            return:
+              - type: boolean
+          - name: getAngleTo
+            parameters:
+              - name: mx
+              - name: my
+            return:
+              - type: number
+          - name: onRightMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: boolean
+          - name: zeroRotation
+            return:
+              - type: boolean
+                nullable: true
+          - name: onKeyPress
+            parameters:
+              - name: key
+                type: integer
+            return:
+              - type: boolean
+          - name: onKeyRelease
+            parameters:
+              - name: key
+                type: integer
+            return:
+              - type: boolean
+          - name: cancelDrag
+            return:
+              - type: boolean
+          - name: render
+          - name: onJoypadDownInMap
+            parameters:
+              - name: button
+                type: integer
               - name: joypadData
                 type: JoypadData
           - name: getJoypadAButtonText
@@ -579,6 +711,10 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISWorldMapSymbolTool_RemoveAnnotation"'
+        fields:
+          modal:
+            type: ISModalRichText
+            nullable: true
         methods:
           - name: activate
           - name: deactivate
@@ -609,6 +745,11 @@ languages:
             return:
               - type: string
                 nullable: true
+          - name: onConfirmRemoveAnnotation
+            parameters:
+              - name: button
+                type: ISButton
+              - name: symbolIndex
           - name: removeAnnotation
             return:
               - type: boolean
@@ -692,6 +833,8 @@ languages:
             parameters:
               - name: focused
                 type: boolean
+              - name: joypadData
+                type: JoypadData
       umbrella.ISWorldMapSymbols.Tools:
         fields:
           AddSymbol:

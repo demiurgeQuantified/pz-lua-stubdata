@@ -56,6 +56,8 @@ languages:
             type: umbrella.SandboxOptionsScreen.Preset[]
           hadJoypadFocus:
             type: boolean
+          joypadNavigate:
+            type: table
           nonDefaultOptions:
             type: SandboxOptions
         methods:
@@ -197,15 +199,45 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDirUp
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadNavigateStart
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDirLeft
+          - name: onJoypadNavigateStart_Descendant
             parameters:
+              - name: descendant
+                type: ISUIElement
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDirRight
+        staticMethods:
+          - name: searchPrerender
+            parameters:
+              - name: self
+                type: ISTextEntryBox
+      SandboxOptions.SandboxOptionsScreenListBox:
+        extends: ISScrollingListBox
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"SandboxOptionsScreenListBox"'
+        methods:
+          - name: doDrawItem
+            parameters:
+              - name: y
+                type: number
+              - name: item
+                type: umbrella.ISScrollingListBox.Item
+              - name: alt
+                type: boolean
+            return:
+              - type: number
+          - name: onLoseJoypadFocus
             parameters:
               - name: joypadData
                 type: JoypadData
@@ -215,11 +247,138 @@ languages:
                 type: integer
               - name: joypadData
                 type: JoypadData
-        staticMethods:
-          - name: searchPrerender
+      SandboxOptions.SandboxOptionsScreenPanel:
+        extends: ISPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"SandboxOptionsScreenPanel"'
+        fields:
+          entryText:
+            type: table<string, string>
+          joypadButtons:
+            type: ISButton[]
+        methods:
+          - name: prerender
+          - name: render
+          - name: onMouseWheel
             parameters:
-              - name: self
-                type: ISTextEntryBox
+              - name: del
+                type: number
+            return:
+              - type: boolean
+                nullable: true
+          - name: onJoypadDirUp
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirDown
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+      SandboxOptions.SandboxOptionsScreenPresetPanel:
+        extends: ISPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"SandboxOptionsScreenPresetPanel"'
+        methods:
+          - name: render
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+      SandboxOptions.SandboxAdvancedControl:
+        extends: ISPanel
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: setting
+              - name: tooltip
+        staticFields:
+          Type:
+            defaultValue: '"SandboxAdvancedControl"'
+        fields:
+          entry:
+            type: ISTextEntryBox
+          combo:
+            type: ISComboBox
+          setting:
+            type: umbrella.ServerSettingsScreen.Setting
+          tooltip:
+            type: string
+            nullable: true
+        methods:
+          - name: createChildren
+          - name: onComboBoxSelected
+            parameters:
+              - name: combo
+                type: ISComboBox
+              - name: control
+                type: SandboxAdvancedControl
+              - name: setting
+                type: string
+          - name: advancedCheckboxChanged
+            parameters:
+              - name: bool
+                type: boolean
+          - name: getText
+            return:
+              - type: string
+          - name: setJoypadFocused
+            parameters:
+              - name: focused
+                type: boolean
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirUp
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirDown
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: setText
+            parameters:
+              - name: value
+                type: string
       umbrella.SandboxOptionsScreen.Preset:
         fields:
           name:

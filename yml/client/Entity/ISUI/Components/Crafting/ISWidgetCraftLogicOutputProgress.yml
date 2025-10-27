@@ -1,0 +1,105 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISWidgetCraftLogicOutputProgress:
+        extends: ISPanel
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: player
+                type: IsoPlayer
+              - name: logic
+                type: CraftLogicUILogic
+        staticFields:
+          Type:
+            defaultValue: '"ISWidgetCraftLogicOutputProgress"'
+        fields:
+          entityTitle:
+            type: ISLabel
+            nullable: true
+          progressItems:
+            type: ISItemSlotPanel
+            nullable: true
+          entityIconWidget:
+            type: ISImage
+            nullable: true
+          outputItems:
+            type: ISItemSlotPanel
+            nullable: true
+          buttonTake:
+            type: ISButton
+            nullable: true
+          craftInProgress:
+            type: number
+          player:
+            type: IsoPlayer
+          recipe:
+            type: CraftRecipe
+          logic:
+            type: CraftLogicUILogic
+          entity:
+            type: GameEntity
+          resourcesComponent:
+            type: Resources
+          craftLogicComponent:
+            type: CraftLogic
+          inputsGroupName:
+            type: string
+          outputsGroupName:
+            type: string
+          entityIconSize:
+            type: number
+          elementSpacing:
+            type: number
+          paddingTop:
+            type: number
+          paddingBottom:
+            type: number
+          paddingLeft:
+            type: number
+          paddingRight:
+            type: number
+          marginTop:
+            type: number
+          marginBottom:
+            type: number
+          marginLeft:
+            type: number
+          marginRight:
+            type: number
+          colWhite:
+            type: umbrella.RGBA
+          colGood:
+            type: umbrella.RGBA
+          colBad:
+            type: umbrella.RGBA
+        methods:
+          - name: initialise
+          - name: createChildren
+          - name: createDynamicChildren
+          - name: calculateLayout
+            parameters:
+              - name: _preferredWidth
+                type: number
+              - name: _preferredHeight
+                type: number
+          - name: onResize
+          - name: prerender
+          - name: render
+          - name: update
+          - name: updateProgressItems
+          - name: takeAllOutputs
+          - name: rebuildOutputSlots
+          - name: onItemSlotContentsChanged
+            parameters:
+              - name: _itemSlot
+                type: ISItemSlot
+          - name: onResourceSlotContentsChanged

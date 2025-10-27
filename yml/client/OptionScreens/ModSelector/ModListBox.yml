@@ -56,6 +56,10 @@ languages:
                 type: number
               - name: y
                 type: number
+          - name: onSelectItem
+            parameters:
+              - name: item
+                type: umbrella.ModSelector.ModData
           - name: getSelectedModData
             return:
               - type: umbrella.ModSelector.ModData

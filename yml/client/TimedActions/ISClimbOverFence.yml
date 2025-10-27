@@ -22,6 +22,8 @@ languages:
             type: IsoDirections
           isTallHoppable:
             type: boolean
+          retriggerLastAction:
+            type: boolean
         methods:
           - name: isValid
             return:

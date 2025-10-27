@@ -8,18 +8,24 @@ languages:
           - parameters:
               - name: character
                 type: IsoPlayer
-              - name: graves
+              - name: grave
                 type: IsoThumpable
-              - name: shovel
+              - name: primaryHandItem
                 type: InventoryItem
+                nullable: true
+              - name: bodySquare
+                type: IsoGridSquare
         staticFields:
           Type:
             defaultValue: '"ISBuryCorpse"'
         fields:
-          graves:
+          grave:
             type: IsoThumpable
-          shovel:
+          primaryHandItem:
             type: InventoryItem
+            nullable: true
+          bodySquare:
+            type: IsoGridSquare
         methods:
           - name: isValidStart
             return:
@@ -40,7 +46,3 @@ languages:
           - name: getDuration
             return:
               - type: number
-          - name: increaseCorpse
-            parameters:
-              - name: square
-                type: IsoGridSquare

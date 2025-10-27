@@ -43,9 +43,6 @@ languages:
             type: number
           lineHeight:
             type: number
-          target:
-            type: unknown
-            nullable: true
           onSave:
             type: umbrella.RWMSubEditPreset.OnSave
             nullable: true

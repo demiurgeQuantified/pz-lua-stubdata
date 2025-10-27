@@ -103,7 +103,7 @@ languages:
               - type: string
           - name: getClutchSizeText
             return:
-              - type: unknown
+              - type: string
           - name: onMilkAnimal
           - name: onGainJoypadFocus
             parameters:

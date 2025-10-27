@@ -1,0 +1,134 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISMapSymbolDialog:
+        extends: ISCollapsableWindowJoypad
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: title
+                type: string
+              - name: target
+              - name: onclick
+              - name: player
+                nullable: true
+              - name: param1
+              - name: param2
+                nullable: true
+              - name: param3
+                nullable: true
+              - name: param4
+                nullable: true
+        staticFields:
+          Type:
+            defaultValue: '"ISMapSymbolDialog"'
+        fields:
+          colorButtonInfo:
+            type: table
+          colorButtons:
+            type: table
+          blackColor: {}
+          currentColor: {}
+          tickBoxPerspective:
+            type: ISTickBox
+          sliderScale:
+            type: ISSliderPanel
+          sliderRotation:
+            type: ISSliderPanel
+          zoomPanel:
+            type: ISMapSymbolZoomPanel
+          yes:
+            type: ISButton
+          no:
+            type: ISButton
+          scale:
+            type: number
+          rotation: {}
+          character:
+            nullable: true
+          name:
+            nullable: true
+          text:
+            type: string
+          mapUI: {}
+          symbolsUI: {}
+          onclick: {}
+          player:
+            nullable: true
+          param1: {}
+          param2:
+            nullable: true
+          param3:
+            nullable: true
+          param4:
+            nullable: true
+        methods:
+          - name: createChildren
+          - name: destroy
+          - name: onScaleChange
+            parameters:
+              - name: value
+              - name: slider
+          - name: onRotationChange
+            parameters:
+              - name: value
+              - name: slider
+          - name: onClick
+            parameters:
+              - name: button
+                type: ISButton
+          - name: prerender
+          - name: updateButtons
+          - name: selectColor
+            parameters:
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+          - name: showMatchPerspectiveTickBox
+            parameters:
+              - name: matchPerspective
+          - name: showScaleSlider
+            parameters:
+              - name: scale
+          - name: showRotationSlider
+            parameters:
+              - name: degrees
+          - name: showZoomPanel
+            parameters:
+              - name: minZoomF
+              - name: maxZoomF
+          - name: layoutWidgets
+          - name: isMatchPerspective
+            return:
+              - type: boolean
+          - name: render
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirDown
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirUp
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: close

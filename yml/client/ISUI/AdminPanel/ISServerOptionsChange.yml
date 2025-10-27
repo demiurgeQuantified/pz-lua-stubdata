@@ -57,9 +57,6 @@ languages:
             type: umbrella.RGBA
           zOffsetSmallFont:
             type: number
-          target:
-            type: unknown
-            nullable: true
           onclick:
             type: umbrella.ISServerOptionsChange.OnClick
             nullable: true

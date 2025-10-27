@@ -309,6 +309,12 @@ languages:
                 type: umbrella.ISCraftingUI.RecipeItem
             return:
               - type: boolean
+          - name: sortByTranslationName
+            parameters:
+              - name: a
+              - name: b
+            return:
+              - type: unknown
           - name: addIngredientTooltip
             parameters:
               - name: option
@@ -326,6 +332,20 @@ languages:
                 type: IsoPlayer
               - name: items
                 type: InventoryItem[]
+          - name: ReturnItemToOriginalContainer
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: item
+          - name: ReturnItemToContainer
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: item
+                type: boolean
+                nullable: true
+              - name: cont
+                nullable: true
       ISCraftingIngredientIconPanel:
         extends: ISPanel
         constructors:

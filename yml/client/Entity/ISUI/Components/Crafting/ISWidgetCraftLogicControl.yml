@@ -1,0 +1,113 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISWidgetCraftLogicControl:
+        extends: ISPanelJoypad
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: player
+                type: IsoPlayer
+              - name: logic
+                type: CraftLogicUILogic
+        staticFields:
+          Type:
+            defaultValue: '"ISWidgetCraftLogicControl"'
+        fields:
+          quantityLabel:
+            type: ISLabel
+            nullable: true
+          entryBox:
+            type: ISTextEntryBox
+            nullable: true
+          buttonMax:
+            type: ISButton
+            nullable: true
+          buttonMore:
+            type: ISButton
+            nullable: true
+          buttonLess:
+            type: ISButton
+            nullable: true
+          buttonCraft:
+            type: ISButton
+            nullable: true
+          buttonCancel:
+            type: ISButton
+            nullable: true
+          boxHeight:
+            type: number
+          craftTimes:
+            type: number
+            nullable: true
+          player:
+            type: IsoPlayer
+          logic:
+            type: CraftLogicUILogic
+          entity:
+            type: GameEntity
+          interactiveMode:
+            type: boolean
+          allowBatchCraft:
+            type: boolean
+          buttonPadding:
+            type: number
+          margin:
+            type: number
+          autoFillContents:
+            type: boolean
+          isAutoFill:
+            type: boolean
+          isAutoFillX:
+            type: boolean
+          isAutoFillY:
+            type: boolean
+        methods:
+          - name: initialise
+          - name: createChildren
+          - name: calculateLayout
+            parameters:
+              - name: _preferredWidth
+                type: number
+              - name: _preferredHeight
+                type: number
+          - name: onResize
+          - name: prerender
+          - name: render
+          - name: update
+          - name: onButtonClick
+            parameters:
+              - name: _button
+                type: ISButton
+          - name: startCraft
+            parameters:
+              - name: force
+                type: boolean
+          - name: cancelCraft
+          - name: onInputsChanged
+          - name: setCraftQuantity
+            parameters:
+              - name: amount
+                type: number
+          - name: sanitizeCraftQuantity
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+        staticMethods:
+          - name: onTextChange
+            parameters:
+              - name: box
+                type: ISTextEntryBox

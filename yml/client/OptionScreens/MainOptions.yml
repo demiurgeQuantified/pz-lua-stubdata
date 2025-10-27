@@ -3,7 +3,8 @@ languages:
   lua:
     aliases:
       umbrella.MainOptions.KeyTextItem:
-        - type: umbrella.MainOptions.KeyTextElement | umbrella.MainOptions.KeyTextSection
+        - type: umbrella.MainOptions.KeyTextElement
+        - type: umbrella.MainOptions.KeyTextSection
     classes:
       MainOptions:
         extends: ISPanelJoypad
@@ -35,7 +36,7 @@ languages:
           KEYS_VERSION1:
             defaultValue: "1"
           KEYS_VERSION:
-            defaultValue: MainOptions.KEYS_VERSION1
+            defaultValue: "2"
           instance:
             type: MainOptions
             nullable: true
@@ -56,6 +57,8 @@ languages:
             type: ISButton
           colorPicker2:
             type: ISColorPicker
+          worldItemHighlightColor:
+            type: ISButton
           targetColor:
             type: ColorInfo
           colorPicker5:
@@ -354,6 +357,10 @@ languages:
             parameters:
               - name: button
                 type: ISButton
+          - name: onWorldItemHighlightColor
+            parameters:
+              - name: button
+                type: ISButton
           - name: onModColorPick
             parameters:
               - name: button
@@ -379,6 +386,13 @@ languages:
               - name: button
                 type: ISButton
           - name: pickedObjHighlightColor
+            parameters:
+              - name: color
+                type: umbrella.RGB
+              - name: mouseUp
+                type: boolean
+                nullable: true
+          - name: pickedWorldItemHighlightColor
             parameters:
               - name: color
                 type: umbrella.RGB
@@ -571,6 +585,10 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
+          - name: onKeyRelease
+            parameters:
+              - name: key
+                type: integer
         staticMethods:
           - name: sortModes
             parameters:
@@ -598,11 +616,30 @@ languages:
             return:
               - type: boolean
                 nullable: true
+          - name: getKeyPrefix
+            parameters:
+              - name: bind
+                type: umbrella.MainOptions.KeyTextElement
+                nullable: true
+            return:
+              - type: string
           - name: saveKeys
+          - name: writeKey
+            parameters:
+              - name: value
+                type: umbrella.MainOptions.KeyTextElement
+              - name: fileOutput
+                type: LuaFileWriter
           - name: keyPressHandler
             parameters:
               - name: key
                 type: integer
+              - name: shift
+                type: boolean
+              - name: ctrl
+                type: boolean
+              - name: alt
+                type: boolean
           - name: doLanguageToolTip
             parameters:
               - name: languages
@@ -612,6 +649,8 @@ languages:
           - name: getGeneralTranslators
             parameters:
               - name: _language
+                type: string
+                nullable: true
             return:
               - type: string[]
           - name: getAvailableLanguage
@@ -626,6 +665,124 @@ languages:
             parameters:
               - name: index
                 type: integer
+      MainOptions.GameOption:
+        extends: ISBaseObject
+        local: true
+        constructors:
+          - parameters:
+              - name: name
+                type: string
+              - name: control
+                type: ISUIElement
+                nullable: true
+              - name: arg1
+                nullable: true
+              - name: arg2
+                nullable: true
+        staticFields:
+          Type:
+            defaultValue: '"GameOption"'
+        fields:
+          name:
+            type: string
+          control:
+            type: ISUIElement
+            nullable: true
+          arg1:
+            nullable: true
+          arg2:
+            nullable: true
+          onChange:
+            type: function
+            nullable: true
+          tableContains:
+            type: function
+            nullable: true
+        methods:
+          - name: storeCurrentValue
+          - name: restoreOriginalValue
+          - name: toUI
+          - name: apply
+          - name: resetLua
+          - name: restartRequired
+            parameters:
+              - name: oldValue
+                type: unknown
+              - name: newValue
+                type: unknown
+          - name: onChangeComboBox
+            parameters:
+              - name: box
+                type: ISComboBox
+          - name: onChangeSlider
+            parameters:
+              - name: value
+                type: number
+              - name: control
+                type: ISSliderPanel
+          - name: onChangeTickBox
+            parameters:
+              - name: index
+                type: integer
+              - name: selected
+                type: boolean
+          - name: onChangeVolumeControl
+            parameters:
+              - name: control
+                type: ISVolumeControl
+              - name: volume
+                type: number
+      MainOptions.GameOptions:
+        extends: ISBaseObject
+        local: true
+        constructors:
+          - {}
+        staticFields:
+          Type:
+            defaultValue: '"GameOptions"'
+        fields:
+          changed:
+            type: boolean
+          options:
+            type: table
+        methods:
+          - name: add
+            parameters:
+              - name: option
+                type: MainOptions.GameOption
+          - name: get
+            parameters:
+              - name: optionName
+                type: string
+            return:
+              - type: MainOptions.GameOption
+                nullable: true
+          - name: apply
+          - name: storeCurrentValues
+          - name: restoreOriginalValues
+          - name: toUI
+          - name: onChange
+            parameters:
+              - name: option
+                type: MainOptions.GameOption
+                nullable: true
+      MainOptions.HorizontalLine:
+        extends: ISPanel
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"HorizontalLine"'
+        methods:
+          - name: prerender
+          - name: render
       umbrella.MainOptions.KeyTextElement:
         fields:
           txt:
@@ -641,6 +798,12 @@ languages:
             type: ISButton
           left:
             type: boolean
+          shift:
+            type: boolean
+            nullable: true
+          ctrl:
+            type: boolean
+            nullable: true
           isModBind:
             type: boolean
             nullable: true

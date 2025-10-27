@@ -21,6 +21,7 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISOvenUI"'
+          instance: {}
           messages: {}
         fields:
           tempKnob:
@@ -37,12 +38,15 @@ languages:
             type: ISButton[]
           character:
             type: IsoPlayer
+          playerNum:
+            type: integer
           oven:
             type: IsoStove
           knobTex:
             type: Texture
         methods:
           - name: initialise
+          - name: close
           - name: onChangeTempType
             parameters:
               - name: clickedOption

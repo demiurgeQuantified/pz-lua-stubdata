@@ -63,5 +63,19 @@ languages:
             defaultValue: '"Stone2"'
           LargeStoneTwigs:
             defaultValue: '"LargeStone"'
+          LargeStone:
+            defaultValue: '"LargeStone"'
+          FlatStone:
+            defaultValue: '"FlatStone"'
           StoneTwigs:
             defaultValue: '"Stone2"'
+          Stone:
+            defaultValue: '"Stone2"'
+          Log:
+            defaultValue: '"Log"'
+          Twigs:
+            defaultValue: '"Twigs"'
+          TreeBranch2:
+            defaultValue: '"TreeBranch2"'
+          Limestone:
+            defaultValue: '"Limestone"'

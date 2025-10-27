@@ -25,12 +25,16 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISHandcraftWindow"'
+          autoCloseDistance:
+            defaultValue: "1.5"
         fields:
           maximumHeight:
             type: number
           windowHeader:
             type: ISHandcraftWindowHeader
             nullable: true
+          lockButton:
+            type: ISButton
           handCraftPanel:
             type: ISHandCraftPanel
             nullable: true
@@ -43,6 +47,10 @@ languages:
           dirtyLayout:
             type: boolean
           isoObjectInProximity:
+            type: boolean
+          originalSquare:
+            type: IsoGridSquare
+          locked:
             type: boolean
           hasClosedWindowInstance:
             type: boolean
@@ -62,6 +70,10 @@ languages:
           queryOverride:
             type: string
             nullable: true
+          lockedButtonTexture:
+            type: Texture
+          unlockedButtonTexture:
+            type: Texture
           enableHeader:
             type: boolean
           maximumHeightPercent:
@@ -100,6 +112,7 @@ languages:
             return:
               - type: boolean | IsoPlayer
                 nullable: true
+          - name: toggleLock
           - name: close
           - name: validateSizeBounds
           - name: isKeyConsumed

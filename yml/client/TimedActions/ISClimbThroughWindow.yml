@@ -18,6 +18,8 @@ languages:
         fields:
           item:
             type: IsoThumpable | IsoWindow | IsoWindowFrame
+          retriggerLastAction:
+            type: boolean
         methods:
           - name: isValid
             return:

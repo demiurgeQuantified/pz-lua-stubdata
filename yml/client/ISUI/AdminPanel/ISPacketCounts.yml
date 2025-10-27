@@ -23,19 +23,44 @@ languages:
         fields:
           category:
             type: ISComboBox
+          type:
+            type: ISComboBox
           listbox:
             type: ISPacketCountsList
+          tickBoxOrdering:
+            type: ISTickBox
+          tickBoxPriority:
+            type: ISTickBox
+          tickBoxReliability:
+            type: ISTickBox
+          plusBtn:
+            type: ISButton
+          period:
+            type: ISTextEntryBox
+          minusBtn:
+            type: ISButton
+          clear:
+            type: ISButton
           close:
             type: ISButton
-          update:
-            type: ISButton
-          currentCounts:
-            type: table<string, integer>
+          ordering:
+            type: number
+          priority:
+            type: number
+          reliability:
+            type: number
         methods:
           - name: createChildren
           - name: render
           - name: onSelectCategory
-          - name: onUpdate
+          - name: onSelectType
+          - name: onClear
+          - name: onClickMinus
+          - name: onClickPlus
+          - name: onTicked
+            parameters:
+              - name: index
+              - name: selected
           - name: onClose
           - name: closeSelf
       ISPacketCountsList:

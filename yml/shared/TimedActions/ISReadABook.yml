@@ -47,6 +47,8 @@ languages:
           - name: start
           - name: stop
           - name: perform
+          - name: startLoadingPrintMediaTextures
+          - name: displayPrintMedia
           - name: complete
             return:
               - type: boolean

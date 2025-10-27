@@ -37,11 +37,12 @@ languages:
             type: number
           count:
             type: number
+          textColor:
+            type: table
+          selectedTextColor:
+            type: table
           onmousedown:
             type: umbrella.ISScrollingListBox.MouseCallback
-          target:
-            type: unknown
-            nullable: true
           onmousedblclick:
             type: umbrella.ISScrollingListBox.MouseCallback
           items:
@@ -76,6 +77,8 @@ languages:
           mouseOverHighlightColor:
             type: umbrella.RGBA
           drawBorder:
+            type: boolean
+          useStencilForChildren:
             type: boolean
           columns:
             type: umbrella.ISScrollingListBox.Column[]
@@ -156,6 +159,8 @@ languages:
               - name: item
                 type: unknown
                 nullable: true
+              - name: tooltip
+                nullable: true
             return:
               - type: umbrella.ISScrollingListBox.Item
           - name: insertItem
@@ -175,6 +180,7 @@ languages:
                 type: string
               - name: item
                 type: unknown
+              - name: tooltip
             return:
               - type: umbrella.ISScrollingListBox.Item
                 nullable: true
@@ -209,6 +215,54 @@ languages:
           - name: size
             return:
               - type: integer
+          - name: setTextColorRGBA
+            parameters:
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+              - name: a
+                type: number
+          - name: setSelectedTextColorRGBA
+            parameters:
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+              - name: a
+                type: number
+          - name: setItemTextColorRGBA
+            parameters:
+              - name: index
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+              - name: a
+                type: number
+          - name: setItemSelectedTextColorRGBA
+            parameters:
+              - name: index
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+              - name: a
+                type: number
+          - name: setItemTextColorToDefault
+            parameters:
+              - name: index
+          - name: setItemSelectedTextColorToDefault
+            parameters:
+              - name: index
           - name: setOnMouseDownFunction
             parameters:
               - name: target
@@ -315,6 +369,16 @@ languages:
                 type: string
               - name: size
                 type: number
+          - name: getItem
+            parameters:
+              - name: index
+            return:
+              - type: unknown
+          - name: getIndexOf
+            parameters:
+              - name: itemText
+            return:
+              - type: number
         staticMethods:
           - name: sortByName
             parameters:

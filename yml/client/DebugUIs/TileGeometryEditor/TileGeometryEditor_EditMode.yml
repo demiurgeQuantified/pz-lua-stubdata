@@ -545,6 +545,8 @@ languages:
             type: ISButton
           button7:
             type: ISButton
+          button8:
+            type: ISButton
           boxPanel:
             type: TileGeometryEditor_BoxPanel
           cylinderPanel:
@@ -613,6 +615,7 @@ languages:
           - name: onAddCylinder
           - name: onEditPoints
           - name: onRemoveGeometry
+          - name: onRecalculateShadows
           - name: onGeometryToPixels
             parameters:
               - name: objectName

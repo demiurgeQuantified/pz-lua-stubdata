@@ -27,18 +27,12 @@ languages:
         fields:
           bottomPanel:
             type: ISPanel
-          serverList:
-            type: ServerList
           bootstrapConnectPopup:
             type: BootstrapConnectPopup
           connectToServer:
             type: ConnectToServer
           serverConnectPopup:
             type: ServerConnectPopup
-          multiplayer:
-            type: MultiplayerScreen
-          joinPublicServer:
-            type: PublicServerList
           soloScreen:
             type: NewGameScreen
           loadScreen:
@@ -252,6 +246,10 @@ languages:
           - name: doWritingCredits
           - name: doScriptingCredits
           - name: doCredits
+          - name: onKeyRelease
+            parameters:
+              - name: key
+                type: integer
           - name: onGainJoypadFocus
             parameters:
               - name: joypadData
@@ -394,6 +392,8 @@ languages:
         parameters:
           - name: playerNum
             type: integer
+          - name: addPreviousToRetrigger
+            type: boolean
       - name: ToggleEscapeMenu
         parameters:
           - name: key

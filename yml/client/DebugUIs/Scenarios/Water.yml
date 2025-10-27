@@ -2,4 +2,14 @@ version: "1.1"
 languages:
   lua:
     classes:
-      debugScenarios: {}
+      debugScenarios:
+        staticFields:
+          Water: {}
+          Water2: {}
+          Water3: {}
+          Water4: {}
+          Water5: {}
+          Water6: {}
+          Water7: {}
+          Water8:
+            type: table

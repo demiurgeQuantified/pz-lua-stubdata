@@ -12,6 +12,8 @@ languages:
                 type: IsoPlayer
               - name: bodyPart
                 type: BodyPart
+              - name: handPain
+                type: boolean
         staticFields:
           Type:
             defaultValue: '"ISRemoveGlass"'
@@ -33,8 +35,6 @@ languages:
             type: IsoPlayer
           handPain:
             type: boolean
-          maxTime:
-            type: number
         methods:
           - name: isValid
             return:

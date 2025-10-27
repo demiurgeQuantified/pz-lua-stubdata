@@ -54,6 +54,9 @@ languages:
             nullable: true
           moveProps:
             type: ISMoveableSpriteProps
+          deviceData:
+            type: DeviceData
+            nullable: true
           moveCursor:
             type: ISMoveableCursor
             nullable: true

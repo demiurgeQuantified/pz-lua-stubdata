@@ -26,6 +26,9 @@ languages:
           - name: update
           - name: start
           - name: stop
+          - name: canKillAnimal
+            return:
+              - type: boolean
           - name: perform
           - name: complete
             return:

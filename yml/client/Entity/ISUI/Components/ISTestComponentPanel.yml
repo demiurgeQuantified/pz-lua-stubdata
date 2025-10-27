@@ -55,7 +55,7 @@ languages:
               - name: _component
                 type: Component
               - name: _componentUiScript
-                type: XuiSkinScript.ComponentUiScript
+                type: XuiSkin.ComponentUiStyle
             return:
               - type: boolean
                 nullable: true

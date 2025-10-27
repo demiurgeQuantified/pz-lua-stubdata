@@ -5,9 +5,9 @@ languages:
       ISFluidUtil:
         staticFields:
           isoPanelWalkToDist:
-            defaultValue: "5"
+            defaultValue: "2"
           isoMaxPanelDist:
-            defaultValue: "10"
+            defaultValue: "2"
         methods:
           - name: getLuaFluidContainer
             parameters:

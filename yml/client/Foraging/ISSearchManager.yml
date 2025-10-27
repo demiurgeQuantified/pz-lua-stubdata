@@ -13,8 +13,6 @@ languages:
             defaultValue: '"ISSearchManager"'
           players:
             type: table<IsoPlayer, ISSearchManager>
-          iconItems:
-            type: table<string, ArrayList>
           showDebug:
             defaultValue: "false"
           showDebugLocations:
@@ -49,8 +47,6 @@ languages:
           currentZone:
             type: umbrella.Foraging.ZoneData
             nullable: true
-          affinityCooldownTick:
-            type: number
           lastFoundX:
             type: number
           lastFoundY:
@@ -87,8 +83,6 @@ languages:
           sneakMulti:
             type: number
           sneakBonusTick:
-            type: number
-          affinityCooldown:
             type: number
           disableTick:
             type: number
@@ -176,12 +170,6 @@ languages:
             type: number
           spriteAffinities:
             type: table<string, string[]>
-          affinityCooldownMin:
-            type: number
-          affinityCooldownMax:
-            type: number
-          affinityCooldownStep:
-            type: number
           searchModeOverlay:
             type: SearchMode.PlayerSearchMode
           searchMode:
@@ -443,7 +431,6 @@ languages:
           - name: resetVisionBonuses
           - name: updateVisionBonuses
           - name: updateAlpha
-          - name: updateAffinityCooldown
           - name: doDisableCheck
           - name: doUpdateEvents
             parameters:

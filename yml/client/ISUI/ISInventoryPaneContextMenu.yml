@@ -102,6 +102,44 @@ languages:
                 type: (InventoryItem | umbrella.ISInventoryPane.ItemRecord)[]
               - name: player
                 type: integer
+          - name: doPillsMenu
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: items
+              - name: player
+              - name: cmd
+          - name: showGrowingSeasons
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+          - name: doRecipeList
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: text
+              - name: recipeItem
+              - name: recipes
+              - name: playerObj
+                type: IsoPlayer
+              - name: isLiterature
+                type: boolean
+          - name: doRecipeListForItem
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: text
+              - name: recipeItem
+              - name: playerObj
+                type: IsoPlayer
+          - name: doBuildRecipeListForItem
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: text
+              - name: recipeItem
+              - name: playerObj
+                type: IsoPlayer
           - name: doBandageMenu
             parameters:
               - name: context
@@ -499,6 +537,7 @@ languages:
                 type: number
               - name: playerObj
                 type: IsoPlayer
+              - name: openingRecipe
           - name: doDrinkFluidMenu
             parameters:
               - name: playerObj
@@ -523,6 +562,7 @@ languages:
                 type: IsoPlayer
               - name: percent
                 type: number
+              - name: openingRecipe
           - name: onAddItemInEvoRecipe
             parameters:
               - name: recipe
@@ -832,6 +872,7 @@ languages:
                 type: integer
               - name: all
                 type: boolean
+              - name: eatPercentage
           - name: OnNewCraftComplete
             parameters:
               - name: logic
@@ -870,6 +911,8 @@ languages:
                 type: number
               - name: player
                 type: integer
+              - name: openingRecipe
+              - name: eatPercentage
           - name: OnPrimaryWeapon
             parameters:
               - name: items
@@ -933,6 +976,8 @@ languages:
                 type: number
               - name: player
                 type: integer
+              - name: openingRecipe
+              - name: eatPercentage
           - name: onPlaceTrap
             parameters:
               - name: weapon
@@ -979,23 +1024,23 @@ languages:
                 type: InventoryItem
               - name: player
                 type: integer
+          - name: transferItemToPlayer
+            parameters:
+              - name: item
+              - name: player
+              - name: dontWalk
           - name: onGrabItems
             parameters:
               - name: items
                 type: (InventoryItem | umbrella.ISInventoryPane.ItemRecord)[]
               - name: player
                 type: integer
-          - name: transferItems
+          - name: onGrabOneItems
             parameters:
               - name: items
                 type: (InventoryItem | umbrella.ISInventoryPane.ItemRecord)[]
-              - name: playerInv
-                type: ItemContainer
               - name: player
                 type: integer
-              - name: dontWalk
-                type: boolean
-                nullable: true
           - name: onGrabHalfItems
             parameters:
               - name: items
@@ -1010,12 +1055,6 @@ languages:
                 type: integer
               - name: item
                 type: InventoryItem
-          - name: onGrabOneItems
-            parameters:
-              - name: items
-                type: (InventoryItem | umbrella.ISInventoryPane.ItemRecord)[]
-              - name: player
-                type: integer
           - name: onTransferWater
             parameters:
               - name: items
@@ -1095,6 +1134,11 @@ languages:
                 type: IsoPlayer
               - name: item
                 type: InventoryItem
+          - name: grabCorpseItem
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: item
           - name: onMakeUp
             parameters:
               - name: makeup
@@ -1207,6 +1251,37 @@ languages:
                 type: InventoryItem
               - name: playerObj
                 type: IsoPlayer
+          - name: doContextConfigOptions
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: item
+              - name: playerObj
+                type: IsoPlayer
+            return:
+              - type: unknown
+                nullable: true
+          - name: onCustomFunction
+            parameters:
+              - name: customFunction
+              - name: item
+              - name: playerObj
+                type: IsoPlayer
+              - name: param
+          - name: onNoRecipes
+            parameters:
+              - name: items
+              - name: item2
+              - name: boolean
+              - name: player
+          - name: onWanted
+            parameters:
+              - name: item
+              - name: player
+          - name: onUnwanted
+            parameters:
+              - name: item
+              - name: player
       ISRecipeTooltip:
         extends: ISToolTip
         constructors:

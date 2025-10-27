@@ -22,6 +22,18 @@ languages:
           Type:
             defaultValue: '"ISFeedingTroughUI"'
         fields:
+          ignoreChildren:
+            type: integer
+          labelAttachedAnimals:
+            type: ISLabel
+          labelLinkedTo:
+            type: ISLabel
+          labelFeed:
+            type: ISLabel
+          labelWater:
+            type: ISLabel
+          title:
+            type: string
           item:
             type: IsoFeedingTrough
           chr:
@@ -31,7 +43,9 @@ languages:
           refreshNeeded:
             type: boolean
         methods:
+          - name: createChildren
           - name: prerender
           - name: render
           - name: initialise
           - name: create
+          - name: close

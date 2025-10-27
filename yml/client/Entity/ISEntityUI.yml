@@ -17,6 +17,8 @@ languages:
             defaultValue: "false"
           players:
             type: table<integer, umbrella.ISEntityUI.PlayerTable>
+          enableLog:
+            defaultValue: "false"
           isoPanelWalkToDist:
             defaultValue: "3"
         staticMethods:
@@ -49,6 +51,9 @@ languages:
                 type: IsoObject
               - name: _itemSlot
                 type: ISItemSlot
+              - name: _items
+                type: ArrayList<InventoryItem>
+                nullable: true
           - name: ItemSlotAddItems
             parameters:
               - name: _player
@@ -84,6 +89,9 @@ languages:
                 type: boolean
               - name: addToQueue
                 type: boolean
+              - name: eatPercentage
+                type: number
+                nullable: true
             return:
               - type: ISHandcraftAction
                 nullable: true
@@ -202,6 +210,10 @@ languages:
             parameters:
               - name: _window
                 type: ISBaseEntityWindow
+          - name: StoreWindowPrefs
+            parameters:
+              - name: _window
+                type: ISBaseEntityWindow
           - name: CanPlayerUseEntity
             parameters:
               - name: _player
@@ -227,6 +239,12 @@ languages:
               - name: _ignoreFindSurface
                 type: boolean
                 nullable: true
+              - name: recipe
+                type: CraftRecipe
+                nullable: true
+              - name: itemString
+                type: string
+                nullable: true
           - name: OpenHandcraftWindow
             parameters:
               - name: _player
@@ -240,6 +258,12 @@ languages:
               - name: _ignoreFindSurface
                 type: boolean
                 nullable: true
+              - name: recipe
+                type: CraftRecipe
+                nullable: true
+              - name: itemString
+                type: string
+                nullable: true
           - name: FindCraftSurface
             parameters:
               - name: _player
@@ -249,6 +273,28 @@ languages:
             return:
               - type: IsoObject
                 nullable: true
+          - name: IsWindowOpen
+            parameters:
+              - name: _playerNum
+                type: integer
+              - name: _windowKey
+                type: string
+            return:
+              - type: unknown
+                nullable: true
+          - name: GetWindowInstance
+            parameters:
+              - name: _playerNum
+                type: integer
+              - name: _windowKey
+                type: string
+            return:
+              - type: ISUIElement
+                nullable: true
+          - name: EnsurePlayers
+          - name: ReadIni
+          - name: WriteIni
+          - name: OnSave
       umbrella.ISEntityUI.ComponentPanelInfo:
         fields:
           panelClass:

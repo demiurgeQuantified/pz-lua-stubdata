@@ -109,6 +109,12 @@ languages:
           hotbar:
             type: ISHotbar
             nullable: true
+          refreshContainerCount:
+            type: number
+          itemsToHighlightOwner:
+            nullable: true
+          itemsToHighlight:
+            nullable: true
           blinkAlpha:
             type: number
           blinkAlphaIncrease:
@@ -155,6 +161,7 @@ languages:
             type: Texture
           favoriteStar:
             type: Texture
+          favoriteRecipeInputStar: {}
         methods:
           - name: initialise
           - name: createChildren
@@ -430,6 +437,10 @@ languages:
               - name: mode
                 type: string
           - name: onInventoryFontChanged
+          - name: setItemsToHighlight
+            parameters:
+              - name: owner
+              - name: itemTable
         staticMethods:
           - name: itemSortByWeightAsc
             parameters:

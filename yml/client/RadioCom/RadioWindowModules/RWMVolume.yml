@@ -102,4 +102,3 @@ languages:
           - name: getYPrompt
             return:
               - type: string
-                nullable: true

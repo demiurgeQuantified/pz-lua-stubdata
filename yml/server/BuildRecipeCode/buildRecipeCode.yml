@@ -4,12 +4,16 @@ languages:
     classes:
       BuildRecipeCode:
         staticFields:
+          barricade:
+            type: BuildRecipeCode.barricade
           canBePlastered:
             type: BuildRecipeCode.canBePlastered
           stairs:
             type: BuildRecipeCode.stairs
           floor:
             type: BuildRecipeCode.floor
+          doorFrame:
+            type: BuildRecipeCode.doorFrame
           butcheringHook:
             type: BuildRecipeCode.butcheringHook
           chickenHutch:
@@ -24,6 +28,33 @@ languages:
             type: BuildRecipeCode.windowGlass
           woodLampPillar:
             type: BuildRecipeCode.woodLampPillar
+          barrelOven:
+            type: BuildRecipeCode.barrelOven
+      BuildRecipeCode.barricade:
+        local: true
+        staticMethods:
+          - name: OnIsValid
+            parameters:
+              - name: params
+                type: umbrella.BuildRecipeCode.IsValidParams
+            return:
+              - type: boolean
+          - name: OnIsValidPlanks
+            parameters:
+              - name: params
+                type: umbrella.BuildRecipeCode.IsValidParams
+            return:
+              - type: boolean
+          - name: TimedActionOnIsValid
+            parameters:
+              - name: params
+                type: umbrella.BuildRecipeCode.TimedActionIsValidParams
+            return:
+              - type: boolean
+          - name: OnCreate
+            parameters:
+              - name: params
+                type: umbrella.BuildRecipeCode.OnCreateParams
       BuildRecipeCode.stairs:
         local: true
         staticMethods:
@@ -35,15 +66,15 @@ languages:
               - type: boolean
           - name: OnCreate
             parameters:
-              - name: thumpable
-                type: IsoThumpable
+              - name: params
+                type: umbrella.BuildRecipeCode.OnCreateParams
       BuildRecipeCode.canBePlastered:
         local: true
         staticMethods:
           - name: OnCreate
             parameters:
-              - name: thumpable
-                type: IsoThumpable
+              - name: params
+                type: umbrella.BuildRecipeCode.OnCreateParams
       BuildRecipeCode.floor:
         local: true
         staticMethods:
@@ -55,15 +86,24 @@ languages:
               - type: boolean
           - name: OnCreate
             parameters:
-              - name: thumpable
-                type: IsoThumpable
+              - name: params
+                type: umbrella.BuildRecipeCode.OnCreateParams
+      BuildRecipeCode.doorFrame:
+        local: true
+        staticMethods:
+          - name: OnIsValid
+            parameters:
+              - name: params
+                type: umbrella.BuildRecipeCode.IsValidParams
+            return:
+              - type: boolean
       BuildRecipeCode.butcheringHook:
         local: true
         staticMethods:
           - name: OnCreate
             parameters:
-              - name: thumpable
-                type: IsoThumpable
+              - name: params
+                type: umbrella.BuildRecipeCode.OnCreateParams
             return:
               - type: umbrella.BuildRecipeCode.OnCreateResult
       BuildRecipeCode.chickenHutch:
@@ -71,8 +111,8 @@ languages:
         staticMethods:
           - name: OnCreate
             parameters:
-              - name: thumpable
-                type: IsoThumpable
+              - name: params
+                type: umbrella.BuildRecipeCode.OnCreateParams
             return:
               - type: umbrella.BuildRecipeCode.OnCreateResult
       BuildRecipeCode.feedingTrough:
@@ -80,8 +120,10 @@ languages:
         staticMethods:
           - name: OnCreate
             parameters:
-              - name: thumpable
-                type: IsoThumpable
+              - name: params
+                type: umbrella.BuildRecipeCode.OnCreateParams
+            return:
+              - type: umbrella.BuildRecipeCode.OnCreateResult
       BuildRecipeCode.campfire:
         local: true
         staticMethods:
@@ -93,43 +135,68 @@ languages:
               - type: boolean
           - name: OnCreate
             parameters:
-              - name: thumpable
-                type: IsoThumpable
+              - name: params
+                type: umbrella.BuildRecipeCode.OnCreateParams
       BuildRecipeCode.composter:
         local: true
         staticMethods:
           - name: OnCreate
             parameters:
-              - name: thumpable
-                type: IsoThumpable
+              - name: params
+                type: umbrella.BuildRecipeCode.OnCreateParams
       BuildRecipeCode.windowGlass:
         local: true
         staticMethods:
           - name: OnCreate
             parameters:
-              - name: thumpable
-                type: IsoThumpable
+              - name: params
+                type: umbrella.BuildRecipeCode.OnCreateParams
       BuildRecipeCode.woodLampPillar:
         local: true
         staticMethods:
           - name: OnCreate
             parameters:
-              - name: thumpable
-                type: IsoThumpable
-              - name: craftRecipeData
-              - name: character
+              - name: params
+                type: umbrella.BuildRecipeCode.OnCreateParams
+      BuildRecipeCode.barrelOven:
+        local: true
+        staticMethods:
+          - name: OnCreate
+            parameters:
+              - name: params
+                type: umbrella.BuildRecipeCode.OnCreateParams
+            return:
+              - type: umbrella.BuildRecipeCode.OnCreateResult
+      umbrella.BuildRecipeCode.TimedActionIsValidParams:
+        fields:
+          square:
+            type: IsoGridSquare
+          facing:
+            type: string
       umbrella.BuildRecipeCode.IsValidParams:
         fields:
           square:
             type: IsoGridSquare
           tileInfo:
             type: SpriteConfigManager.TileInfo
+          facing:
+            type: string
           north:
             type: boolean
           canBuildOverWater:
             type: boolean
           testCollisions:
             type: boolean
+      umbrella.BuildRecipeCode.OnCreateParams:
+        fields:
+          thumpable:
+            type: IsoThumpable
+          craftRecipeData:
+            type: CraftRecipeData
+          character:
+            type: IsoPlayer
+          facing:
+            type: string
       umbrella.BuildRecipeCode.OnCreateResult:
         fields:
           replaceObject:

@@ -23,6 +23,7 @@ languages:
             defaultValue: '"ISWidgetRecipeTools"'
         fields:
           toolsLabel:
+            type: ISLabel
             nullable: true
           colDisabled:
             type: umbrella.RGBA

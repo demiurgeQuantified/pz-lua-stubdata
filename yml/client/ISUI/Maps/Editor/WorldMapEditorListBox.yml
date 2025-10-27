@@ -52,9 +52,6 @@ languages:
             type: number
           callback:
             type: umbrella.WorldMapEditorListBox.Callback
-          target:
-            type: unknown
-            nullable: true
           arg1:
             type: unknown
             nullable: true

@@ -11,7 +11,7 @@ languages:
                 type: IsoAnimal
               - name: hook
                 type: IsoButcherHook
-              - name: luaHook
+              - name: luaHookUI
                 type: ISButcherHookUI
               - name: bucket
                 type: InventoryItem
@@ -43,6 +43,8 @@ languages:
             return:
               - type: unknown
           - name: update
+          - name: serverStart
+          - name: serverStop
           - name: start
           - name: stop
           - name: perform

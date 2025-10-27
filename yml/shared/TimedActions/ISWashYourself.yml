@@ -27,8 +27,6 @@ languages:
             nullable: true
           useSoap:
             type: boolean
-          maxTime:
-            type: number
           forceProgressBar:
             type: boolean
         methods:

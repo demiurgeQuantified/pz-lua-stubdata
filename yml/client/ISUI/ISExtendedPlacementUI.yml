@@ -21,39 +21,53 @@ languages:
             defaultValue: '"ISExtendedPlacementUI"'
           windows: {}
         fields:
-          labelaxisx:
+          labelmov:
             type: ISLabel
-          labelaxisy:
+          labelxmov:
             type: ISLabel
-          labelaxisz:
+          labelymov:
             type: ISLabel
-          txtboxaxisx:
+          labelzmov:
+            type: ISLabel
+          txtboxxmov:
             type: ISTextEntryBox
-          txtboxaxisy:
+          txtboxymov:
             type: ISTextEntryBox
-          txtboxaxisz:
+          txtboxzmov:
             type: ISTextEntryBox
-          slideraxisxrot:
+          ignoreSliderValueChange:
+            type: boolean
+          sliderxmov:
             type: ISSliderPanel
-          slideraxisyrot:
+          sliderymov:
             type: ISSliderPanel
-          slideraxiszrot:
+          sliderzmov:
             type: ISSliderPanel
-          slideraxisxmov:
-            type: ISSliderPanel
-          slideraxisymov:
-            type: ISSliderPanel
-          slideraxiszmov:
-            type: ISSliderPanel
-          labelmode:
+          labelrot:
             type: ISLabel
-          btnmode:
-            type: ISButton
+          labelxrot:
+            type: ISLabel
+          labelyrot:
+            type: ISLabel
+          labelzrot:
+            type: ISLabel
+          txtboxxrot:
+            type: ISTextEntryBox
+          txtboxyrot:
+            type: ISTextEntryBox
+          txtboxzrot:
+            type: ISTextEntryBox
+          sliderxrot:
+            type: ISSliderPanel
+          slideryrot:
+            type: ISSliderPanel
+          sliderzrot:
+            type: ISSliderPanel
           closeBtn:
             type: ISButton
           revertBtn:
             type: ISButton
-          mode:
+          gizmo:
             type: string
           drawJoypadFocus:
             type: boolean
@@ -69,6 +83,7 @@ languages:
             type: InventoryItem
           font:
             type: UIFont
+          fontsmall: {}
           pressedTime:
             type: number
           pressedMaxTime:
@@ -110,7 +125,6 @@ languages:
               - name: button
                 type: ISButton
           - name: revert
-          - name: modeChange
           - name: clickedButton
             parameters:
               - name: button
@@ -130,6 +144,12 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
+          - name: onRotateGizmo
+            parameters:
+              - name: vector3
+          - name: onTranslateGizmo
+            parameters:
+              - name: vector3
           - name: close
           - name: isKeyConsumed
             parameters:
@@ -141,3 +161,9 @@ languages:
             parameters:
               - name: key
                 type: integer
+        staticMethods:
+          - name: GetWindowForPlayer
+            parameters:
+              - name: playerIndex
+            return:
+              - type: unknown

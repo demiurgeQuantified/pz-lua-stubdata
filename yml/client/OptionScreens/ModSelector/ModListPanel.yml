@@ -25,6 +25,8 @@ languages:
             type: ModSelector.Model
           joypadListFocus:
             type: boolean
+          filterPanel:
+            type: ISPanelJoypad
           filterCombo:
             type: ISComboBox
           searchLabel:
@@ -80,36 +82,6 @@ languages:
             parameters:
               - name: val
                 type: boolean
-          - name: onJoypadDirUp
-            parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirDown
-            parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirLeft
-            parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirRight
-            parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onGainJoypadFocus
-            parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onLoseJoypadFocus
-            parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDown
-            parameters:
-              - name: button
-                type: integer
-              - name: joypadData
-                type: JoypadData
         staticMethods:
           - name: setText
             parameters:

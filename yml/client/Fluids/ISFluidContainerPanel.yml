@@ -216,6 +216,10 @@ languages:
             return:
               - type: GameEntity
                 nullable: true
+          - name: getContainerOwnerObject
+            return:
+              - type: ItemContainer | IsoGridSquare
+                nullable: true
           - name: getIsoObjectTextures
             return:
               - type: umbrella.ISFluidContainerPanel.TextureItem[]

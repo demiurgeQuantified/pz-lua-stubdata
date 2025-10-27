@@ -1,0 +1,59 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISLootWindowContainerControls:
+        extends: ISPanelJoypad
+        constructors:
+          - parameters:
+              - name: lootWindow
+                type: ISInventoryPage
+        staticFields:
+          Type:
+            defaultValue: '"ISLootWindowContainerControls"'
+        fields:
+          lootWindow:
+            type: ISInventoryPage
+          handlers:
+            type: table
+          controls:
+            type: table
+        methods:
+          - name: createChildren
+          - name: checkHandler
+            parameters:
+              - name: handlerClass
+              - name: object
+                nullable: true
+              - name: container
+                nullable: true
+            return:
+              - type: unknown
+          - name: arrange
+          - name: getDisplayedContainer
+            return:
+              - type: unknown
+                nullable: true
+          - name: getDisplayedObject
+            return:
+              - type: unknown
+                nullable: true
+          - name: handleJoypadContextMenu
+            parameters:
+              - name: context
+                type: ISContextMenu
+          - name: fixMouseOverButton
+        staticMethods:
+          - name: AddHandler
+            parameters:
+              - name: handlerClass
+                type: table
+          - name: AddFloorHandler
+            parameters:
+              - name: handlerClass
+                type: ISLootWindowFloorControlHandler_TakeAll |
+                  ISLootWindowFloorControlHandler_TakeSameType
+      ISLootWindowContainerControls_HandlerList: {}
+      ISLootWindowContainerControls_HandlerSet: {}
+      ISLootWindowContainerControls_FloorHandlerList: {}
+      ISLootWindowContainerControls_FloorHandlerSet: {}

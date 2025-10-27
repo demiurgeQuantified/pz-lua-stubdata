@@ -49,7 +49,6 @@ languages:
           - name: getAPrompt
             return:
               - type: string
-                nullable: true
           - name: getBPrompt
             return:
               - type: string

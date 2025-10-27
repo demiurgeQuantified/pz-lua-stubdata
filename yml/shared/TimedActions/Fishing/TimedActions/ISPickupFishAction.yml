@@ -30,8 +30,6 @@ languages:
             type: number
           finishShowModel:
             type: number
-          maxTime:
-            type: number
         methods:
           - name: isValid
             return:

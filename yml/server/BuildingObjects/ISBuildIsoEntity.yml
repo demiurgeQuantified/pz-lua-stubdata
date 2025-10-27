@@ -97,6 +97,8 @@ languages:
             nullable: true
           canBeLockedByPadlock:
             type: boolean
+          drawFloorGrid:
+            type: boolean
         methods:
           - name: walkTo
             parameters:
@@ -116,6 +118,14 @@ languages:
           - name: getHealth
             return:
               - type: number
+          - name: renderFloorGrid
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
           - name: render
             parameters:
               - name: x
@@ -207,6 +217,28 @@ languages:
             parameters:
               - name: action
                 type: ISBaseTimedAction
+          - name: tryBuild
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+          - name: onObjectLeftMouseButtonDown
+            parameters:
+              - name: object
+                type: IsoObject
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: boolean
+          - name: updateManualInputs
+            parameters:
+              - name: _logic
+                type: BaseCraftingLogic
         staticMethods:
           - name: GetAllBuildableEntities
             return:

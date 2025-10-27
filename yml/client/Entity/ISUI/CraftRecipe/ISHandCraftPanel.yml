@@ -112,6 +112,12 @@ languages:
           - name: update
           - name: refreshRecipeList
           - name: updateContainers
+            parameters:
+              - name: _forceRefresh
+                type: boolean
+                nullable: true
+            return:
+              - type: boolean
           - name: updateTooltip
           - name: deactivateTooltip
           - name: getSelectedRecipe
@@ -147,7 +153,12 @@ languages:
                 type: string
               - name: _filterMode
                 type: string
+          - name: setSortMode
+            parameters:
+              - name: _sortMode
+                type: string
           - name: filterRecipeList
+          - name: sortRecipeList
           - name: onCategoryChanged
             parameters:
               - name: _category

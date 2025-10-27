@@ -87,3 +87,4 @@ languages:
                 type: IsoPlayer
               - name: square
                 type: IsoGridSquare
+          - name: onLoad

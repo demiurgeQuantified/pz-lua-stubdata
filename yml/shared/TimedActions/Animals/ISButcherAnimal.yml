@@ -38,3 +38,9 @@ languages:
             return:
               - type: number
           - name: stopSound
+          - name: isLargeAnimal
+            parameters:
+              - name: corpse
+                type: IsoDeadBody
+            return:
+              - type: boolean

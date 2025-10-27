@@ -111,10 +111,20 @@ languages:
             parameters:
               - name: reason
                 type: string
+          - name: onJoypadNavigateStart_Descendant
+            parameters:
+              - name: descendant
+                type: ISUIElement
+              - name: joypadData
+                type: JoypadData
           - name: onJoypadBeforeDeactivate
             parameters:
               - name: joypadData
                 type: JoypadData
+          - name: onKeyRelease
+            parameters:
+              - name: key
+                type: integer
         staticMethods:
           - name: onChooseDifficulty
             parameters:
@@ -172,3 +182,83 @@ languages:
                 type: number
               - name: y
                 type: number
+      NewGameScreen.HorizontalLine:
+        extends: ISPanel
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"HorizontalLine"'
+        methods:
+          - name: prerender
+          - name: render
+      NewGameScreen.MainPanel:
+        extends: ISPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"NewGameScreen_MainPanel"'
+        fields:
+          lastSelectedChild:
+            type: ISUIElement
+          joypadButtons:
+            type: ISButton[]
+        methods:
+          - name: prerender
+          - name: render
+          - name: renderActiveMods
+          - name: ensureVisible
+          - name: onMouseWheel
+            parameters:
+              - name: del
+                type: number
+            return:
+              - type: boolean
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadBeforeDeactivate
+            parameters:
+              - name: joypadData
+                type: JoypadData
+      NewGameScreen.RichText:
+        extends: ISRichTextPanel
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"NewGameScreen_RichText"'
+          doRightJoystickScrolling:
+            defaultValue: ISPanelJoypad.doRightJoystickScrolling
+        methods:
+          - name: prerender
+          - name: render
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirUp
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirDown
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadBeforeDeactivate
+            parameters:
+              - name: joypadData
+                type: JoypadData

@@ -20,8 +20,14 @@ languages:
           Type:
             defaultValue: '"DebugChunkStateUI"'
         fields:
-          comboPlayerIndex:
-            type: ISComboBox
+          buttonPlayer0:
+            type: ISButton
+          buttonPlayer1:
+            type: ISButton
+          buttonPlayer2:
+            type: ISButton
+          buttonPlayer3:
+            type: ISButton
           zLevelSlider:
             type: ISSliderPanel
           objectSections:
@@ -70,6 +76,13 @@ languages:
         methods:
           - name: createChildren
           - name: onChangePlayer
+            parameters:
+              - name: button
+                type: ISButton
+              - name: x
+                type: number
+              - name: y
+                type: number
           - name: onChangeZLevel
             parameters:
               - name: value

@@ -21,8 +21,6 @@ languages:
             type: ISAdminPanelUI
             nullable: true
         fields:
-          dbBtn:
-            type: ISButton
           checkStatsBtn:
             type: ISButton
           adminPowerBtn:

@@ -12,12 +12,14 @@ languages:
                 type: IsoAnimal
               - name: hook
                 type: IsoButcherHook
-              - name: luaHook
+              - name: luaHookUI
                 type: ISButcherHookUI
         staticFields:
           Type:
             defaultValue: '"ISRemoveHeadFromAnimal"'
         fields:
+          started:
+            type: boolean
           sound:
             type: integer
           body:
@@ -42,6 +44,9 @@ languages:
           - name: update
           - name: start
           - name: stop
+          - name: serverStart
+          - name: serverStop
+          - name: updateCorpse
           - name: perform
           - name: complete
             return:

@@ -46,6 +46,7 @@ languages:
             type: boolean
           isDrainable:
             type: boolean
+          isClothing: {}
           elems:
             type: umbrella.ISItemEditPanel.Element[]
         methods:
@@ -153,6 +154,9 @@ languages:
           - name: validateFood
             return:
               - type: boolean
+          - name: validateClothing
+            return:
+              - type: unknown
           - name: validateDrainable
             return:
               - type: boolean

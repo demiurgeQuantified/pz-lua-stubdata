@@ -243,6 +243,27 @@ languages:
             parameters:
               - name: key
                 type: integer
+          - name: getWrench
+            parameters:
+              - name: player
+                type: IsoPlayer
+            return:
+              - type: InventoryItem
+                nullable: true
+          - name: getScrewdriver
+            parameters:
+              - name: player
+                type: IsoPlayer
+            return:
+              - type: InventoryItem
+                nullable: true
+          - name: getTirePump
+            parameters:
+              - name: player
+                type: IsoPlayer
+            return:
+              - type: InventoryItem
+                nullable: true
         staticMethods:
           - name: onRepairEngine
             parameters:

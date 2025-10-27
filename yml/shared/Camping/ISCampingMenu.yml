@@ -1,0 +1,298 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISCampingMenu:
+        staticMethods:
+          - name: timeString
+            parameters:
+              - name: timeInMinutes
+                type: number
+            return:
+              - type: string
+          - name: isValidCampfire
+            parameters:
+              - name: campfire
+                type: CCampfireGlobalObject
+            return:
+              - type: boolean
+          - name: shouldBurn
+            parameters:
+              - name: item
+                type: InventoryItem
+              - name: includeEquipped
+                type: boolean
+                nullable: true
+            return:
+              - type: boolean
+          - name: isPetrol
+            parameters:
+              - name: item
+                type: InventoryItem
+            return:
+              - type: boolean
+                nullable: true
+          - name: isValidFuel
+            parameters:
+              - name: item
+                type: InventoryItem
+                nullable: true
+            return:
+              - type: boolean
+                nullable: true
+          - name: isValidTinder
+            parameters:
+              - name: item
+                type: InventoryItem
+                nullable: true
+            return:
+              - type: boolean
+                nullable: true
+          - name: getFuelDurationForItemInHours
+            parameters:
+              - name: item
+                type: InventoryItem
+            return:
+              - type: number
+          - name: getFuelDurationForItem
+            parameters:
+              - name: item
+                type: InventoryItem
+                nullable: true
+            return:
+              - type: number
+          - name: getFuelItemUses
+            parameters:
+              - name: item
+                type: InventoryItem
+                nullable: true
+            return:
+              - type: integer
+          - name: getNearbyFuelInfo
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+            return:
+              - type: umbrella.ISCampingMenu.NearbyFuelInfo
+          - name: doAddFuelOption
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: worldobjects
+                type: IsoObject[]
+                nullable: true
+              - name: currentFuel
+                type: number
+              - name: fuelInfo
+                type: umbrella.ISCampingMenu.NearbyFuelInfo
+              - name: target
+                type: unknown
+              - name: timedAction
+                type: ISBBQAddFuel | ISAddFuelAction
+              - name: playerObj
+                type: IsoPlayer
+            return:
+              - type: boolean
+          - name: doLightFireOption
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: context
+                type: ISContextMenu
+              - name: worldobjects
+                type: IsoObject[]
+                nullable: true
+              - name: hasFuel
+                type: boolean
+              - name: fuelInfo
+                type: umbrella.ISCampingMenu.NearbyFuelInfo
+              - name: target
+                type: unknown
+              - name: petrolAction
+                type: ISBBQLightFromPetrol | ISLightFromPetrol
+              - name: tinderAction
+                type: ISBBQLightFromLiterature | ISLightFromLiterature
+              - name: kindleAction
+                type: ISBBQLightFromKindle | ISLightFromKindle
+          - name: doCampingMenu
+            parameters:
+              - name: player
+                type: integer
+              - name: context
+                type: ISContextMenu
+              - name: worldobjects
+                type: IsoObject[]
+              - name: test
+                type: boolean
+                nullable: true
+            return:
+              - type: boolean
+                nullable: true
+          - name: toPlayerInventory
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: item
+                type: InventoryItem
+                nullable: true
+          - name: onDisplayInfo
+            parameters:
+              - name: worldobjects
+                type: IsoObject[]
+              - name: playerObj
+                type: IsoPlayer
+              - name: isoCampfireObject
+                type: IsoObject
+              - name: campfire
+                type: CCampfireGlobalObject
+          - name: onDropCorpse
+            parameters:
+              - name: worldobjects
+                type: IsoObject[]
+                nullable: true
+              - name: playerObj
+                type: IsoPlayer
+              - name: isoCampfireObject
+                type: IsoObject
+              - name: campfire
+                type: CCampfireGlobalObject
+          - name: walkToCampfire
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: square
+                type: IsoGridSquare
+            return:
+              - type: boolean
+          - name: doSleepOption
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: bed
+                type: IsoObject
+              - name: player
+                type: integer
+              - name: playerObj
+                type: IsoPlayer
+          - name: onAddFuel
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: target
+                nullable: true
+              - name: fuelType
+                type: string
+              - name: timedAction
+                type: ISBaseTimedAction
+              - name: currentFuel
+                type: number
+          - name: onAddAllFuel
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: target
+                nullable: true
+              - name: timedAction
+                type: ISBaseTimedAction
+              - name: currentFuel
+                type: number
+          - name: onAddMultipleFuel
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: target
+                nullable: true
+              - name: fuelType
+                type: string
+              - name: timedAction
+                type: ISBaseTimedAction
+              - name: currentFuel
+                type: number
+          - name: onPlaceCampfire
+            parameters:
+              - name: worldobjects
+                type: IsoObject[]
+              - name: player
+                type: integer
+          - name: onPutOutCampfire
+            parameters:
+              - name: worldobjects
+                type: IsoObject[]
+              - name: playerObj
+                type: IsoPlayer
+              - name: campfire
+                type: CCampfireGlobalObject
+          - name: onRemoveCampfire
+            parameters:
+              - name: worldobjects
+                type: IsoObject[]
+              - name: playerObj
+                type: IsoPlayer
+              - name: campfire
+                type: CCampfireGlobalObject
+          - name: onLightFromLiterature
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: itemType
+                type: string
+              - name: lighter
+                type: InventoryItem
+              - name: target
+                nullable: true
+              - name: timedAction
+                type: ISBaseTimedAction
+          - name: onLightFromKindle
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: percedWood
+                type: InventoryItem
+              - name: stickOrBranch
+                type: InventoryItem
+              - name: target
+                nullable: true
+              - name: timedAction
+                type: ISBaseTimedAction
+          - name: onLightFromPetrol
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: lighter
+                type: InventoryItem
+              - name: petrol
+                type: InventoryItem
+              - name: target
+                nullable: true
+              - name: timedAction
+                type: ISBaseTimedAction
+          - name: onRest
+            parameters:
+              - name: worldobjects
+                type: IsoObject[]
+              - name: player
+                type: integer
+              - name: tent
+                type: IsoObject
+      umbrella.ISCampingMenu.NearbyFuelInfo:
+        fields:
+          starters:
+            type: InventoryItem[]
+          fuelList:
+            type: InventoryItem[]
+          tinder:
+            type: InventoryItem[]
+          itemCount:
+            type: table<string, integer>
+          petrol:
+            type: InventoryItem
+            nullable: true
+          percedWood:
+            type: InventoryItem
+            nullable: true
+          branch:
+            type: InventoryItem
+            nullable: true
+          stick:
+            type: InventoryItem
+            nullable: true

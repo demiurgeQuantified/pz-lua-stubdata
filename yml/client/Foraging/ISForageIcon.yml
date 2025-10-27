@@ -20,6 +20,9 @@ languages:
             type: umbrella.Foraging.ItemDefinition
           catDef:
             type: umbrella.Foraging.CategoryDefinition
+          itemType:
+            type: string
+            nullable: true
           altWorldTexture:
             type: Texture
             nullable: true

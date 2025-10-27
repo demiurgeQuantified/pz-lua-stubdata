@@ -10,6 +10,10 @@ languages:
                 type: IsoPlayer
               - name: corpse
                 type: IsoDeadBody
+              - name: lighter
+                type: InventoryItem
+              - name: petrol
+                type: InventoryItem
         staticFields:
           Type:
             defaultValue: '"ISBurnCorpseAction"'

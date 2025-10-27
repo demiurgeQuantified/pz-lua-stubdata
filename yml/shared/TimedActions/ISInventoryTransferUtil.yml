@@ -1,0 +1,49 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISInventoryTransferUtil:
+        staticMethods:
+          - name: newInventoryTransferAction
+            parameters:
+              - name: character
+                type: IsoPlayer
+              - name: item
+                type: InventoryItem
+              - name: srcContainer
+                type: ItemContainer
+              - name: destContainer
+                type: ItemContainer
+              - name: time
+                type: number
+                nullable: true
+            return:
+              - type: ISGrabCorpseItem | ISInventoryTransferAction
+          - name: isPlayerCharacter
+            parameters:
+              - name: character
+                type: IsoGameCharacter
+            return:
+              - type: TypeGuard<IsoPlayer>
+          - name: isCharacterGrabbingCorpseItem
+            parameters:
+              - name: character
+                type: IsoGameCharacter
+              - name: item
+                type: InventoryItem
+              - name: srcContainer
+                type: ItemContainer
+              - name: destContainer
+                type: ItemContainer
+            return:
+              - type: boolean
+          - name: isPlayerGrabbingCorpseItem
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: item
+                type: InventoryItem
+              - name: targetContainer
+                type: ItemContainer
+            return:
+              - type: boolean

@@ -128,6 +128,69 @@ languages:
             return:
               - type: umbrella.AnimalPartsDefinition
                 nullable: true
+          - name: onAddedCorpseOnHook
+            parameters:
+              - name: hook
+                type: IsoButcherHook
+              - name: corpse
+                type: IsoAnimal | AnimalInventoryItem | IsoDeadBody
+              - name: character
+                type: IsoPlayer
+            return:
+              - type: unknown
+          - name: createCorpseFromItem
+            parameters:
+              - name: item
+                type: IsoAnimal | AnimalInventoryItem | IsoDeadBody
+              - name: chr
+                type: IsoPlayer
+            return:
+              - type: IsoAnimal | IsoDeadBody
+          - name: createAnimalForHook
+            parameters:
+              - name: hook
+                type: IsoButcherHook
+              - name: newCorpse
+                type: IsoAnimal | IsoDeadBody
+          - name: onRemoveCorpseFromHook
+            parameters:
+              - name: hook
+                type: IsoButcherHook
+              - name: animal
+                type: IsoAnimal
+            return:
+              - type: unknown
+          - name: updateCorpseDatas
+            parameters:
+              - name: dataTable
+                type: table | ISButcherHookUI
+              - name: animal
+                type: IsoAnimal
+              - name: hook
+                type: IsoButcherHook
+            return:
+              - type: boolean
+          - name: getBuckets
+            parameters:
+              - name: character
+                type: IsoPlayer
+            return:
+              - type: ArrayList<InventoryItem>
+          - name: isHookUsingSameCharacter
+            parameters:
+              - name: hook
+                type: IsoButcherHook
+              - name: character
+                type: IsoPlayer
+            return:
+              - type: boolean
+          - name: setUsingPlayerForHook
+            parameters:
+              - name: hook
+                type: IsoButcherHook
+              - name: character
+                type: IsoPlayer
+                nullable: true
     functions:
       - name: setAnimalBodyData
         parameters:

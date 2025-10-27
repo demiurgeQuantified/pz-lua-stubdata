@@ -55,5 +55,9 @@ languages:
             parameters:
               - name: button
                 type: ISButton
+          - name: onMouseWheel
+            parameters:
+              - name: delta
+                type: number
           - name: prerender
           - name: render

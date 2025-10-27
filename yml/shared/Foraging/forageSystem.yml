@@ -19,12 +19,16 @@ languages:
           skillDefs:
             type: table<"occupation" | "trait", table<string,
               umbrella.Foraging.SkillDefinition>>
-          lootTables:
-            type: table<string, table<integer, table<string, table<string,
-              umbrella.Foraging.LootTable>>>>
+          forageDefinitions: {}
+          zoneDefinitions: {}
+          categoryDefinitions: {}
+          defaultDefinitions: {}
+          lootTable: {}
           lootTableMonth:
             type: integer
             nullable: true
+            defaultValue: "1"
+          processedEntries: {}
           currentMonth:
             defaultValue: "0"
           currentTime:
@@ -76,26 +80,19 @@ languages:
             defaultValue: "50"
           effectReductionMax:
             defaultValue: "75"
-          affinityCooldownMin:
-            defaultValue: "5"
-          affinityCooldownMax:
-            defaultValue: "15"
           lightPenaltyCutoff:
             defaultValue: "50"
           clothingPenalties: {}
           isForageableFuncs: {}
-          spriteAffinities: {}
           globalXPModifier:
             defaultValue: "800"
           levelXPModifier:
             defaultValue: "5"
           worldSprites: {}
+          spriteAffinities: {}
+          seedTable: {}
           itemBlacklist:
             type: ArrayList<string>
-            nullable: true
-          statisticsTable:
-            type: table<"zones", table<string, table<integer, table<string, table<string,
-              table<string, umbrella.Foraging.StatisticsTableItem>>>>>>
             nullable: true
         staticMethods:
           - name: integrityCheck
@@ -172,19 +169,6 @@ languages:
           - name: getWorldAge
             return:
               - type: integer
-          - name: statisticsDebug
-            parameters:
-              - name: _createDebugLog
-                type: boolean
-                nullable: true
-              - name: _doItemStats
-                type: boolean
-                nullable: true
-          - name: createDebugLog
-            parameters:
-              - name: _doItemStats
-                type: boolean
-                nullable: true
           - name: createForageIcons
             parameters:
               - name: _zoneData
@@ -220,15 +204,34 @@ languages:
             return:
               - type: umbrella.Foraging.ZoneData
                 nullable: true
+          - name: getCurrentLootEntries
+            parameters:
+              - name: _zoneName
+                type: string
+            return:
+              - type: unknown
+          - name: processEntries
+            parameters:
+              - name: _zoneName
+                type: string
+              - name: _lootTable
+            return:
+              - type: table
+              - type: number
           - name: pickRandomItemType
             parameters:
-              - name: _lootTable
-                type: umbrella.Foraging.LootTable
+              - name: _zoneName
+                type: string
+              - name: _rolledCategory
             return:
               - type: string
                 nullable: true
               - type: string
                 nullable: true
+          - name: clearLastMonthLootEntries
+            parameters:
+              - name: _month
+                type: number
           - name: lootTableUpdate
           - name: generateLootTable
           - name: addItemDef
@@ -545,16 +548,10 @@ languages:
                 type: string
             return:
               - type: boolean
-          - name: getMonthBonus
+          - name: getMonthMulti
             parameters:
               - name: _itemDef
-                type: umbrella.Foraging.ItemDefinition
               - name: _month
-                type: integer
-              - name: _monthBonus
-                type: integer
-              - name: _monthMalus
-                type: integer
             return:
               - type: number
           - name: getTimeOfDay
@@ -585,6 +582,14 @@ languages:
               - name: _hasRained
                 type: boolean
                 nullable: true
+            return:
+              - type: number
+          - name: getWeatherMulti
+            parameters:
+              - name: _def
+              - name: _rainAmount
+              - name: _puddleAmount
+              - name: _snowAmount
             return:
               - type: number
           - name: hasRequiredItems
@@ -665,14 +670,17 @@ languages:
                 type: umbrella.Foraging.ZoneDefinition
             return:
               - type: boolean
+          - name: isValidMonthInternal
+            parameters:
+              - name: _character
+              - name: _itemDef
+              - name: _zoneDef
+              - name: _month
+            return:
+              - type: unknown
           - name: isValidMonth
             parameters:
-              - name: _
-                nullable: true
-              - name: _itemDef
-                type: umbrella.Foraging.ItemDefinition
-              - name: _zoneDef
-                type: umbrella.Foraging.ZoneDefinition
+              - name: _def
               - name: _month
                 type: integer
             return:

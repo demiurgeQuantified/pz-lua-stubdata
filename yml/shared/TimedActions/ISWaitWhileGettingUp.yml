@@ -12,6 +12,8 @@ languages:
           Type:
             defaultValue: '"ISWaitWhileGettingUp"'
         fields:
+          retriggerLastAction:
+            type: boolean
           onCompleteFunc:
             type: function
             nullable: true

@@ -41,6 +41,11 @@ languages:
             nullable: true
           jobType:
             type: string
+          loopSound:
+            type: integer
+            nullable: true
+          loopSoundNoTrigger:
+            type: boolean
           transactionId:
             type: number
           started:
@@ -48,14 +53,8 @@ languages:
           sourceContainerOpened:
             type: ItemContainer
             nullable: true
-          sourceContainerOpenSound:
-            type: integer
-            nullable: true
           destContainerOpened:
             type: ItemContainer
-            nullable: true
-          destContainerOpenSound:
-            type: integer
             nullable: true
           item:
             type: InventoryItem
@@ -93,9 +92,15 @@ languages:
           - name: playSourceContainerCloseSound
           - name: playDestContainerOpenSound
           - name: playDestContainerCloseSound
-          - name: getSoundName
+          - name: getTransferStartSoundName
             return:
               - type: string
+                nullable: true
+          - name: getTransferCompleteSoundName
+            return:
+              - type: string
+                nullable: true
+          - name: stopLoopingSound
           - name: stop
           - name: forceComplete
           - name: perform
@@ -176,6 +181,10 @@ languages:
           - name: getExtraLogData
             return:
               - type: string[]
+      ISInventoryPage:
+        staticFields:
+          putSoundContainer:
+            nullable: true
       umbrella.ISInventoryTransferAction.QueueItem:
         fields:
           items:

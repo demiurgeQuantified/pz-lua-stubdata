@@ -45,6 +45,9 @@ languages:
               - name: itemType2
                 type: string
                 nullable: true
+              - name: amount
+                type: integer
+                nullable: true
           - name: onOptionMouseDown
             parameters:
               - name: button

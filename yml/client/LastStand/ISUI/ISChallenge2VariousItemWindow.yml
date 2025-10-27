@@ -40,6 +40,9 @@ languages:
                 type: string
               - name: cost
                 type: integer
+              - name: amount
+                type: integer
+                nullable: true
           - name: onOptionMouseDown
             parameters:
               - name: button

@@ -296,6 +296,8 @@ languages:
           tooWideY:
             type: number
             nullable: true
+          selected:
+            type: number
         methods:
           - name: prerender
           - name: render

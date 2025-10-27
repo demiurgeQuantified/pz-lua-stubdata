@@ -172,6 +172,10 @@ languages:
               - name: option
                 type: umbrella.ISContextMenu.Option
           - name: hideToolTip
+          - name: checkHighlightedOption
+            parameters:
+              - name: option
+                nullable: true
           - name: callOptionHighlightFunction
             parameters:
               - name: option
@@ -826,6 +830,15 @@ languages:
             nullable: true
           toolTip:
             type: ISToolTip
+            nullable: true
+          notAvailable:
+            type: boolean
+            nullable: true
+          isDisabled:
+            type: boolean
+            nullable: true
+          isDefaultOption:
+            type: boolean
             nullable: true
           onHighlight:
             type: umbrella.ISContextMenu.OnHighlight

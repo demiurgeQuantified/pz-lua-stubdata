@@ -137,6 +137,9 @@ languages:
                 type: number
               - name: z
                 type: number
+            return:
+              - type: ISBuildAction
+                nullable: true
           - name: onActionComplete
           - name: walkTo
             parameters:

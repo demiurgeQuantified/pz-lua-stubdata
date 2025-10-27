@@ -71,6 +71,8 @@ languages:
               - name: test
                 type: boolean
                 nullable: true
+            return:
+              - type: unknown
           - name: doFeedFromHandMenu
             parameters:
               - name: playerObj
@@ -87,6 +89,14 @@ languages:
                 type: IsoAnimal
               - name: food
                 type: InventoryItem
+          - name: doKillAnimalMenu
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: animalInv
+                type: AnimalInventoryItem
+              - name: context
+                type: ISContextMenu
           - name: doMenu
             parameters:
               - name: player
@@ -213,6 +223,12 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: acceptance
+          - name: onDebugAttackPlayer
+            parameters:
+              - name: animal
+                type: IsoAnimal
+              - name: playerObj
+                type: IsoPlayer
           - name: onForceAnimalGrowAway
             parameters:
               - name: animal

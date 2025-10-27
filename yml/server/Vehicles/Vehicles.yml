@@ -718,10 +718,17 @@ languages:
           - name: getPerksTableForChr
             parameters:
               - name: perks
+                type: string
               - name: chr
                 type: IsoPlayer
             return:
               - type: table<string, integer>
+          - name: initHeadlight
+            parameters:
+              - name: vehicle
+                type: BaseVehicle
+              - name: part
+                type: VehiclePart
       umbrella.VehicleUtils.Item:
         fields:
           type:

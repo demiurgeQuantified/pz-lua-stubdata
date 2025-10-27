@@ -84,10 +84,7 @@ languages:
             parameters:
               - name: _inputItems
           - name: onInputsChanged
-          - name: updateContainers
-            parameters:
-              - name: containers
-                type: ArrayList<ItemContainer>
+          - name: updateTitleWidget
           - name: onGainJoypadFocus
             parameters:
               - name: joypadData

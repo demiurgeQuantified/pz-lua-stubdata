@@ -27,6 +27,7 @@ languages:
           maximumHeight:
             type: number
           entityHeader:
+            type: ISWidgetEntityHeader
             nullable: true
           xuiPreferredResizeWidth:
             type: number

@@ -1,0 +1,96 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISCraftLogicRecipePanel:
+        extends: ISPanel
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: player
+                type: IsoPlayer
+              - name: logic
+                type: CraftLogicUILogic
+        staticFields:
+          Type:
+            defaultValue: '"ISCraftLogicRecipePanel"'
+        fields:
+          overlayPanel:
+            type: ISPanel
+          titleWidget:
+            type: ISWidgetCraftLogicTitle
+            nullable: true
+          inputControlWidget:
+            type: ISWidgetCraftLogicInputControl
+            nullable: true
+          outputProgressWidget:
+            type: ISWidgetCraftLogicOutputProgress
+            nullable: true
+          player:
+            type: IsoPlayer
+          craftLogicComponent:
+            type: CraftLogic
+          inputsGroupName:
+            type: string
+          outputsGroupName:
+            type: string
+          logic:
+            type: CraftLogicUILogic
+          entity:
+            type: GameEntity
+          resourcesComponent:
+            type: Resources
+          margin:
+            type: number
+          elementSpacing:
+            type: number
+          elementPadding:
+            type: number
+          autoFillContents:
+            type: boolean
+          isAutoFill:
+            type: boolean
+          isAutoFillX:
+            type: boolean
+          isAutoFillY:
+            type: boolean
+        methods:
+          - name: initialise
+          - name: createChildren
+          - name: createDynamicChildren
+          - name: calculateLayout
+            parameters:
+              - name: _preferredWidth
+                type: number
+                nullable: true
+              - name: _preferredHeight
+                type: number
+                nullable: true
+          - name: onResize
+          - name: prerender
+          - name: render
+          - name: update
+          - name: setOverlayVisible
+            parameters:
+              - name: _b
+                type: boolean
+          - name: onRecipeChanged
+          - name: getRecipe
+            return:
+              - type: CraftRecipe
+          - name: onRebuildItemNodes
+            parameters:
+              - name: _inputItems
+          - name: onInputsChanged
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onResourceSlotContentsChanged

@@ -71,6 +71,143 @@ languages:
                 type: unknown
               - name: arg4
                 type: unknown
+      DebugChunkState_SquarePanel.SPH_misc:
+        extends: DebugChunkStateUI_SquarePropsHandler
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"DebugChunkStateUI_SPH_misc"'
+        fields:
+          zones:
+            type: ArrayList<Zone>
+          vehicleZone:
+            type: VehicleZone
+            nullable: true
+        methods:
+          - name: setSquare
+            parameters:
+              - name: square
+                type: IsoGridSquare
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+            return:
+              - type: boolean
+          - name: render1
+      DebugChunkState_SquarePanel.SPH_modData:
+        extends: DebugChunkStateUI_SquarePropsHandler
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"DebugChunkStateUI_SPH_modData"'
+        methods:
+          - name: setSquare
+            parameters:
+              - name: square
+                type: IsoGridSquare
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+            return:
+              - type: boolean
+          - name: render1
+      DebugChunkState_SquarePanel.SPH_properties:
+        extends: DebugChunkStateUI_SquarePropsHandler
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"DebugChunkStateUI_SPH_properties"'
+        methods:
+          - name: setSquare
+            parameters:
+              - name: square
+                type: IsoGridSquare
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+            return:
+              - type: boolean
+          - name: render1
+      DebugChunkState_SquarePanel.SPH_matrix:
+        extends: DebugChunkStateUI_SquarePropsHandler
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"DebugChunkStateUI_SPH_matrix"'
+        fields:
+          font:
+            type: UIFont
+          fontHgt:
+            type: number
+        methods:
+          - name: setSquare
+            parameters:
+              - name: square
+                type: IsoGridSquare
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+            return:
+              - type: boolean
+          - name: render1
+          - name: draw9x9
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: nw
+                type: unknown
+                nullable: true
+              - name: n
+                type: unknown
+                nullable: true
+              - name: ne
+                type: unknown
+                nullable: true
+              - name: w
+                type: unknown
+                nullable: true
+              - name: at
+                type: unknown
+                nullable: true
+              - name: e
+                type: unknown
+                nullable: true
+              - name: sw
+                type: unknown
+                nullable: true
+              - name: s
+                type: unknown
+                nullable: true
+              - name: se
+                type: unknown
+                nullable: true
+          - name: draw9x9aux
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+              - name: isSet
+                type: unknown
+                nullable: true
       DebugChunkStateUI_SquarePanel:
         extends: ISSectionedPanel
         constructors:

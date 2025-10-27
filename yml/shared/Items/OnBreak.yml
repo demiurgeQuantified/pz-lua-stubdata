@@ -75,7 +75,7 @@ languages:
                 type: InventoryItem
               - name: player
                 type: IsoPlayer
-          - name: BaseballBat_Rakehead
+          - name: BaseballBat_RakeHead
             parameters:
               - name: item
                 type: InventoryItem
@@ -352,6 +352,18 @@ languages:
               - name: player
                 type: IsoPlayer
           - name: SpearStoneLong
+            parameters:
+              - name: item
+                type: InventoryItem
+              - name: player
+                type: IsoPlayer
+          - name: SpearBone
+            parameters:
+              - name: item
+                type: InventoryItem
+              - name: player
+                type: IsoPlayer
+          - name: SpearBoneLong
             parameters:
               - name: item
                 type: InventoryItem

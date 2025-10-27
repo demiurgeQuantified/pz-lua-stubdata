@@ -20,9 +20,6 @@ languages:
             type: IsoObject
           hours:
             type: integer
-          maxTime:
-            type: number
-            nullable: true
         methods:
           - name: isValid
             return:

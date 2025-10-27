@@ -77,3 +77,136 @@ languages:
             parameters:
               - name: key
                 type: integer
+      ISFirearmRadialMenu.BaseCommand:
+        extends: ISBaseObject
+        local: true
+        constructors:
+          - parameters:
+              - name: frm
+        staticFields:
+          Type:
+            defaultValue: '"BaseCommand"'
+        fields:
+          frm: {}
+          character: {}
+        methods:
+          - name: getWeapon
+            return:
+              - type: unknown
+          - name: fillMenu
+            parameters:
+              - name: menu
+              - name: weapon
+      ISFirearmRadialMenu.CInsertMagazine:
+        extends: ISFirearmRadialMenu.BaseCommand
+        local: true
+        constructors:
+          - parameters:
+              - name: frm
+                type: ISFirearmRadialMenu
+        staticFields:
+          Type:
+            defaultValue: '"CInsertMagazine"'
+        methods:
+          - name: fillMenu
+            parameters:
+              - name: menu
+              - name: weapon
+          - name: invoke
+      ISFirearmRadialMenu.CEjectMagazine:
+        extends: ISFirearmRadialMenu.BaseCommand
+        local: true
+        constructors:
+          - parameters:
+              - name: frm
+                type: ISFirearmRadialMenu
+        staticFields:
+          Type:
+            defaultValue: '"CEjectMagazine"'
+        methods:
+          - name: fillMenu
+            parameters:
+              - name: menu
+              - name: weapon
+          - name: invoke
+      ISFirearmRadialMenu.CLoadBulletsInMagazine:
+        extends: ISFirearmRadialMenu.BaseCommand
+        local: true
+        constructors:
+          - parameters:
+              - name: frm
+                type: ISFirearmRadialMenu
+        staticFields:
+          Type:
+            defaultValue: '"CLoadBulletsInMagazine"'
+        methods:
+          - name: getMagazine
+            parameters:
+              - name: weapon
+            return:
+              - type: unknown
+                nullable: true
+          - name: hasBulletsForMagazine
+            parameters:
+              - name: magazine
+                nullable: true
+            return:
+              - type: boolean
+          - name: fillMenu
+            parameters:
+              - name: menu
+              - name: weapon
+          - name: invoke
+      ISFirearmRadialMenu.CLoadRounds:
+        extends: ISFirearmRadialMenu.BaseCommand
+        local: true
+        constructors:
+          - parameters:
+              - name: frm
+                type: ISFirearmRadialMenu
+        staticFields:
+          Type:
+            defaultValue: '"CLoadRounds"'
+        methods:
+          - name: hasBullets
+            parameters:
+              - name: weapon
+            return:
+              - type: boolean
+          - name: fillMenu
+            parameters:
+              - name: menu
+              - name: weapon
+          - name: invoke
+      ISFirearmRadialMenu.CUnloadRounds:
+        extends: ISFirearmRadialMenu.BaseCommand
+        local: true
+        constructors:
+          - parameters:
+              - name: frm
+                type: ISFirearmRadialMenu
+        staticFields:
+          Type:
+            defaultValue: '"CUnloadRounds"'
+        methods:
+          - name: fillMenu
+            parameters:
+              - name: menu
+              - name: weapon
+          - name: invoke
+      ISFirearmRadialMenu.CRack:
+        extends: ISFirearmRadialMenu.BaseCommand
+        local: true
+        constructors:
+          - parameters:
+              - name: frm
+                type: ISFirearmRadialMenu
+        staticFields:
+          Type:
+            defaultValue: '"CRack"'
+        methods:
+          - name: fillMenu
+            parameters:
+              - name: menu
+              - name: weapon
+          - name: invoke

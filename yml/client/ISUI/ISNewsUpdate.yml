@@ -52,9 +52,6 @@ languages:
             nullable: true
           yesno:
             type: boolean
-          target:
-            type: unknown
-            nullable: true
           onclick:
             type: umbrella.ISButton.OnClick
             nullable: true

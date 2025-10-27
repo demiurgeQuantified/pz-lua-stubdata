@@ -14,6 +14,8 @@ languages:
                 type: InventoryItem
               - name: campfire
                 type: SCampfireGlobalObject
+              - name: fuelAmt
+                type: number
         staticFields:
           Type:
             defaultValue: '"ISLightFromLiterature"'

@@ -11,7 +11,10 @@ languages:
               - name: entity
                 type: IsoObject
               - name: resource
-                type: Resource
+                type: ResourceItem
+              - name: item
+                type: InventoryItem
+                nullable: true
         staticFields:
           Type:
             defaultValue: '"ISItemSlotRemoveAction"'
@@ -19,12 +22,16 @@ languages:
           item:
             type: InventoryItem
             nullable: true
+          sound:
+            type: integer
           entity:
             type: IsoObject
           resource:
-            type: Resource
+            type: ResourceItem
           itemSlot:
             type: ISItemSlot
+            nullable: true
+          targetItem:
             nullable: true
         methods:
           - name: isValid
@@ -40,3 +47,4 @@ languages:
           - name: getDuration
             return:
               - type: number
+          - name: stopSound

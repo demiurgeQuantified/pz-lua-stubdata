@@ -26,6 +26,7 @@ languages:
             defaultValue: '"ISEnergySlotPanel"'
         fields:
           tableLayout:
+            type: ISTableLayout
             nullable: true
           player:
             type: IsoPlayer

@@ -1,0 +1,71 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISBannedSteamIDViewer:
+        extends: ISPanel
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: player
+        staticFields:
+          Type:
+            defaultValue: '"ISBannedSteamIDViewer"'
+          messages: {}
+          instance:
+            type: ISBannedSteamIDViewer
+            nullable: true
+        fields:
+          datas:
+            type: ISScrollingListBox
+          no:
+            type: ISButton
+          searchEntry:
+            type: ISTextEntryBox
+          unbanBtn:
+            type: ISButton
+          refreshBtn:
+            type: ISButton
+          selectedSteamID:
+            nullable: true
+          listHeaderColor:
+            type: table
+          player: {}
+          selectedFaction:
+            nullable: true
+          bannedSteamIDs:
+            nullable: true
+        methods:
+          - name: initialise
+          - name: getBannedSteamIDs
+          - name: populateList
+          - name: update
+          - name: drawDatas
+            parameters:
+              - name: y
+              - name: item
+              - name: alt
+            return:
+              - type: number
+          - name: doSearch
+          - name: prerender
+          - name: render
+          - name: onClick
+            parameters:
+              - name: button
+                type: ISButton
+          - name: onUnbanSteamID
+            parameters:
+              - name: button
+                type: ISButton
+        staticMethods:
+          - name: gotBannedSteamIDs
+            parameters:
+              - name: bannedSteamIDs

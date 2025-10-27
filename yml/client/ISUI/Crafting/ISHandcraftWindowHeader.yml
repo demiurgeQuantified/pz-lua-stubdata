@@ -32,10 +32,13 @@ languages:
           iconSize:
             type: number
           icon:
+            type: ISImage
             nullable: true
           title:
+            type: ISLabel
             nullable: true
           buttonInfo:
+            type: ISButton
             nullable: true
           player:
             type: IsoPlayer

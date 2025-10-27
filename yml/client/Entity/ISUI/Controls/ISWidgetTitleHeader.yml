@@ -57,6 +57,12 @@ languages:
           tooltipLabel:
             type: ISLabel
             nullable: true
+          specificWorkstationLabel:
+            type: ISLabel
+            nullable: true
+          recipeBenefitLabel:
+            type: ISLabel
+            nullable: true
           errorLabel:
             type: ISLabel
             nullable: true

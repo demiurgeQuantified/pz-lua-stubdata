@@ -38,6 +38,7 @@ languages:
             type: ISButton
           nbOfAnimals:
             type: number
+          nbOfCorpses: {}
           updateTick:
             type: number
           animalbuttons:
@@ -150,6 +151,8 @@ languages:
         fields:
           selected:
             type: integer
+          mouseOverAnimal:
+            nullable: true
           smoothScrollY:
             type: number
             nullable: true
@@ -161,6 +164,7 @@ languages:
         methods:
           - name: prerender
           - name: render
+          - name: highlightAnimal
           - name: onMouseWheel
             parameters:
               - name: del

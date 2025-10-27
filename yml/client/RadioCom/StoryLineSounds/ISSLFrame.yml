@@ -163,12 +163,3 @@ languages:
             type: number
           t:
             type: number
-    functions:
-      - name: round
-        parameters:
-          - name: num
-            type: number
-          - name: idp
-            type: integer
-        return:
-          - type: number

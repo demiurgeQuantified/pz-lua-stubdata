@@ -12,7 +12,7 @@ languages:
                 type: IsoDeadBody | AnimalInventoryItem
               - name: hook
                 type: IsoButcherHook
-              - name: luaHook
+              - name: luaHookUI
                 type: ISButcherHookUI
         staticFields:
           Type:
@@ -37,6 +37,8 @@ languages:
               - type: boolean
           - name: update
           - name: start
+          - name: serverStart
+          - name: serverStop
           - name: stop
           - name: perform
           - name: complete

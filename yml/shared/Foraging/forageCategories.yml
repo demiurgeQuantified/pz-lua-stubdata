@@ -6,35 +6,9 @@ languages:
         - type: "fun(square: IsoGridSquare, itemDef: umbrella.Foraging.ItemDefinition,
             catDef: umbrella.Foraging.CategoryDefinition): boolean"
     classes:
-      forageCategories:
+      forageSystem:
         staticFields:
-          Tracks: {}
-          Animals: {}
-          DeadAnimals: {}
-          Berries: {}
-          Fruits: {}
-          Vegetables: {}
-          Crops: {}
-          Mushrooms: {}
-          FishBait: {}
-          ForestGoods: {}
-          ForestRarities: {}
-          Insects: {}
-          MedicinalPlants: {}
-          WildPlants: {}
-          WildHerbs: {}
-          Firewood: {}
-          Stones: {}
-          CraftingMaterials: {}
-          Bones: {}
-          Artifacts: {}
-          Junk: {}
-          JunkFood: {}
-          Clothing: {}
-          JunkWeapons: {}
-          Ammunition: {}
-          Medical: {}
-          Trash: {}
+          categoryDefinitions: {}
       umbrella.Foraging.CategoryDefinition:
         fields:
           name:

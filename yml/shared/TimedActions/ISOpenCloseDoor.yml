@@ -18,6 +18,8 @@ languages:
             type: IsoDoor | IsoThumpable
           ignoreHandsWounds:
             type: boolean
+          retriggerLastAction:
+            type: boolean
         methods:
           - name: isValid
             return:

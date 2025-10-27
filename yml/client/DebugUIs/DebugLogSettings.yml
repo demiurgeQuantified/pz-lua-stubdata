@@ -43,3 +43,20 @@ languages:
                 type: number
               - name: y
                 type: number
+      DebugLogSettings.HorizontalLine:
+        extends: ISPanel
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"HorizontalLine"'
+        methods:
+          - name: prerender
+          - name: render

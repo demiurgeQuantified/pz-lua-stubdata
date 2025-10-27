@@ -14,10 +14,35 @@ languages:
             parameters:
               - name: mapUI
                 type: umbrella.MapUI
+          - name: initDirectoryStreetData
+            parameters:
+              - name: mapUI
+              - name: directory
+                type: string
+          - name: initDefaultStreetData
+            parameters:
+              - name: mapUI
+                type: ISWorldMap
+          - name: initDirectoryAnnotations
+            parameters:
+              - name: mapUI
+              - name: directory
+                type: string
+          - name: initDefaultAnnotations
+            parameters:
+              - name: mapUI
+          - name: initDefaultTextLayersV3
+            parameters:
+              - name: mapUI
+                type: ISMiniMapInner | ISWorldMap
           - name: initDefaultStyleV1
             parameters:
               - name: mapUI
                 type: umbrella.MapUI
+          - name: initDefaultStyleV3
+            parameters:
+              - name: mapUI
+                type: ISWorldMap
           - name: overlayPaper
             parameters:
               - name: mapUI
@@ -26,6 +51,10 @@ languages:
             parameters:
               - name: mapUI
                 type: umbrella.MapUI
+          - name: renderDarkModeOverlay
+            parameters:
+              - name: mapUI
+                type: table
       LootMaps:
         staticFields:
           Init:

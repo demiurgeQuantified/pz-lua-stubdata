@@ -123,24 +123,18 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDirLeft_child
-            parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirRight_child
-            parameters:
-              - name: joypadData
-                type: JoypadData
           - name: onJoypadDown_listbox
             parameters:
               - name: button
                 type: ISButton
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDownSearchEntry
+          - name: onJoypadNavigateStart_Descendant
             parameters:
+              - name: descendant
+                type: ISUIElement
               - name: button
-                type: ISButton
+                type: integer
               - name: joypadData
                 type: JoypadData
           - name: getChallenge
@@ -175,12 +169,153 @@ languages:
                 type: number
               - name: newh
                 type: number
+          - name: onKeyRelease
+            parameters:
+              - name: key
+                type: integer
         staticMethods:
           - name: onClickWorld
           - name: OnKeyPressed
             parameters:
               - name: key
                 type: integer
+      LoadGameScreen.SaveInfoPanel:
+        extends: ISPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"LoadGameScreen_InfoPanel"'
+        fields:
+          richText:
+            type: ISRichTextPanel
+          richTextItem:
+            type: umbrella.ISScrollingListBox.Item
+        methods:
+          - name: createChildren
+          - name: setRichText
+          - name: prerender
+          - name: render
+          - name: onMouseWheel
+            parameters:
+              - name: del
+                type: number
+            return:
+              - type: boolean
+          - name: onJoypadDirUp
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirDown
+            parameters:
+              - name: joypadData
+                type: JoypadData
+      LoadGameScreen.ConfigPanel:
+        extends: ISPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"LoadGameScreen_ConfigPanel"'
+        fields:
+          buttonMods:
+            type: ISButton
+          comboPlayer1:
+            type: ISComboBox
+          buttonNewPlayer:
+            type: ISButton
+          buttonBrowse:
+            type: ISButton
+          renameSavefileEntry:
+            type: ISTextEntryBox
+          buttonRenameSavefile:
+            type: ISButton
+          comboDeleteFiles:
+            type: ISComboBox
+          buttonDeleteFiles:
+            type: ISButton
+          joypadButtons:
+            type: ISButton[]
+          checkExistsName:
+            type: string
+            nullable: true
+          checkExist:
+            type: boolean
+            nullable: true
+          saveFolder:
+            type: string
+          saveInfo:
+            type: umbrella.LoadGameScreen.SaveInfo
+        methods:
+          - name: createChildren
+          - name: createRichText
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: richText1
+                type: string
+            return:
+              - type: ISRichTextPanel
+          - name: createButton
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: buttonWid
+                type: number
+              - name: buttonHgt
+                type: number
+              - name: buttonText
+                type: string
+              - name: command
+                type: umbrella.ISButton.OnClick
+            return:
+              - type: ISButton
+          - name: prerender
+          - name: render
+          - name: onChooseMods
+            parameters:
+              - name: button
+                type: ISButton
+          - name: validateSavefileName
+            parameters:
+              - name: text
+                type: string
+            return:
+              - type: boolean
+          - name: setSavefile
+            parameters:
+              - name: folder
+                type: string
+              - name: info
+                type: umbrella.LoadGameScreen.SaveInfo
+          - name: onPlayerSelected
+            parameters:
+              - name: combo
+                type: ISComboBox
+          - name: onNewPlayer
+            parameters:
+              - name: combo
+                type: ISComboBox
+          - name: onRenameSavefile
+            parameters:
+              - name: button
+                type: ISButton
+          - name: onBrowseFiles
+            parameters:
+              - name: button
+                type: ISButton
+          - name: onDeleteFiles
+            parameters:
+              - name: button
+                type: ISButton
+          - name: onMouseWheel
+            parameters:
+              - name: del
+                type: number
+            return:
+              - type: boolean
       umbrella.LoadGameScreen.SaveInfo:
         fields:
           lastPlayed:

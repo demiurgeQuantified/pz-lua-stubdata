@@ -45,6 +45,9 @@ languages:
           handgunHolsterSheriff: {}
           handgunHolsterSWAT: {}
           handgunHolsterGhillie: {}
+          handgunHolsterWildWest: {}
+          handgunHolsterLeftWildWest: {}
+          rifleWildWest: {}
           shotgunPolice: {}
           gunOnBackSWAT: {}
           assaultRifleOnBack: {}

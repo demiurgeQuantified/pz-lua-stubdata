@@ -1,0 +1,53 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISTakeBricks:
+        extends: ISBaseTimedAction
+        constructors:
+          - parameters:
+              - name: character
+                type: IsoPlayer
+              - name: pallet
+                type: IsoObject
+              - name: square
+                type: IsoGridSquare
+              - name: sprite
+                type: string
+                nullable: true
+              - name: item
+                type: string
+              - name: amount
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"ISTakeBricks"'
+        fields:
+          amount:
+            type: number
+          pallet:
+            type: IsoObject
+          square:
+            type: IsoGridSquare
+          sprite:
+            type: string
+            nullable: true
+          item:
+            type: string
+        methods:
+          - name: isValid
+            return:
+              - type: boolean
+          - name: waitToStart
+            return:
+              - type: boolean
+          - name: update
+          - name: start
+          - name: stop
+          - name: perform
+          - name: complete
+            return:
+              - type: boolean
+          - name: getDuration
+            return:
+              - type: number

@@ -1,0 +1,163 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      WorldMapEditorMode_Streets:
+        extends: WorldMapEditorMode
+        constructors:
+          - parameters:
+              - name: editor
+        staticFields:
+          Type:
+            defaultValue: '"WorldMapEditorMode_Streets"'
+        fields:
+          buttonCreateStreet:
+            type: ISButton
+          buttonEditStreet:
+            type: ISButton
+          buttonRemoveStreet:
+            type: ISButton
+          streetNameEntry:
+            type: ISTextEntryBox
+          widthEntry:
+            type: ISTextEntryBox
+          mapDirList:
+            type: ISScrollingListBox
+          vector2: {}
+          addPointWorldPos:
+            type: table
+            nullable: true
+          selectedStreet:
+            nullable: true
+          selectedMapDirectory:
+            type: number
+            nullable: true
+          mouseDown:
+            type: boolean
+          mouseMoved:
+            type: boolean
+          pressX:
+            type: number
+          pressY:
+            type: number
+          editorStreet:
+            nullable: true
+          dragPoint:
+            type: number
+          mode:
+            type: string
+          editorAPI: {}
+        methods:
+          - name: createChildren
+          - name: render
+          - name: renderStreetPoints
+            parameters:
+              - name: street
+          - name: renderStreetLines
+            parameters:
+              - name: street
+          - name: renderStreetLine
+            parameters:
+              - name: worldX1
+              - name: worldY1
+              - name: worldX2
+              - name: worldY2
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+              - name: a
+                type: number
+          - name: pickMouseOverStreet
+            return:
+              - type: unknown
+                nullable: true
+          - name: display
+          - name: undisplay
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: boolean
+          - name: onMouseUp
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: boolean
+          - name: onMouseUpOutside
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: boolean
+          - name: onMouseMove
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+            return:
+              - type: boolean
+          - name: onRightMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: boolean
+          - name: onKeyPress
+            parameters:
+              - name: key
+                type: integer
+            return:
+              - type: boolean
+          - name: pickStreet
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: unknown
+          - name: pickStreetPoint
+            parameters:
+              - name: street
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: unknown
+          - name: streetContainsPoint
+            parameters:
+              - name: street
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: boolean
+          - name: onCreateStreet
+          - name: onSelectStreet
+          - name: onRemoveStreet
+          - name: onStreetNameEntered
+          - name: onWidthEntered
+          - name: onMouseWheel_Width
+            parameters:
+              - name: delta
+                type: number
+          - name: onSaveStreets
+          - name: cancelNewStreet
+            return:
+              - type: boolean

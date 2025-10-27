@@ -218,6 +218,10 @@ languages:
                 type: ISFarmingInfo
             return:
               - type: umbrella.ISFarmingInfo.DiseaseTable
+          - name: getDiseaseStats
+            parameters:
+              - name: info
+                type: ISFarmingInfo
           - name: getLastWatedHour
             parameters:
               - name: plant

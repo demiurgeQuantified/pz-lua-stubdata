@@ -18,6 +18,7 @@ languages:
           - name: start
           - name: update
           - name: stop
+          - name: destroy
       Fishing.States.Idle:
         local: true
         constructors:
@@ -31,6 +32,7 @@ languages:
           - name: start
           - name: update
           - name: stop
+          - name: destroy
       Fishing.States.Cast:
         local: true
         constructors:
@@ -47,6 +49,7 @@ languages:
           - name: start
           - name: update
           - name: stop
+          - name: destroy
       Fishing.States.Wait:
         local: true
         constructors:
@@ -65,6 +68,7 @@ languages:
           - name: start
           - name: update
           - name: stop
+          - name: destroy
       Fishing.States.ReelIn:
         local: true
         constructors:
@@ -83,6 +87,7 @@ languages:
           - name: start
           - name: update
           - name: stop
+          - name: destroy
       Fishing.States.ReelOut:
         local: true
         constructors:
@@ -96,6 +101,7 @@ languages:
           - name: start
           - name: update
           - name: stop
+          - name: destroy
       Fishing.States.PickupFish:
         local: true
         constructors:
@@ -111,3 +117,4 @@ languages:
           - name: start
           - name: update
           - name: stop
+          - name: destroy

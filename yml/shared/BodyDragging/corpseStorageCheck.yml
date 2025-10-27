@@ -1,0 +1,95 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      corpseStorageCheck:
+        staticFields:
+          isEnabled:
+            defaultValue: "true"
+        staticMethods:
+          - name: worldObjectContext
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: contextMenu
+                type: ISContextMenu
+              - name: _worldObjects
+                type: IsoObject[]
+          - name: doContextDropCorpsesIntoContainers
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: contextMenu
+                type: ISContextMenu
+              - name: _worldObjects
+                type: IsoObject[]
+          - name: onDropCorpseInto
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: targetContainer
+                type: ItemContainer
+          - name: doContextGrabCorpsesFromContainers
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: contextMenu
+                type: ISContextMenu
+              - name: _worldObjects
+                type: IsoObject[]
+          - name: onGrabCorpseFrom
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: targetContainer
+                type: ItemContainer
+          - name: openContainerVehicleDoor
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: targetContainer
+                type: ItemContainer
+            return:
+              - type: boolean
+                nullable: true
+          - name: closeContainerVehicleDoor
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: targetContainer
+                type: ItemContainer
+            return:
+              - type: boolean
+                nullable: true
+          - name: isPlayerGrabbingCorpseItem
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: item
+                type: InventoryItem
+              - name: targetContainer
+                type: ItemContainer
+            return:
+              - type: boolean
+          - name: canPlayerAccessContainer
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: targetContainer
+                type: ItemContainer
+            return:
+              - type: boolean
+          - name: getContainerToolTip
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: targetContainer
+                type: ItemContainer
+            return:
+              - type: ISToolTip
+                nullable: true
+          - name: getContainerName
+            parameters:
+              - name: container
+            return:
+              - type: string

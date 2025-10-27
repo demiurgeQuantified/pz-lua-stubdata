@@ -79,6 +79,10 @@ languages:
           - name: getJobDelta
             return:
               - type: number
+          - name: setJobDelta
+            parameters:
+              - name: delta
+                type: number
           - name: resetJobDelta
             return:
               - type: unknown

@@ -1,0 +1,48 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISAddFluidFromItemAction:
+        extends: ISBaseTimedAction
+        constructors:
+          - parameters:
+              - name: character
+                nullable: true
+              - name: itemFrom
+                type: InventoryItem
+              - name: objectTo
+                type: IsoObject
+        staticFields:
+          Type:
+            defaultValue: '"ISAddFluidFromItemAction"'
+        fields:
+          sound:
+            type: integer
+          itemFrom:
+            type: InventoryItem
+          objectTo:
+            type: IsoObject
+          itemFromStartAmount:
+            type: number
+          addUnits:
+            type: number
+          itemFromEndingAmount:
+            type: number
+        methods:
+          - name: isValid
+            return:
+              - type: boolean
+          - name: waitToStart
+            return:
+              - type: boolean
+          - name: update
+          - name: start
+          - name: stop
+          - name: perform
+          - name: complete
+            return:
+              - type: boolean
+          - name: getDuration
+            return:
+              - type: number
+          - name: stopSound

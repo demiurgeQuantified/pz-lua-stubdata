@@ -230,11 +230,6 @@ languages:
                 type: JoypadData
           - name: close
       ISTextEntryBox:
-        fields:
-          font:
-            type: UIFont
-            tags:
-              - StubGen_Hidden
         methods:
           - name: isMultipleLine
             return:

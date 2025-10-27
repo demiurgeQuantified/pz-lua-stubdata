@@ -22,6 +22,8 @@ languages:
         fields:
           textBox:
             type: ISTextEntryBox
+          isHighlighted:
+            type: boolean
           title:
             type: string
           character:

@@ -26,7 +26,7 @@ languages:
           Type:
             defaultValue: '"ISInventoryPage"'
           bagSoundDelay:
-            defaultValue: "2"
+            defaultValue: "0.5"
           bagSoundTime:
             defaultValue: "0"
           renderDirty:
@@ -40,14 +40,12 @@ languages:
             type: number
           inventoryPane:
             type: ISInventoryPane
-          transferAll:
-            type: ISButton
+          controlsUI:
+            type: ISLootWindowContainerControls | ISInventoryWindowContainerControls
           lootAll:
             type: ISButton
-          removeAll:
-            type: ISButton
-          toggleStove:
-            type: ISButton
+          containerButtonPanel:
+            type: ISInventoryPageContainerButtonPanel
           resizeWidget:
             type: ISResizeWidget
           resizeWidget2:
@@ -64,7 +62,6 @@ languages:
             type: number
           totalItems:
             type: number
-            nullable: true
           infoText:
             type: string
             nullable: true
@@ -105,6 +102,8 @@ languages:
             type: number
           blinkAlphaIncrease:
             type: boolean
+          selectedContainerForSound:
+            nullable: true
           title:
             type: string
             nullable: true
@@ -113,6 +112,8 @@ languages:
           downX:
             type: number
           downY:
+            type: number
+          lastMouseWheelMS:
             type: number
           buttonPool:
             type: ISButton[]
@@ -187,13 +188,14 @@ languages:
             return:
               - type: number
           - name: createChildren
-          - name: transferAll
           - name: lootAll
-          - name: removeAll
-          - name: toggleStove
           - name: updateItemCount
           - name: refreshWeight
-          - name: syncToggleStove
+          - name: transferAll
+          - name: toggleStove
+          - name: syncAddFuel
+          - name: syncPutOut
+          - name: syncLightFire
           - name: setInfo
             parameters:
               - name: text
@@ -205,6 +207,13 @@ languages:
           - name: isRemoveButtonVisible
             return:
               - type: boolean
+          - name: getContainerParent
+            parameters:
+              - name: container
+                nullable: true
+            return:
+              - type: unknown
+                nullable: true
           - name: updateContainerHighlight
           - name: update
           - name: setBlinkingContainer
@@ -314,6 +323,24 @@ languages:
                 type: ISButton
             return:
               - type: boolean
+          - name: playContainerOpenCloseSounds
+            parameters:
+              - name: button
+                type: ISButton
+          - name: playContainerOpenSound
+            parameters:
+              - name: container
+            return:
+              - type: boolean
+                nullable: true
+          - name: playContainerCloseSound
+            parameters:
+              - name: container
+                nullable: true
+            return:
+              - type: boolean
+                nullable: true
+          - name: updateContainerOpenCloseSounds
           - name: selectContainer
             parameters:
               - name: button
@@ -368,6 +395,7 @@ languages:
                 type: number
               - name: y
                 type: number
+          - name: collapseNow
           - name: isCycleContainerKeyDown
             return:
               - type: boolean
@@ -422,6 +450,14 @@ languages:
               - name: playerObj
                 type: IsoPlayer
           - name: refreshBackpacks
+          - name: onRenameContainerClick
+            parameters:
+              - name: button
+                type: ISButton
+              - name: player
+                type: IsoPlayer
+              - name: container
+                type: ItemContainer
           - name: onMouseOverButton
             parameters:
               - name: button
@@ -454,6 +490,7 @@ languages:
               - name: layout
                 type: umbrella.ISLayoutManager.Layout
           - name: onInventoryContainerSizeChanged
+          - name: removeAll
           - name: render3DItemPreview
         staticMethods:
           - name: OnObjectHighlighted
@@ -477,6 +514,10 @@ languages:
                 type: integer
             return:
               - type: ItemContainer
+          - name: onRenameContainer
+            parameters:
+              - name: container
+              - name: player
           - name: onKeyPressed
             parameters:
               - name: key
@@ -489,3 +530,22 @@ languages:
               - name: object
                 nullable: true
           - name: ongamestart
+      ISInventoryPageContainerButtonPanel:
+        extends: ISPanel
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: w
+                type: number
+              - name: h
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"ISInventoryPageContainerButtonPanel"'
+        methods:
+          - name: prerender
+          - name: render
+          - name: keepSelectedButtonVisible

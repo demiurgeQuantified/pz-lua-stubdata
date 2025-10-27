@@ -34,3 +34,7 @@ languages:
         parameters:
           - name: metalworker
             type: TraitFactory.Trait
+      - name: doTailorRecipes
+        parameters:
+          - name: tailor
+            type: TraitFactory.Trait

@@ -44,8 +44,6 @@ languages:
             type: ISButton
           changeSurname:
             type: ISButton
-          muteAllBtn:
-            type: ISButton
           changeAccessLvlBtn:
             type: ISButton
           userlogBtn:
@@ -117,7 +115,6 @@ languages:
                 type: number
             return:
               - type: boolean
-                nullable: true
           - name: create
           - name: onOptionMouseDown
             parameters:

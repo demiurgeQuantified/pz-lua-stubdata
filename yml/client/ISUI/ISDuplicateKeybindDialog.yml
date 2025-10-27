@@ -12,6 +12,9 @@ languages:
                 type: string
               - name: keybind2Name
                 type: string
+              - name: shift
+              - name: ctrl
+              - name: alt
         staticFields:
           Type:
             defaultValue: '"ISDuplicateKeybindDialog"'
@@ -29,6 +32,9 @@ languages:
             nullable: true
           key:
             type: integer
+          shift: {}
+          ctrl: {}
+          alt: {}
           keybindName:
             type: string
         methods:

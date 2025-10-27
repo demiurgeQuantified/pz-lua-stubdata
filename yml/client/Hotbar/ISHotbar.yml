@@ -213,10 +213,6 @@ languages:
             parameters:
               - name: player
                 type: IsoPlayer
-          - name: onStopGrapple
-            parameters:
-              - name: player
-                type: IsoPlayer
       umbrella.ISHotbar.Slot:
         fields:
           slotType:

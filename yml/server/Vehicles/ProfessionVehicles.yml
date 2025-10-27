@@ -25,9 +25,10 @@ languages:
             type: table
           VanMeltingPointMetal: {}
           VanMetalworker: {}
-          PickUpTruck: {}
-          PickUpVan: {}
+          PickUpTruck_Camo: {}
+          PickUpVan_Camo: {}
           VanSeats_Mural: {}
+          RaceCarBurnt: {}
           PickUpVanBuilder:
             defaultValue: ProfessionVehicles.VanBuilder
           PickUpVanLightsCarpenter:

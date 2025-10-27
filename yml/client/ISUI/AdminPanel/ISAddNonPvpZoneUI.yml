@@ -31,6 +31,8 @@ languages:
             type: ISButton
           titleEntry:
             type: ISTextEntryBox
+          interception:
+            type: boolean
           size:
             type: number
           startingX:

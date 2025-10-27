@@ -94,6 +94,8 @@ languages:
               - name: shift
           - name: canShoot
             parameters:
+              - name: player
+                type: IsoPlayer
               - name: weapon
                 type: HandWeapon
             return:

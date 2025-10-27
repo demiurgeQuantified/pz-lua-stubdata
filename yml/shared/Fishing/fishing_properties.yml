@@ -72,8 +72,16 @@ languages:
             type: boolean
           maxLength:
             type: integer
+          trophyLength:
+            type: integer
           maxWeight:
             type: integer
+          trophyWeight:
+            type: number
+          isPredator:
+            type: boolean
+          weightFactor:
+            type: number
           fishesSizeData:
             type: umbrella.FishSizeData[]
         methods:
@@ -87,10 +95,26 @@ languages:
             parameters:
               - name: length
                 type: integer
+          - name: setTrophyLength
+            parameters:
+              - name: length
+                type: integer
           - name: setMaxWeight
             parameters:
               - name: weight
                 type: integer
+          - name: setTrophyWeight
+            parameters:
+              - name: weight
+                type: number
+          - name: setPredator
+            parameters:
+              - name: isPredator
+                type: boolean
+          - name: setWeightFactor
+            parameters:
+              - name: number
+                type: number
           - name: addLures
             parameters:
               - name: itemTable

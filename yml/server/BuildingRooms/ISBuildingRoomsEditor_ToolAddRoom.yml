@@ -1,0 +1,25 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISBuildingRoomsEditor_ToolAddRoom:
+        extends: ISBuildingRoomsEditor_ToolAddRect
+        constructors:
+          - parameters:
+              - name: editor
+                type: ISBuildingRoomsEditor
+        staticFields:
+          Type:
+            defaultValue: '"ISBuildingRoomsEditor_ToolAddRoom"'
+        methods:
+          - name: getAPrompt
+            return:
+              - type: string
+          - name: getLBPrompt
+            return:
+              - type: string
+                nullable: true
+          - name: getRBPrompt
+            return:
+              - type: string
+                nullable: true

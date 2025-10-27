@@ -289,6 +289,18 @@ languages:
             type: umbrella.CraftRecipe.OnAddToMenuParams
         return:
           - type: boolean
+      - name: metalDoorLvl1Test
+        parameters:
+          - name: param
+            type: umbrella.CraftRecipe.OnAddToMenuParams
+        return:
+          - type: boolean
+      - name: metalDoorLvl2Test
+        parameters:
+          - name: param
+            type: umbrella.CraftRecipe.OnAddToMenuParams
+        return:
+          - type: boolean
       - name: metalWallLvl1Test
         parameters:
           - name: param

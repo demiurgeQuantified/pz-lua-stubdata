@@ -588,6 +588,168 @@ languages:
             return:
               - type: unknown
                 nullable: true
+      WorldMapStyleEditor_PyramidPanel:
+        extends: WorldMapStyleEditor_TabPanel
+        constructors:
+          - parameters:
+              - name: width
+                type: number
+              - name: editorMode
+        staticFields:
+          Type:
+            defaultValue: '"WorldMapStyleEditor_PyramidPanel"'
+        fields:
+          fileEntry:
+            type: ISTextEntryBox
+        methods:
+          - name: createChildren
+          - name: populateList
+            parameters:
+              - name: layer
+          - name: onFileEntered
+      WorldMapStyleEditor_PyramidLayerPanel:
+        extends: WorldMapStyleEditor
+        constructors:
+          - parameters:
+              - name: editorMode
+        staticFields:
+          Type:
+            defaultValue: '"WorldMapStyleEditor_PyramidLayerPanel"'
+        fields:
+          tabs:
+            type: ISTabPanel
+          pyramidPanel:
+            type: WorldMapStyleEditor_PyramidPanel
+          fillPanel:
+            type: WorldMapStyleEditor_ColorStopsPanel
+        methods:
+          - name: createChildren
+          - name: display
+            parameters:
+              - name: layer
+          - name: undisplay
+          - name: render
+          - name: onMouseDownMap
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: unknown
+          - name: onMouseUpMap
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: unknown
+          - name: onMouseUpOutsideMap
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: unknown
+          - name: onMouseMoveMap
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+            return:
+              - type: unknown
+          - name: onRightMouseDownMap
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: unknown
+      WorldMapStyleEditor_TextPanel:
+        extends: WorldMapStyleEditor_TabPanel
+        constructors:
+          - parameters:
+              - name: width
+                type: number
+              - name: editorMode
+        staticFields:
+          Type:
+            defaultValue: '"WorldMapStyleEditor_TextPanel"'
+        fields:
+          fontCombo:
+            type: ISComboBox
+        methods:
+          - name: createChildren
+          - name: populateList
+            parameters:
+              - name: layer
+          - name: onFontSelected
+      WorldMapStyleEditor_TextLayerPanel:
+        extends: WorldMapStyleEditor
+        constructors:
+          - parameters:
+              - name: editorMode
+        staticFields:
+          Type:
+            defaultValue: '"WorldMapStyleEditor_TextLayerPanel"'
+        fields:
+          tabs:
+            type: ISTabPanel
+          textPanel:
+            type: WorldMapStyleEditor_TextPanel
+          fillPanel:
+            type: WorldMapStyleEditor_ColorStopsPanel
+        methods:
+          - name: createChildren
+          - name: display
+            parameters:
+              - name: layer
+          - name: undisplay
+          - name: render
+          - name: onMouseDownMap
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: unknown
+          - name: onMouseUpMap
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: unknown
+          - name: onMouseUpOutsideMap
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: unknown
+          - name: onMouseMoveMap
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+            return:
+              - type: unknown
+          - name: onRightMouseDownMap
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: unknown
       WorldMapStyleEditor_TextureLayerPanel:
         extends: WorldMapStyleEditor
         constructors:

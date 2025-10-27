@@ -33,6 +33,32 @@ languages:
                 type: number
               - name: b
                 type: number
+          - name: addStampV2
+            parameters:
+              - name: self
+                type: umbrella.StashUtil.Stash
+              - name: symbol
+                type: string
+                nullable: true
+              - name: text
+                type: string
+                nullable: true
+              - name: mapX
+                type: number
+              - name: mapY
+                type: number
+              - name: anchorX
+                type: number
+              - name: anchorY
+                type: number
+              - name: rotation
+                type: number
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
           - name: addContainer
             parameters:
               - name: self
@@ -130,6 +156,15 @@ languages:
             type: number
           y:
             type: number
+          anchorX:
+            type: number
+            nullable: true
+          anchorY:
+            type: number
+            nullable: true
+          rotation:
+            type: number
+            nullable: true
           r:
             type: number
           g:

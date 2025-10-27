@@ -4,5 +4,4 @@ languages:
     classes:
       ClothingRecipesDefinitions:
         staticFields:
-          Sheet: {}
           FabricType: {}

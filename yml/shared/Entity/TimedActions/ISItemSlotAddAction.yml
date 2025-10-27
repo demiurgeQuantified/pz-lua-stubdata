@@ -18,6 +18,8 @@ languages:
           Type:
             defaultValue: '"ISItemSlotAddAction"'
         fields:
+          sound:
+            type: integer
           entity:
             type: IsoObject
           item:
@@ -26,6 +28,9 @@ languages:
             type: Resource
           itemSlot:
             type: ISItemSlot
+            nullable: true
+          canAddItem:
+            type: "fun(self: ISItemSlotAddAction): boolean"
             nullable: true
         methods:
           - name: isValid
@@ -41,3 +46,7 @@ languages:
           - name: getDuration
             return:
               - type: number
+          - name: stopSound
+          - name: canStart
+            return:
+              - type: boolean

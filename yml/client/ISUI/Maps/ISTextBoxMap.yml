@@ -53,12 +53,24 @@ languages:
             type: ColorInfo
           currentColor:
             type: ColorInfo
+          layerColorTickBox:
+            type: ISTickBox
           fontHgt:
             type: number
           entry:
             type: ISTextEntryBox
+          fontPicker:
+            type: ISComboBox
           tickBox:
             type: ISTickBox
+          tickBoxPerspective:
+            type: ISTickBox
+          sliderScale:
+            type: ISSliderPanel
+          sliderRotation:
+            type: ISSliderPanel
+          zoomPanel:
+            type: ISMapSymbolZoomPanel
           yes:
             type: ISButton
           no:
@@ -75,6 +87,14 @@ languages:
           validateTooltipText:
             type: string
             nullable: true
+          useLayerColor:
+            type: boolean
+          chosenFont:
+            nullable: true
+          scale:
+            type: number
+          rotation:
+            type: number
           character:
             type: IsoPlayer
             nullable: true
@@ -82,10 +102,11 @@ languages:
             nullable: true
           text:
             type: string
-          target:
-            type: umbrella.ISTextBoxMap.Target
           mapUI:
             type: umbrella.MapUI
+          mapAPI: {}
+          styleAPI: {}
+          symbolsAPI: {}
           symbolsUI:
             type: ISWorldMapSymbols
           onclick:
@@ -134,6 +155,20 @@ languages:
                 type: string
                 nullable: true
           - name: destroy
+          - name: setUseLayerColor
+            parameters:
+              - name: b
+                type: boolean
+          - name: onUseLayerColor
+          - name: onFontSelected
+          - name: onScaleChange
+            parameters:
+              - name: value
+              - name: slider
+          - name: onRotationChange
+            parameters:
+              - name: value
+              - name: slider
           - name: onClick
             parameters:
               - name: button
@@ -153,11 +188,37 @@ languages:
                 type: number
               - name: b
                 type: number
+          - name: showUseLayerColor
+            parameters:
+              - name: use
+                type: boolean
+          - name: showFontPicker
+            parameters:
+              - name: layerID
           - name: showTranslationTickBox
             parameters:
               - name: isTranslation
                 type: boolean
+          - name: showMatchPerspectiveTickBox
+            parameters:
+              - name: matchPerspective
+          - name: showScaleSlider
+            parameters:
+              - name: scale
+                type: number
+          - name: showRotationSlider
+            parameters:
+              - name: degrees
+                type: number
+          - name: showZoomPanel
+            parameters:
+              - name: minZoomF
+              - name: maxZoomF
+          - name: layoutWidgets
           - name: isTranslation
+            return:
+              - type: boolean
+          - name: isMatchPerspective
             return:
               - type: boolean
           - name: render

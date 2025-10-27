@@ -46,6 +46,132 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
+      ISWorldMapSharing.CheckList:
+        extends: ISScrollingListBox
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"ISWorldMapSharing_CheckList"'
+        fields:
+          selected:
+            type: number
+          leftMargin:
+            type: number
+          boxSize:
+            type: number
+          textGap:
+            type: number
+          tickTexture: {}
+          joypadParent:
+            type: ISWorldMapSharing_PanelPlayers
+        methods:
+          - name: doDrawItem
+            parameters:
+              - name: y
+              - name: item
+              - name: alt
+            return:
+              - type: number
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseDoubleClick
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: unknown
+                nullable: true
+          - name: setChecked
+            parameters:
+              - name: index
+                type: number
+              - name: checked
+                type: boolean
+          - name: isChecked
+            parameters:
+              - name: index
+                type: number
+            return:
+              - type: boolean
+          - name: getCheckedCount
+            return:
+              - type: number
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+      ISWorldMapSharing.PanelMain:
+        extends: ISPanelJoypad
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"ISWorldMapSharing_PanelMain"'
+        fields:
+          labelAuthor:
+            type: ISLabel
+          radioBtns:
+            type: ISRadioButtons
+          tickBox:
+            type: ISTickBox
+          buttonPlayers:
+            type: ISButton
+          currentSymbol: {}
+        methods:
+          - name: createChildren
+          - name: becomeCurrent
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: prerender
+          - name: onRadioButton
+            parameters:
+              - name: buttons
+                type: ISRadioButtons
+              - name: index
+                type: number
+          - name: onButtonPlayers
+          - name: setCurrentSymbol
+            parameters:
+              - name: symbol
+          - name: setJoypadButtons
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
       ISWorldMapSharing_PanelPlayers:
         extends: ISPanelJoypad
         constructors:

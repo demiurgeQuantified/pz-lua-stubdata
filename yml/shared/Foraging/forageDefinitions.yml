@@ -7,10 +7,6 @@ languages:
             umbrella.Foraging.ItemDefinition, itemList:
             ArrayList<InventoryItem>)"
     classes:
-      forageDefaultDefs:
+      forageSystem:
         staticFields:
-          defaultItemDef: {}
-          defaultZoneDef: {}
-          defaultCatDef: {}
-          defaultSkillDef: {}
-      forageDefs: {}
+          defaultDefinitions: {}

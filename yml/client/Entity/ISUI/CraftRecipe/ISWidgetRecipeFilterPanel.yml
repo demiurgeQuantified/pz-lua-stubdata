@@ -26,15 +26,20 @@ languages:
           filterTypeCombo:
             type: ISComboBox
             nullable: true
-          searchHackLabel:
+          sortComboLabel:
             type: ISLabel
-          buttonGrid:
+            nullable: true
+          sortCombo:
+            type: ISComboBox
+            nullable: true
+          buttonViewMode:
             type: ISButton
-          buttonList:
-            type: ISButton
+            nullable: true
           tickbox:
             type: ISTickBox
             nullable: true
+          searchInfoText:
+            type: string
           callbackTarget:
             type: unknown
             nullable: true
@@ -58,16 +63,28 @@ languages:
             type: number
           autoFillContents:
             type: boolean
+          needFilterCombo:
+            type: boolean
+          needSortCombo:
+            type: boolean
+          showFilterByOutputItem:
+            type: boolean
           isAutoFill:
             type: boolean
           isAutoFillX:
             type: boolean
           isAutoFillY:
             type: boolean
+          iconGrid:
+            type: Texture
+          iconList:
+            type: Texture
         methods:
           - name: initialise
           - name: createChildren
+          - name: updateViewModeButton
           - name: populateComboList
+          - name: populateSortList
           - name: OnShowAllClick
             parameters:
               - name: clickedOption
@@ -81,7 +98,11 @@ languages:
           - name: OnClickFilterType
             parameters:
               - name: box
-                type: ISTextEntryBox
+                type: ISComboBox
+          - name: OnClickSortType
+            parameters:
+              - name: box
+                type: ISComboBox
           - name: calculateLayout
             parameters:
               - name: _preferredWidth
@@ -102,6 +123,10 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
+          - name: setSearchInfoText
+            parameters:
+              - name: _text
+                type: string
         staticMethods:
           - name: onTextChange
             parameters:

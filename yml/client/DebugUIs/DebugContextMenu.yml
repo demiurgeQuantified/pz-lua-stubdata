@@ -52,6 +52,22 @@ languages:
                 nullable: true
               - name: square
                 type: IsoGridSquare
+          - name: doDebugPlayerMenu
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: context
+                type: ISContextMenu
+              - name: worldobjects
+                type: IsoObject[]
+          - name: doDebugVehicleMenu
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: context
+                type: ISContextMenu
+              - name: worldobjects
+                type: IsoObject[]
           - name: onToggleAnimalCheat
           - name: do3DItem
           - name: doMissingClothingItems
@@ -104,6 +120,8 @@ languages:
               - name: test
                 type: boolean
                 nullable: true
+              - name: square
+                type: IsoGridSquare
           - name: onSetAnimRecorderActive
             parameters:
               - name: character
@@ -355,18 +373,6 @@ languages:
             parameters:
               - name: script
                 type: MannequinScript
-          - name: OnMetalDrumZeroWater
-            parameters:
-              - name: obj
-                type: IsoObject
-          - name: OnRainBarrelZeroWater
-            parameters:
-              - name: obj
-                type: IsoObject
-          - name: OnRainBarrelSetWater
-            parameters:
-              - name: obj
-                type: IsoObject
           - name: onHordeManager
             parameters:
               - name: square
@@ -413,11 +419,28 @@ languages:
             parameters:
               - name: playerObj
                 type: IsoPlayer
+          - name: onTeleportPlayers
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
           - name: onRemoveItemTool
             parameters:
               - name: playerObj
                 type: IsoPlayer
           - name: onSpawnVehicle
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+          - name: onRemoveAllVehicles
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+          - name: onRemoveVehicle
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: vehicle
+          - name: onAddVehicle
             parameters:
               - name: playerObj
                 type: IsoPlayer
@@ -465,12 +488,16 @@ languages:
                 type: ISContextMenu
               - name: square
                 type: IsoGridSquare
+              - name: playerObj
+                type: IsoPlayer
           - name: addRZSDebugMenu
             parameters:
               - name: context
                 type: ISContextMenu
               - name: square
                 type: IsoGridSquare
+              - name: playerObj
+                type: IsoPlayer
           - name: onRemoveVehicles
             parameters:
               - name: zone

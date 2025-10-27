@@ -2,53 +2,6 @@ version: "1.1"
 languages:
   lua:
     classes:
-      forageSkills:
-        staticFields:
-          parkranger: {}
-          veteran: {}
-          farmer: {}
-          lumberjack: {}
-          chef: {}
-          fisherman: {}
-          unemployed: {}
-          burgerflipper: {}
-          doctor: {}
-          nurse: {}
-          fitnessInstructor: {}
-          repairman: {}
-          mechanics: {}
-          electrician: {}
-          engineer: {}
-          metalworker: {}
-          constructionworker: {}
-          carpenter: {}
-          burglar: {}
-          securityguard: {}
-          policeofficer: {}
-          fireofficer: {}
-          Whittler: {}
-          Mason: {}
-          Unlucky: {}
-          Lucky: {}
-          Formerscout: {}
-          Hiker: {}
-          Hunter: {}
-          EagleEyed: {}
-          Gardener: {}
-          Outdoorsman: {}
-          WildernessKnowledge: {}
-          Cook: {}
-          Cook2: {}
-          NightVision: {}
-          Nutritionist: {}
-          Nutritionist2: {}
-          Herbalist: {}
-          Agoraphobic: {}
-          HeartyAppetite: {}
-          Marksman: {}
-          FirstAid: {}
-          Fishing: {}
-          ShortSighted: {}
       forageZones:
         staticFields:
           DeepForest: {}
@@ -59,3 +12,6 @@ languages:
           TownZone: {}
           TrailerPark: {}
           Vegitation: {}
+      forageSystem:
+        staticFields:
+          forageSkillDefinitions: {}

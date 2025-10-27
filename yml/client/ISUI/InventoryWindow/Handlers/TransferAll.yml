@@ -1,0 +1,21 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISInventoryWindowControlHandler_TransferAll:
+        extends: ISInventoryWindowControlHandler
+        constructors:
+          - {}
+        staticFields:
+          Type:
+            defaultValue: '"ISInventoryWindowControlHandler_TransferAll"'
+        fields:
+          control: {}
+        methods:
+          - name: shouldBeVisible
+            return:
+              - type: boolean
+          - name: getControl
+            return:
+              - type: unknown
+          - name: perform

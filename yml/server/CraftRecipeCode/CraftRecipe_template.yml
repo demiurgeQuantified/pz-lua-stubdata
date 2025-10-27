@@ -6,3 +6,21 @@ languages:
         staticFields:
           generic:
             type: CraftRecipeCode.generic
+      CraftRecipeCode.generic:
+        local: true
+        staticMethods:
+          - name: OnTest
+            parameters:
+              - name: _craftProcessor
+          - name: OnStart
+            parameters:
+              - name: _craftProcessor
+          - name: OnUpdate
+            parameters:
+              - name: _craftProcessor
+          - name: OnCreate
+            parameters:
+              - name: _craftProcessor
+          - name: OnFailed
+            parameters:
+              - name: _craftProcessor

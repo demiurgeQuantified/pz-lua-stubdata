@@ -1,0 +1,25 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISLootWindowObjectControlHandler_PropaneBarbecueRemoveTank:
+        extends: ISLootWindowObjectControlHandler
+        constructors:
+          - {}
+        staticFields:
+          Type:
+            defaultValue: '"ISLootWindowObjectControlHandler_PropaneBarbecueRemoveTank"'
+        fields:
+          control: {}
+        methods:
+          - name: shouldBeVisible
+            return:
+              - type: unknown
+          - name: getControl
+            return:
+              - type: unknown
+          - name: handleJoypadContextMenu
+            parameters:
+              - name: context
+                type: ISContextMenu
+          - name: perform

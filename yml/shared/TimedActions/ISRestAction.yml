@@ -39,10 +39,19 @@ languages:
           - name: update
           - name: start
           - name: stop
+          - name: animEvent
+            parameters:
+              - name: event
+                type: string
+              - name: parameter
+                type: string
+          - name: serverStart
+          - name: serverStop
           - name: perform
           - name: complete
             return:
               - type: boolean
+          - name: resetResting
           - name: getDuration
             return:
               - type: number

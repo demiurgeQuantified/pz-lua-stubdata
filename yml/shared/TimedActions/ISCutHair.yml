@@ -27,6 +27,8 @@ languages:
           item:
             type: InventoryItem
             nullable: true
+          maxTime:
+            type: number
         methods:
           - name: isValid
             return:
@@ -40,7 +42,5 @@ languages:
             return:
               - type: boolean
           - name: getDuration
-            parameters:
-              - name: maxTime
             return:
               - type: number

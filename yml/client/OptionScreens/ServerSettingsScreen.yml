@@ -103,6 +103,1078 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
+      ServerSettingsScreen.Page1:
+        extends: ISPanelJoypad
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"Page1"'
+        fields:
+          listbox:
+            type: ISScrollingListBox
+          buttonNew:
+            type: ISButton
+          buttonEdit:
+            type: ISButton
+          buttonDuplicate:
+            type: ISButton
+          buttonRename:
+            type: ISButton
+          buttonDelete:
+            type: ISButton
+          backButton:
+            type: ISButton
+        methods:
+          - name: create
+          - name: updateWhenVisible
+          - name: render
+          - name: onDoubleClickListBox
+            parameters:
+              - name: item
+          - name: doDrawItem
+            parameters:
+              - name: y
+                type: number
+              - name: item
+                type: umbrella.ISScrollingListBox.Item
+              - name: alt
+                type: boolean
+            return:
+              - type: number
+          - name: aboutToShow
+          - name: onButtonNew
+          - name: onButtonEdit
+          - name: onButtonDuplicate
+          - name: onButtonRename
+          - name: onButtonDelete
+          - name: onButtonBack
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirRight_ListBox
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadBeforeDeactivate
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onResolutionChange
+      ServerSettingsScreen.Page2:
+        extends: BaseServerSettingsPanel
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"Page2"'
+        fields:
+          entry:
+            type: ISTextEntryBox
+          newFilesY:
+            type: number
+          backButton:
+            type: ISButton
+          nextButton:
+            type: ISButton
+          checkName:
+            type: string
+            nullable: true
+        methods:
+          - name: create
+          - name: updateWhenVisible
+          - name: render
+          - name: aboutToShow
+          - name: onButtonBack
+          - name: onButtonNext
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onResolutionChange
+      ServerSettingsScreen.Page3:
+        extends: ISPanelJoypad
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"Page3"'
+          ChooseModsWindow:
+            type: Page3.ChooseModsWindow
+        fields:
+          nonDefaultOptions:
+            type: table
+          listbox:
+            type: ISScrollingListBox
+          tooltipPanel:
+            type: ISRichTextPanel
+          filterEntry:
+            type: ISTextEntryBox
+          controls:
+            type: table
+          groupBox:
+            type: table
+          customui:
+            type: table
+          buttonCancel:
+            type: ISButton
+          buttonAccept:
+            type: ISButton
+          currentPanel:
+            nullable: true
+          selectedYear:
+            type: integer
+          selectedMonth:
+            type: integer
+          chooseModsWindow:
+            type: Page3.ChooseModsWindow
+          settings:
+            type: umbrella.ServerSettingsScreen.Setting[]
+            nullable: true
+        methods:
+          - name: create
+          - name: doSearch
+          - name: createPanel
+            parameters:
+              - name: category
+              - name: page
+            return:
+              - type: ServerSettingsScreen.ServerSettingsScreenGroupBox
+          - name: doDrawItem
+            parameters:
+              - name: y
+                type: number
+              - name: item
+                type: umbrella.ISScrollingListBox.Item
+              - name: alt
+                type: boolean
+            return:
+              - type: number
+          - name: onMouseDownListBox
+            parameters:
+              - name: item
+          - name: onPanelChange
+          - name: onComboBoxSelected
+            parameters:
+              - name: combo
+              - name: categoryName
+                type: string
+              - name: optionName
+                type: string
+          - name: onTickBoxSelected
+            parameters:
+              - name: _
+              - name: value
+              - name: categoryName
+                type: string
+              - name: optionName
+                type: string
+          - name: syncStartDay
+          - name: updateWhenVisible
+          - name: prerender
+          - name: render
+          - name: settingsToUIAux
+            parameters:
+              - name: category
+                type: string
+              - name: options
+          - name: settingsToUI
+          - name: settingsFromUIAux
+            parameters:
+              - name: category
+                type: string
+              - name: options
+          - name: settingsFromUI
+          - name: settingValueChanged
+            parameters:
+              - name: category
+              - name: settingName
+                type: string
+              - name: newValue
+          - name: notify
+            parameters:
+              - name: message
+              - name: arg1
+              - name: arg2
+              - name: arg3
+              - name: arg4
+          - name: aboutToShowStartScreen
+          - name: aboutToShow
+          - name: onButtonCancel
+          - name: onButtonSave
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirUp
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirRight
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown_ListBox
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirRight_ListBox
+            parameters:
+              - name: joypadData
+                type: JoypadData
+      ServerSettingsScreen.Page4:
+        extends: BaseServerSettingsPanel
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"Page4"'
+        fields:
+          entry:
+            type: ISTextEntryBox
+          newFilesY:
+            type: number
+          buttonCancel:
+            type: ISButton
+          buttonAccept:
+            type: ISButton
+          checkName:
+            nullable: true
+        methods:
+          - name: create
+          - name: updateWhenVisible
+          - name: render
+          - name: aboutToShow
+          - name: onButtonCancel
+          - name: onButtonAccept
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onResolutionChange
+      ServerSettingsScreen.Page5:
+        extends: BaseServerSettingsPanel
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"Page5"'
+        fields:
+          entry:
+            type: ISTextEntryBox
+          newFilesY:
+            type: number
+          buttonCancel:
+            type: ISButton
+          buttonAccept:
+            type: ISButton
+          checkName:
+            nullable: true
+        methods:
+          - name: create
+          - name: updateWhenVisible
+          - name: render
+          - name: aboutToShow
+          - name: onButtonCancel
+          - name: onButtonAccept
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onResolutionChange
+      ServerSettingsScreen.Page6:
+        extends: ISPanelJoypad
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"Page6"'
+        fields:
+          newFilesY:
+            type: number
+          buttonCancel:
+            type: ISButton
+          buttonAccept:
+            type: ISButton
+        methods:
+          - name: create
+          - name: updateWhenVisible
+          - name: render
+          - name: aboutToShow
+          - name: onButtonCancel
+          - name: onButtonAccept
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onResolutionChange
+      ServerSettingsScreen.MultiColumnPanelJoypad:
+        extends: ISPanelJoypad
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"MultiColumnPanelJoypad"'
+        fields:
+          multiColumnIndex:
+            type: number
+          joypadButtons:
+            type: ISButton[]
+          multiColumnUI:
+            type: table
+          multiColumnCurrent:
+            type: table
+        methods:
+          - name: render
+          - name: setJoypadColumn
+            parameters:
+              - name: index
+          - name: addJoypadColumn
+            parameters:
+              - name: uiList
+      ServerSettingsScreen.Page7:
+        extends: ServerSettingsScreen.MultiColumnPanelJoypad
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"Page7"'
+        fields:
+          professionLabel:
+            type: ISLabel
+          profListBox: {}
+          addProfessionLabel:
+            type: ISLabel
+          profComboBox:
+            type: ISComboBox
+          addAnotherProfessionLabel:
+            type: ISLabel
+          entryOtherProfession:
+            type: ISTextEntryBox
+          spawnPointListLabel:
+            type: ISLabel
+          pointListBox: {}
+          addSpawnPointLabel:
+            type: ISLabel
+          entryAddSpawnPoint:
+            type: ISTextEntryBox
+          buttonCancel:
+            type: ISButton
+          buttonAccept:
+            type: ISButton
+        methods:
+          - name: create
+          - name: updateWhenVisible
+          - name: render
+          - name: aboutToShow
+          - name: fillProfessionList
+          - name: addProfessionToList
+            parameters:
+              - name: professionType
+              - name: pointsTable
+                type: table
+              - name: select
+                type: boolean
+          - name: isProfessionInList
+            parameters:
+              - name: professionType
+            return:
+              - type: boolean
+          - name: fillProfessionCombo
+          - name: fillPointList
+          - name: addPointToList
+            parameters:
+              - name: pointTable
+              - name: select
+          - name: onMouseDownProfession
+            parameters:
+              - name: data
+          - name: onAddProfession
+          - name: onAddOtherProfession
+          - name: onRemoveProfession
+            parameters:
+              - name: index
+          - name: onAddPoint
+          - name: onRemovePoint
+            parameters:
+              - name: index
+          - name: onButtonCancel
+          - name: onButtonAccept
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirRight
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirUp
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirDown
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onResolutionChange
+      ServerSettingsScreen.ServerSettingsScreenPanel:
+        extends: ISPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"ServerSettingsScreenPanel"'
+        fields:
+          entryText:
+            type: table
+        methods:
+          - name: prerender
+          - name: render
+          - name: onMouseWheel
+            parameters:
+              - name: del
+                type: number
+            return:
+              - type: boolean
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+      ServerSettingsScreen.ServerSettingsScreenBaseListBox:
+        extends: ISScrollingListBox
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"ServerSettingsScreenBaseListBox"'
+        fields:
+          selectedBeforeReset:
+            nullable: true
+        methods:
+          - name: setJoypadFocused
+            parameters:
+              - name: focused
+                type: boolean
+              - name: joypadData
+                type: JoypadData
+          - name: render
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDownInParent
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+            return:
+              - type: boolean
+      ServerSettingsScreen.SpawnRegionsPanel:
+        extends: ServerSettingsScreen.MultiColumnPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"SpawnRegionsPanel"'
+        fields:
+          listbox: {}
+          nameFilePanel:
+            type: SpawnRegionsNameFilePanel
+          entry:
+            type: ISTextEntryBox
+          buttonAdd:
+            type: ISButton
+          buttonRemove:
+            type: ISButton
+          buttonEdit:
+            type: ISButton
+          settings:
+            type: umbrella.ServerSettingsScreen.Setting[]
+        methods:
+          - name: createChildren
+          - name: addToList
+            parameters:
+              - name: name
+              - name: file
+                type: string
+          - name: onButtonAddRegion
+          - name: onButtonRemoveRegion
+          - name: onButtonEditRegion
+          - name: prerender
+          - name: notify
+            parameters:
+              - name: message
+              - name: arg1
+              - name: arg2
+              - name: arg3
+              - name: arg4
+          - name: setSettings
+            parameters:
+              - name: settings
+          - name: settingsFromUI
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirRight
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onResolutionChange
+      ServerSettingsScreen.SpawnRegionsListBox:
+        extends: ServerSettingsScreen.ServerSettingsScreenBaseListBox
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"SpawnRegionsListBox"'
+        fields:
+          entryName:
+            type: ISTextEntryBox
+          entryFile:
+            type: ISTextEntryBox
+          currentItem:
+            nullable: true
+          scrollBarVisible: {}
+        methods:
+          - name: createChildren
+          - name: prerender
+          - name: render
+          - name: doDrawItem
+            parameters:
+              - name: y
+                type: number
+              - name: item
+                type: umbrella.ISScrollingListBox.Item
+              - name: alt
+                type: boolean
+            return:
+              - type: number
+          - name: positionEntries
+      ServerSettingsScreen.SpawnPointsListBox:
+        extends: ISScrollingListBox
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"SpawnPointsListBox"'
+      ServerSettingsScreen.ServerSettingsScreenGroupBox:
+        extends: ServerSettingsScreen.ServerSettingsScreenPanel
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: tickBoxLabel
+                type: string
+              - name: category
+        staticFields:
+          Type:
+            defaultValue: '"ServerSettingsScreenGroupBox"'
+        fields:
+          tickBoxLabel:
+            type: string
+          settings:
+            type: umbrella.ServerSettingsScreen.Setting[]
+            nullable: true
+          category: {}
+          tickBox:
+            type: ISTickBox
+          cover:
+            type: ISPanel
+          contents: {}
+          joypadButtons: {}
+          _instance:
+            type: ServerSettingsScreen.Page3
+          settingNames:
+            type: table
+          labels:
+            type: table
+          controls:
+            type: table
+          titles:
+            type: table
+        methods:
+          - name: createChildren
+          - name: prerender
+          - name: onTicked
+            parameters:
+              - name: index
+              - name: selected
+          - name: settingsToUI
+            parameters:
+              - name: settings
+              - name: category
+          - name: setJoypadButtons
+          - name: ensureVisible
+      ServerSettingsScreen.ServerSettingsScreenModsPanel:
+        extends: ServerSettingsScreen.MultiColumnPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"ServerSettingsScreenModsPanel"'
+        fields:
+          listbox: {}
+          button:
+            type: ISButton
+          settings:
+            type: umbrella.ServerSettingsScreen.Setting[]
+          modInfoByID:
+            type: table
+        methods:
+          - name: createChildren
+          - name: prerender
+          - name: setSettings
+            parameters:
+              - name: settings
+          - name: settingsFromUI
+          - name: modListToString
+            return:
+              - type: string
+          - name: addModToList
+            parameters:
+              - name: modID
+          - name: aboutToShowStartScreen
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirRight
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onResolutionChange
+      ServerSettingsScreen.ServerSettingsScreenModsListBox:
+        extends: ServerSettingsScreen.ServerSettingsScreenBaseListBox
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"ServerSettingsScreenModsListBox"'
+        fields:
+          mouseOverButtonIndex:
+            nullable: true
+        methods:
+          - name: prerender
+          - name: doDrawItem
+            parameters:
+              - name: y
+                type: number
+              - name: item
+                type: umbrella.ISScrollingListBox.Item
+              - name: alt
+                type: boolean
+            return:
+              - type: number
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+      ServerSettingsScreen.ServerSettingsScreenMapsPanel:
+        extends: ServerSettingsScreen.MultiColumnPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"ServerSettingsScreenMapsPanel"'
+        fields:
+          listbox: {}
+          buttonMoveUp:
+            type: ISButton
+          buttonMoveDown:
+            type: ISButton
+          buttonRemove:
+            type: ISButton
+          comboBox:
+            type: ISComboBox
+          entry:
+            type: ISTextEntryBox
+          settings:
+            type: umbrella.ServerSettingsScreen.Setting[]
+        methods:
+          - name: createChildren
+          - name: prerender
+          - name: onButtonMoveUp
+          - name: onButtonMoveDown
+          - name: onButtonRemove
+          - name: setSettings
+            parameters:
+              - name: settings
+          - name: settingsFromUI
+          - name: notify
+            parameters:
+              - name: message
+              - name: arg1
+              - name: arg2
+              - name: arg3
+              - name: arg4
+          - name: fillComboBox
+            parameters:
+              - name: modsString
+          - name: findMapInList
+            parameters:
+              - name: mapFolder
+            return:
+              - type: unknown
+                nullable: true
+          - name: addMapToList
+            parameters:
+              - name: mapFolder
+              - name: index
+          - name: onAddInstalledMap
+          - name: onAddOtherMap
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirRight
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onResolutionChange
+      ServerSettingsScreen.ServerSettingsScreenMapsListBox:
+        extends: ServerSettingsScreen.ServerSettingsScreenBaseListBox
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"ServerSettingsScreenMapsListBox"'
+        fields:
+          mouseOverButtonIndex:
+            nullable: true
+        methods:
+          - name: prerender
+          - name: doDrawItem
+            parameters:
+              - name: y
+                type: number
+              - name: item
+                type: umbrella.ISScrollingListBox.Item
+              - name: alt
+                type: boolean
+            return:
+              - type: number
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onRemoveItem
+            parameters:
+              - name: index
+      ServerSettingsScreen.ServerSettingsScreenWorkshopPanel:
+        extends: ServerSettingsScreen.MultiColumnPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"ServerSettingsScreenWorkshopPanel"'
+        fields:
+          listbox: {}
+          buttonRemove:
+            type: ISButton
+          comboBox:
+            type: ISComboBox
+          entry:
+            type: ISTextEntryBox
+          settings:
+            type: umbrella.ServerSettingsScreen.Setting[]
+          itemDetails:
+            type: table
+        methods:
+          - name: createChildren
+          - name: prerender
+          - name: setSettings
+            parameters:
+              - name: settings
+          - name: settingsFromUI
+          - name: aboutToShowStartScreen
+          - name: itemListToString
+            return:
+              - type: string
+          - name: addItemToList
+            parameters:
+              - name: workshopID
+          - name: isValidWorkshopID
+            parameters:
+              - name: workshopID
+            return:
+              - type: boolean
+          - name: onButtonRemove
+          - name: onAddInstalledItem
+          - name: onAddOtherItem
+          - name: onRemoveItem
+            parameters:
+              - name: index
+          - name: onItemQueryFinished
+            parameters:
+              - name: status
+              - name: info
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirRight
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onResolutionChange
+      ServerSettingsScreen.ServerSettingsScreenWorkshopListBox:
+        extends: ServerSettingsScreen.ServerSettingsScreenBaseListBox
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"ServerSettingsScreenWorkshopListBox"'
+        fields:
+          mouseOverButtonIndex:
+            nullable: true
+        methods:
+          - name: prerender
+          - name: doDrawItem
+            parameters:
+              - name: y
+                type: number
+              - name: item
+                type: umbrella.ISScrollingListBox.Item
+              - name: alt
+                type: boolean
+            return:
+              - type: number
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+      ServerSettingsScreen.SandboxPresetPanel:
+        extends: ServerSettingsScreen.MultiColumnPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"SandboxPresetPanel"'
+        fields:
+          listbox: {}
+          buttonApplyPreset:
+            type: ISButton
+          settings:
+            type: umbrella.ServerSettingsScreen.Setting[]
+        methods:
+          - name: createChildren
+          - name: prerender
+          - name: onButtonApplyPreset
+          - name: addPresetToList
+            parameters:
+              - name: fileName
+                type: string
+              - name: text
+                type: string
+              - name: userDefined
+                type: boolean
+          - name: setSettings
+            parameters:
+              - name: settings
+          - name: settingsFromUI
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirRight
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onResolutionChange
       SpawnRegionsNameFilePanel:
         extends: ISPanelJoypad
         constructors:

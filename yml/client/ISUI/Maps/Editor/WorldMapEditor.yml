@@ -22,6 +22,7 @@ languages:
         fields:
           mapAPI:
             type: UIWorldMapV1
+          streetsAPI: {}
           styleAPI:
             type: WorldMapStyleV1
           symbolsAPI:

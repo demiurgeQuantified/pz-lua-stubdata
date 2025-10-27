@@ -1,3 +1,25 @@
 version: "1.1"
 languages:
-  lua: {}
+  lua:
+    classes:
+      worldgen:
+        staticFields:
+          biomes_map.map_deep_forest: {}
+          biomes_map.map_deep_forest_boulder_none: {}
+          biomes_map.map_deep_forest_boulder_very_low: {}
+          biomes_map.map_deep_forest_boulder_low: {}
+          biomes_map.map_deep_forest_boulder_medium: {}
+          biomes_map.map_deep_forest_boulder_high: {}
+          biomes_map.map_deep_forest_boulder_very_high: {}
+          biomes_map.map_deep_forest_limestone_none: {}
+          biomes_map.map_deep_forest_limestone_very_low: {}
+          biomes_map.map_deep_forest_limestone_low: {}
+          biomes_map.map_deep_forest_limestone_medium: {}
+          biomes_map.map_deep_forest_limestone_high: {}
+          biomes_map.map_deep_forest_limestone_very_high: {}
+          biomes_map.map_deep_forest_flint_none: {}
+          biomes_map.map_deep_forest_flint_very_low: {}
+          biomes_map.map_deep_forest_flint_low: {}
+          biomes_map.map_deep_forest_flint_medium: {}
+          biomes_map.map_deep_forest_flint_high: {}
+          biomes_map.map_deep_forest_flint_very_high: {}

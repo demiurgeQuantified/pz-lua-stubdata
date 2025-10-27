@@ -8,12 +8,18 @@ languages:
           - parameters:
               - name: character
                 type: IsoPlayer
+              - name: bed
+                type: IsoObject
+                nullable: true
         staticFields:
           Type:
             defaultValue: '"ISSitOnGround"'
         fields:
           useProgressBar:
             type: boolean
+          bed:
+            type: IsoObject
+            nullable: true
         methods:
           - name: isValid
             return:

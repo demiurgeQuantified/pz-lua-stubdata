@@ -22,12 +22,16 @@ languages:
         fields:
           font:
             type: UIFont
+          placeholderText:
+            type: string
+            nullable: true
           title:
             type: string
           tooltipUI:
             type: ISToolTip
           tooltip:
             nullable: true
+          joypadFocused: {}
           keeplog:
             type: boolean
           logIndex:
@@ -41,6 +45,9 @@ languages:
             tags:
               - StubGen_Extra
         methods:
+          - name: isMultipleLine
+            return:
+              - type: boolean
           - name: initialise
           - name: setFont
             parameters:
@@ -79,9 +86,6 @@ languages:
             parameters:
               - name: multiple
                 type: boolean
-          - name: isMultipleLine
-            return:
-              - type: boolean
           - name: setMaxLines
             parameters:
               - name: max
@@ -107,6 +111,24 @@ languages:
                 type: number
               - name: a
                 type: number
+          - name: setPlaceholderText
+            parameters:
+              - name: str
+                type: string
+          - name: getPlaceholderText
+            return:
+              - type: string
+                nullable: true
+          - name: setPlaceholderTextRGBA
+            parameters:
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+              - name: a
+                type: number
           - name: onPressDown
           - name: onPressUp
           - name: focus
@@ -123,6 +145,9 @@ languages:
           - name: getInternalText
             return:
               - type: string
+          - name: isMasked
+            return:
+              - type: unknown
           - name: setMasked
             parameters:
               - name: b
@@ -165,6 +190,9 @@ languages:
             return:
               - type: boolean
           - name: clear
+          - name: getHasFrame
+            return:
+              - type: unknown
           - name: setHasFrame
             parameters:
               - name: hasFrame

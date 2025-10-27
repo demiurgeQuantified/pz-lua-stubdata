@@ -26,6 +26,10 @@ languages:
             type: table<integer, ISTickBox>
           showAllOptions:
             type: boolean
+          darkModeLabel:
+            type: ISLabel
+          darkModeSlider:
+            type: ISSliderPanel
           screenHeight:
             type: integer
           map:
@@ -46,6 +50,10 @@ languages:
               - name: option
                 type: ConfigOption
           - name: createChildren
+          - name: onDarkModeChanged
+            parameters:
+              - name: value
+              - name: slider
           - name: getVisibleOptions
             return:
               - type: ConfigOption[]
@@ -133,7 +141,7 @@ languages:
             type: ISButton
           zoomOutButton:
             type: ISButton
-          pyramidBtn:
+          terrainBtn:
             type: ISButton
           perspectiveBtn:
             type: ISButton
@@ -157,6 +165,15 @@ languages:
           printMedia:
             type: UI.PrintMedia
             nullable: true
+          mouseOverStashMap:
+            type: table
+            nullable: true
+          stashMapBounds:
+            type: table
+          stashMapBoundsUI:
+            type: table
+          stashMapUI:
+            type: AnnotatedMapOverlay
           dragging:
             type: boolean
           dragMoved:
@@ -181,6 +198,8 @@ languages:
             type: ISModalRichText
             nullable: true
           showPrintMedia:
+            type: boolean
+          isTerrainImage:
             type: boolean
           optionsUI:
             type: WorldMapOptions
@@ -224,16 +243,31 @@ languages:
             type: Texture
           texViewOrthographic:
             type: Texture
-          texViewPyramid:
-            type: Texture
+          texViewTerrainImage: {}
         methods:
           - name: instantiate
           - name: createChildren
           - name: prerender
           - name: render
           - name: renderPrintMedia
+          - name: drawMapRect
+            parameters:
+              - name: bounds
           - name: onMouseUpPrintMedia
           - name: closePrintMedia
+          - name: renderStashMaps
+          - name: getStashMapBounds
+            parameters:
+              - name: stashName
+                type: string
+            return:
+              - type: table
+          - name: pickMouseOverStreet
+          - name: onMouseUpStashMap
+            return:
+              - type: boolean
+          - name: positionStashMap
+          - name: closeStashMap
           - name: renderJoypadPrompt
             parameters:
               - name: texture
@@ -319,7 +353,9 @@ languages:
           - name: onToggleLegend
           - name: onChangePerspective
           - name: onCenterOnPlayer
-          - name: onTogglePyramid
+          - name: checkTerrainImage
+          - name: onToggleTerrainImage
+          - name: showTerrainImage
           - name: onZoomInButton
           - name: onZoomOutButton
           - name: onChangeOptions
@@ -435,6 +471,50 @@ languages:
             parameters:
               - name: playerObj
                 type: IsoPlayer
+      AnnotatedMapOverlay:
+        extends: ISPanel
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"AnnotatedMapOverlay"'
+        fields:
+          mapAPI: {}
+        methods:
+          - name: instantiate
+          - name: prerender
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: boolean
+          - name: onMouseUp
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: boolean
+          - name: onMouseMove
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+            return:
+              - type: boolean
       umbrella.ISWorldMap.MouseOverPrintMedia:
         fields:
           mediaID:

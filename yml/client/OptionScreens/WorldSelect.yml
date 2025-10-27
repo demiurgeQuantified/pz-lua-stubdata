@@ -136,3 +136,7 @@ languages:
               - name: newh
                 type: number
           - name: create
+          - name: onKeyRelease
+            parameters:
+              - name: key
+                type: integer

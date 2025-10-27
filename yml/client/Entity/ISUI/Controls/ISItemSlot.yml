@@ -11,6 +11,8 @@ languages:
         - type: "fun(target: unknown, slot: ISItemSlot, item: InventoryItem)"
       umbrella.ISItemSlot.OnVerifyItem:
         - type: "fun(target: unknown, slot: ISItemSlot, item: InventoryItem): boolean"
+      umbrella.ISItemSlot.Callback:
+        - type: "fun(target: unknown, slot: ISItemSlot)"
     classes:
       ISItemSlot:
         extends: ISPanel
@@ -42,10 +44,18 @@ languages:
               - name: onBoxClicked
                 type: umbrella.ISItemSlot.OnBoxClicked
                 nullable: true
+              - name: onSelectInputsButtonClicked
+                type: umbrella.ISItemSlot.Callback
+                nullable: true
         staticFields:
           Type:
             defaultValue: '"ISItemSlot"'
         fields:
+          selectInputButton:
+            type: ISButton
+            nullable: true
+          itemCount:
+            type: number
           mouseOverState:
             type: number
           storedItem:
@@ -55,6 +65,9 @@ languages:
             type: boolean
           storedItemTex:
             type: Texture
+            nullable: true
+          storedScriptItem:
+            type: Item
             nullable: true
           backDropTex:
             type: Texture
@@ -78,6 +91,8 @@ languages:
             nullable: true
           locked:
             type: boolean
+          statusIcons:
+            type: table
           backgroundEmpty:
             type: umbrella.RGBA
           backgroundHover:
@@ -94,8 +109,14 @@ languages:
             type: umbrella.RGBA
           renderItemCount:
             type: boolean
+          renderRequiredItemCount:
+            type: boolean
+          maxItemCount:
+            nullable: true
           countColor:
             type: umbrella.RGBA
+          countInvalidColor:
+            type: table
           drawBorderLocked:
             type: boolean
           borderLockedColor:
@@ -117,6 +138,13 @@ languages:
           onItemRemove:
             type: umbrella.ISItemSlot.OnItemRemove
             nullable: true
+          onSelectInputsButtonClicked:
+            type: umbrella.ISItemSlot.Callback
+            nullable: true
+          onStoredItemChanged:
+            nullable: true
+          showSelectInputsButton:
+            type: boolean
           storeItem:
             type: boolean
           hideItem:
@@ -129,15 +157,50 @@ languages:
             type: string | false
           bBlinkBorder:
             type: boolean
+          inputScript:
+            nullable: true
+          showPreviewItem:
+            type: boolean
           borderColorOrig:
             type: umbrella.RGBA
+          textureSwapInput:
+            type: Texture
+          textureMissingInput:
+            type: Texture
+          selectInputButtonBackgroundColor:
+            type: umbrella.RGBA
+          selectInputButtonBackgroundColorMouseOver:
+            type: umbrella.RGBA
+          selectInputButtonTextureColor:
+            type: umbrella.RGBA
+          selectInputButtonTextureColorMouseOver:
+            type: umbrella.RGBA
+          allowDrop:
+            type: boolean
           drawProgress:
             type: boolean
+          progressDelta:
+            type: number
+          itemTypeFilter:
+            type: Item
+            nullable: true
         methods:
           - name: initialise
           - name: createChildren
+          - name: onSelectInputsButton
+          - name: setSelectInputsButtonActive
+            parameters:
+              - name: _active
+                type: boolean
+          - name: calculateLayout
+            parameters:
+              - name: _preferredWidth
+                type: number
+                nullable: true
+              - name: _preferredHeight
+                type: number
+                nullable: true
           - name: prerender
-          - name: render
           - name: update
           - name: defaultVerifyItem
             parameters:
@@ -196,6 +259,11 @@ languages:
               - name: _item
                 type: InventoryItem
                 nullable: true
+          - name: setStoredScriptItem
+            parameters:
+              - name: _item
+                type: Item
+                nullable: true
           - name: setBackDropTex
             parameters:
               - name: _tex
@@ -228,6 +296,10 @@ languages:
             parameters:
               - name: _resource
                 type: Resource
+          - name: getResource
+            return:
+              - type: Resource
+                nullable: true
           - name: isLocked
             return:
               - type: boolean
@@ -235,3 +307,12 @@ languages:
             parameters:
               - name: _b
                 type: boolean
+          - name: setStatusIcons
+            parameters:
+              - name: _iconTextureArray
+                type: ArrayList<Texture>
+        staticMethods:
+          - name: drawTooltip
+            parameters:
+              - name: _itemSlot
+              - name: _tooltip

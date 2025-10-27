@@ -25,6 +25,12 @@ languages:
           inputsLabel:
             type: ISLabel
             nullable: true
+          autoLabel:
+            type: ISLabel
+            nullable: true
+          autoToggle:
+            type: ISWidgetAutoToggle
+            nullable: true
           inputs:
             type: ISWidgetInput[]
           joypadIndexY:
@@ -88,3 +94,11 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
+          - name: onManualSelectChanged
+            parameters:
+              - name: _manualSelect
+                type: boolean
+          - name: onAutoToggled
+            parameters:
+              - name: _newState
+                type: boolean

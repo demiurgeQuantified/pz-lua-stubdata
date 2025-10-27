@@ -174,7 +174,17 @@ languages:
                 nullable: true
             return:
               - type: boolean
+          - name: haveToBeTransferedWhileTrading
+            parameters:
+              - name: player
+                type: IsoPlayer
+              - name: item
+                type: InventoryItem
+              - name: dontWalk
+                type: boolean
                 nullable: true
+            return:
+              - type: boolean
           - name: round
             parameters:
               - name: num
@@ -325,3 +335,30 @@ languages:
               - name: _test
                 type: boolean
                 nullable: true
+          - name: packString
+            parameters:
+              - name: stringTable
+                type: string[]
+              - name: sep
+                type: string
+            return:
+              - type: string
+                nullable: true
+          - name: unpackString
+            parameters:
+              - name: text
+                type: string
+              - name: sep
+                type: string
+            return:
+              - type: ...string
+    functions:
+      - name: round
+        parameters:
+          - name: num
+            type: number
+          - name: idp
+            type: integer
+            nullable: true
+        return:
+          - type: integer

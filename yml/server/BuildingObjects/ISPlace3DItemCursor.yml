@@ -75,6 +75,8 @@ languages:
             type: boolean
           isPlace3DCursor:
             type: boolean
+          dontLockItemToSquare:
+            type: boolean
         methods:
           - name: create
             parameters:

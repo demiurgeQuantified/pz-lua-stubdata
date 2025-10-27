@@ -55,6 +55,7 @@ languages:
             type: table<Capability, boolean>
         methods:
           - name: initialise
+          - name: onFilterTextChange
           - name: doSearch
           - name: onTickBox
             parameters:

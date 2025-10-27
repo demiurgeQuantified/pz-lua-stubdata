@@ -12,6 +12,8 @@ languages:
                 type: VehiclePart
               - name: item
                 type: InventoryItem
+              - name: otherItems
+                type: InventoryItem[]
         staticFields:
           Type:
             defaultValue: '"ISAddGasolineToVehicle"'
@@ -37,6 +39,8 @@ languages:
             type: VehiclePart
           item:
             type: InventoryItem
+          otherItems:
+            type: InventoryItem[]
           fluidCont:
             type: FluidContainer
         methods:
@@ -57,6 +61,14 @@ languages:
           - name: start
           - name: stop
           - name: perform
+          - name: runAgain
+            parameters:
+              - name: intoItem
+                type: InventoryItem
+          - name: nextItem
+            return:
+              - type: InventoryItem
+                nullable: true
           - name: complete
             return:
               - type: boolean

@@ -33,6 +33,8 @@ languages:
             type: ISButton
           datas:
             type: ISScrollingListBox
+          tooltipUI:
+            type: ISToolTip
           player:
             type: IsoPlayer
         methods:
@@ -53,6 +55,18 @@ languages:
               - name: _item
                 type: Role
           - name: prerender
+          - name: onMouseMove
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+          - name: onMouseMoveOutside
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
           - name: onClick
             parameters:
               - name: button

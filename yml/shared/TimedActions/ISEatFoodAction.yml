@@ -36,6 +36,12 @@ languages:
             type: boolean
           isEating:
             type: boolean
+          spoon:
+            type: InventoryItem
+            nullable: true
+          fork:
+            type: InventoryItem
+            nullable: true
           eatSound:
             type: string
           ignoreHandsWounds:
@@ -72,6 +78,9 @@ languages:
             return:
               - type: number
           - name: getSecondItem
+            return:
+              - type: InventoryItem
+                nullable: true
           - name: isEatingRemaining
             parameters:
               - name: item

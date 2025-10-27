@@ -46,6 +46,7 @@ languages:
           - name: apply
             notes: Apply the options (placeholder function)
           - name: getOption
+            notes: Get an option by ID
             parameters:
               - name: id
                 type: string
@@ -54,21 +55,21 @@ languages:
               - type: umbrella.ModOptions.OptionElement
                 nullable: true
                 notes: The option or nil if not found
-            notes: Get an option by ID
           - name: addTitle
+            notes: Add a title to the options
             parameters:
               - name: name
                 type: string
                 notes: The title text
-            notes: Add a title to the options
           - name: addDescription
+            notes: Add a description to the options
             parameters:
               - name: text
                 type: string
                 notes: The description text (will be processed by getText)
-            notes: Add a description to the options
           - name: addSeparator
           - name: addTextEntry
+            notes: Add a text entry option
             parameters:
               - name: id
                 type: string
@@ -87,8 +88,8 @@ languages:
               - type: umbrella.ModOptions.TextEntry
                 name: option
                 notes: Object representing the text entry
-            notes: Add a text entry option
           - name: addTickBox
+            notes: Add a tick box (checkbox) option
             parameters:
               - name: id
                 type: string
@@ -107,8 +108,8 @@ languages:
               - type: umbrella.ModOptions.TickBox
                 name: option
                 notes: Object representing the tick box
-            notes: Add a tick box (checkbox) option
           - name: addMultipleTickBox
+            notes: Add a multiple tick box option
             parameters:
               - name: id
                 type: string
@@ -124,8 +125,8 @@ languages:
               - type: umbrella.ModOptions.MultipleTickBox
                 name: option
                 notes: Object representing the multiple tick box
-            notes: Add a multiple tick box option
           - name: addComboBox
+            notes: Add a combo box option
             parameters:
               - name: id
                 type: string
@@ -141,8 +142,8 @@ languages:
               - type: umbrella.ModOptions.ComboBox
                 name: option
                 notes: Object representing the combo box
-            notes: Add a combo box option
           - name: addColorPicker
+            notes: Add a color picker option
             parameters:
               - name: id
                 type: string
@@ -170,8 +171,8 @@ languages:
               - type: umbrella.ModOptions.ColorPicker
                 name: option
                 notes: The created option
-            notes: Add a color picker option
           - name: addKeyBind
+            notes: Add a key bind option
             parameters:
               - name: id
                 type: string
@@ -190,8 +191,8 @@ languages:
               - type: umbrella.ModOptions.Keybind
                 name: option
                 notes: Object representing the key bind
-            notes: Add a key bind option
           - name: addSlider
+            notes: Add a slider option
             parameters:
               - name: id
                 type: string
@@ -219,8 +220,8 @@ languages:
               - type: umbrella.ModOptions.Slider
                 name: option
                 notes: Object representing the slider
-            notes: Add a slider option
           - name: addButton
+            notes: Add a button option
             parameters:
               - name: id
                 type: string
@@ -260,7 +261,6 @@ languages:
               - type: umbrella.ModOptions.Button
                 name: option
                 notes: Object representing the button
-            notes: Add a button option
       PZAPI.ModOptions:
         local: true
         notes: ModOptions module for managing mod configuration options
@@ -279,6 +279,7 @@ languages:
             notes: Options class
         methods:
           - name: create
+            notes: Creates a new mod options instance
             parameters:
               - name: modOptionsID
                 type: string
@@ -286,13 +287,14 @@ languages:
               - name: name
                 type: string
                 nullable: true
-                notes: Optional display name for the mod options. Defaults to the modOptionsID if not provided.
+                notes: Optional display name for the mod options. Defaults to the modOptionsID
+                  if not provided.
             return:
               - type: PZAPI.ModOptions.Options
                 name: options
                 notes: The created options instance
-            notes: Creates a new mod options instance
           - name: getOptions
+            notes: Gets an existing mod options instance by ID
             parameters:
               - name: modOptionsID
                 type: string
@@ -301,7 +303,6 @@ languages:
               - type: PZAPI.ModOptions.Options
                 nullable: true
                 notes: The options instance or nil if not found
-            notes: Gets an existing mod options instance by ID
           - name: save
             notes: Saves all mod options to ModOptions.ini
           - name: load

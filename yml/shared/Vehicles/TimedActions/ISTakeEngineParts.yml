@@ -42,8 +42,5 @@ languages:
               - type: string[]
                 nullable: true
           - name: getDuration
-            parameters:
-              - name: maxTime
-                type: number
             return:
               - type: number

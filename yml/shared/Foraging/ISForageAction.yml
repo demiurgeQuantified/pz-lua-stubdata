@@ -8,8 +8,10 @@ languages:
           - parameters:
               - name: character
                 type: IsoPlayer
-              - name: icon
-                type: ISForageIcon
+              - name: iconID
+                type: string
+              - name: itemTypeList
+                type: string[]
               - name: targetContainer
                 type: ItemContainer
               - name: discardItems
@@ -26,11 +28,11 @@ languages:
             type: ItemContainer
           discardItems:
             type: boolean
-          icon:
-            type: ISForageIcon
-          iconID:
-            type: string
           itemType:
+            type: string
+          itemTypeList:
+            type: string[]
+          iconID:
             type: string
           manager:
             type: ISSearchManager
@@ -41,9 +43,6 @@ languages:
             nullable: true
           itemDef:
             type: umbrella.Foraging.ItemDefinition
-          maxTime:
-            type: number
-            nullable: true
           currentTime:
             type: number
           started:
@@ -66,4 +65,3 @@ languages:
           - name: getDuration
             return:
               - type: number
-                nullable: true

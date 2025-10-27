@@ -65,3 +65,30 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
+      ServerWorkshopItemScreen.WorkshopItemList:
+        extends: ISScrollingListBox
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"WorkshopItemList"'
+        methods:
+          - name: doDrawItem
+            parameters:
+              - name: y
+                type: number
+              - name: item
+                type: umbrella.ISScrollingListBox.Item
+              - name: alt
+                type: boolean
+            return:
+              - type: number

@@ -23,9 +23,6 @@ languages:
             nullable: true
           plank:
             type: InventoryItem
-          sound:
-            type: integer
-            nullable: true
           campfire:
             type: SCampfireGlobalObject
           isOutdoorsMan:
@@ -55,3 +52,4 @@ languages:
           - name: getDuration
             return:
               - type: number
+          - name: stopSound

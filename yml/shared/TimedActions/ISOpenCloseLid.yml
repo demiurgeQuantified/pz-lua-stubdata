@@ -1,0 +1,43 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISOpenCloseLid:
+        extends: ISBaseTimedAction
+        constructors:
+          - parameters:
+              - name: character
+                type: IsoPlayer
+              - name: barrel
+                type: IsoThumpable
+              - name: square
+                type: IsoGridSquare
+              - name: sprite
+                type: string
+        staticFields:
+          Type:
+            defaultValue: '"ISOpenCloseLid"'
+        fields:
+          barrel:
+            type: IsoThumpable
+          square:
+            type: IsoGridSquare
+          sprite:
+            type: string
+        methods:
+          - name: isValid
+            return:
+              - type: boolean
+          - name: waitToStart
+            return:
+              - type: boolean
+          - name: update
+          - name: start
+          - name: stop
+          - name: perform
+          - name: complete
+            return:
+              - type: boolean
+          - name: getDuration
+            return:
+              - type: number

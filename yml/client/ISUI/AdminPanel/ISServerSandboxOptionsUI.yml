@@ -83,6 +83,154 @@ languages:
             parameters:
               - name: self
                 type: ISTextEntryBox
+      ISServerSandboxOptionsUI.SandboxOptionsScreenListBox:
+        extends: ISScrollingListBox
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"SandboxOptionsScreenListBox"'
+        methods:
+          - name: doDrawItem
+            parameters:
+              - name: y
+              - name: item
+              - name: alt
+            return:
+              - type: number
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirRight
+            parameters:
+              - name: joypadData
+                type: JoypadData
+      ISServerSandboxOptionsUI.SandboxOptionsScreenPanel:
+        extends: ISPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"SandboxOptionsScreenPanel"'
+        fields:
+          entryText:
+            type: table
+        methods:
+          - name: prerender
+          - name: render
+          - name: onMouseWheel
+            parameters:
+              - name: del
+                type: number
+            return:
+              - type: boolean
+                nullable: true
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirRight
+            parameters:
+              - name: joypadData
+                type: JoypadData
+      ISServerSandboxOptionsUI.SandboxOptionsScreenPresetPanel:
+        extends: ISPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"SandboxOptionsScreenPresetPanel"'
+        fields:
+          listbox:
+            type: ISScrollingListBox
+          buttonApplyPreset:
+            type: ISButton
+          options: {}
+        methods:
+          - name: createChildren
+          - name: prerender
+          - name: onButtonApplyPreset
+          - name: addPresetToList
+            parameters:
+              - name: fileName
+                type: string
+              - name: text
+                type: string
+              - name: userDefined
+                type: boolean
+          - name: settingsToUI
+            parameters:
+              - name: options
+      ISServerSandboxOptionsUI.SandboxOptionsScreenGroupBox:
+        extends: ISServerSandboxOptionsUI.SandboxOptionsScreenPanel
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: tickBoxLabel
+                type: string
+        staticFields:
+          Type:
+            defaultValue: '"SandboxOptionsScreenGroupBox"'
+        fields:
+          tickBoxLabel:
+            type: string
+          settings:
+            nullable: true
+          tickBox:
+            type: ISTickBox
+          cover:
+            type: ISPanel
+          contents: {}
+          joypadButtons: {}
+          settingNames:
+            type: table
+          controls:
+            type: table
+          labels:
+            type: table
+          MAX_WIDTH:
+            type: number
+        methods:
+          - name: createChildren
+          - name: onTicked
+            parameters:
+              - name: index
+              - name: selected
+          - name: settingsToUI
+            parameters:
+              - name: settings
+          - name: setJoypadButtons
+          - name: ensureVisible
       umbrella.ISServerSandboxOptionsUI.ListBoxItem:
         fields:
           page:

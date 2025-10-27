@@ -44,6 +44,8 @@ languages:
             type: ISButton
           placeSymbBtn:
             type: ISButton
+          revealBtn:
+            type: ISButton
           draggingStartingX:
             type: number
           draggingStartingY:
@@ -197,6 +199,8 @@ languages:
                 type: integer
               - name: joypadData
                 type: JoypadData
+          - name: copySymbolsToWorldMap
+          - name: revealOnWorldMap
       ISMapWrapper:
         extends: ISCollapsableWindow
         constructors:
@@ -249,5 +253,5 @@ languages:
         fields:
           javaObject:
             type: UIWorldMap
-          mapItem:
+          mapObj:
             type: MapItem

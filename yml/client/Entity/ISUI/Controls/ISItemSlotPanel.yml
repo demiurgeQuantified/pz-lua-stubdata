@@ -18,6 +18,9 @@ languages:
                 type: IsoPlayer
               - name: entity
                 type: GameEntity
+              - name: logic
+                type: CraftLogicUILogic
+                nullable: true
               - name: _styleLabel
                 type: string
                 nullable: true
@@ -29,19 +32,45 @@ languages:
             defaultValue: '"ISItemSlotPanel"'
         fields:
           tableLayout:
+            type: ISTableLayout
             nullable: true
           player:
             type: IsoPlayer
           entity:
             type: GameEntity
+          logic:
+            type: CraftLogicUILogic
+            nullable: true
+          itemSlots:
+            type: ISItemSlot[]
+          allowDrop:
+            type: boolean
+          functionTarget:
+            nullable: true
+          onSelectInputsButtonClicked:
+            type: umbrella.ISItemSlot.Callback
+            nullable: true
+          onItemSlotContentsChanged:
+            type: umbrella.ISItemSlot.Callback
+            nullable: true
+          renderRequiredItemCount:
+            type: boolean
           styleCell:
             type: string
             nullable: true
           drawProgress:
             type: boolean
+          showSelectInputsButton:
+            type: boolean
+          maxColumns:
+            type: number
         methods:
           - name: initialise
           - name: createChildren
+          - name: addLayoutCell
+            return:
+              - type: number
+              - type: number
           - name: addResources
             parameters:
               - name: _resources
@@ -55,6 +84,41 @@ languages:
                 type: Resource
               - name: _styleItemSlot
                 type: string
+                nullable: true
+              - name: _itemTypeFilter
+            return:
+              - type: ISItemSlot
+                nullable: true
+          - name: getItemSlots
+            return:
+              - type: ISItemSlot[]
+          - name: addDisplayInventoryItem
+            parameters:
+              - name: _item
+                type: InventoryItem
+              - name: _styleItemSlot
+                type: string
+                nullable: true
+            return:
+              - type: ISItemSlot
+                nullable: true
+          - name: addDisplayItem
+            parameters:
+              - name: _item
+                type: Item
+              - name: _styleItemSlot
+                type: string
+                nullable: true
+            return:
+              - type: unknown
+                nullable: true
+          - name: addDisplayEmptySlot
+            parameters:
+              - name: _styleItemSlot
+                type: string
+                nullable: true
+            return:
+              - type: ISItemSlot
                 nullable: true
           - name: onResize
           - name: prerender
@@ -80,3 +144,12 @@ languages:
                 type: ISItemSlot
               - name: _itemList
                 type: InventoryItem[]
+          - name: removeAllSlots
+          - name: onSelectInputsButton
+            parameters:
+              - name: _itemSlot
+                type: ISItemSlot
+          - name: onStoredItemChanged
+            parameters:
+              - name: _itemSlot
+                type: ISItemSlot

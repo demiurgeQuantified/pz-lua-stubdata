@@ -19,6 +19,14 @@ languages:
             return:
               - type: boolean
                 nullable: true
+          - name: addDebugFluid
+            parameters:
+              - name: _data
+                type: umbrella.WorldMenuContextData
+              - name: cont
+                type: FluidContainer
+              - name: fluid
+                type: string
           - name: transferFluids
             parameters:
               - name: _data

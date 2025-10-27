@@ -20,6 +20,8 @@ languages:
           Type:
             defaultValue: '"ISGenericCraftStart"'
         fields:
+          sound:
+            type: integer
           entity:
             type: IsoObject
           component:
@@ -39,3 +41,4 @@ languages:
           - name: getDuration
             return:
               - type: number
+          - name: stopSound

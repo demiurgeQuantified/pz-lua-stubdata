@@ -10,8 +10,10 @@ languages:
         local: true
         staticFields:
           stopFishingKeysKeyboard: {}
+          hotbarKeys: {}
           tempVec2:
             defaultValue: Vector2.new()
+          skillSizeLimit: {}
           fishSizeChancesBySkillLevel: {}
         staticMethods:
           - name: isWaterCoords
@@ -25,17 +27,17 @@ languages:
           - name: getAimCoords
             parameters:
               - name: player
+                type: IsoPlayer
             return:
               - type: number
-                nullable: true
               - type: number
-                nullable: true
           - name: isStopFishingButtonPressed
             parameters:
               - name: joypad
                 type: integer
             return:
               - type: boolean
+          - name: hotbarStopper
           - name: isPlayerAimOnWater
             parameters:
               - name: player
@@ -43,6 +45,12 @@ languages:
               - name: autoAim
                 type: boolean
                 nullable: true
+            return:
+              - type: boolean
+          - name: isAccessibleAimDist
+            parameters:
+              - name: player
+                type: IsoPlayer
             return:
               - type: boolean
           - name: facePlayerToAim
@@ -62,6 +70,16 @@ languages:
               - name: joypad
                 type: integer
             return:
+              - type: boolean
+          - name: isGamepadReelMove
+            parameters:
+              - name: joypad
+              - name: prevValue
+            return:
+              - type: number
+              - type: number
+              - type: boolean
+                nullable: true
               - type: boolean
                 nullable: true
           - name: isNearShore

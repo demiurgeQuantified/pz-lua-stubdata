@@ -41,14 +41,9 @@ languages:
           entryBox:
             type: ISTextEntryBox
             nullable: true
-          searchHackLabel:
-            type: ISLabel
-            nullable: true
           sourceDataList:
             type: ArrayList
             nullable: true
-          searchInfoText:
-            type: string
           player:
             type: IsoPlayer
           callbackTarget:
@@ -57,6 +52,8 @@ languages:
           dataList:
             type: ArrayList
           searchText:
+            type: string
+          searchInfoText:
             type: string
           enableSearchBox:
             type: boolean

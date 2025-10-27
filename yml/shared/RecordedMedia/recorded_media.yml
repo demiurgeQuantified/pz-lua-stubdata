@@ -24,7 +24,7 @@ languages:
             type: string
             nullable: true
           spawning:
-            type: integer
+            type: 0 | 1
             nullable: true
       umbrella.RecMediaLine:
         fields:

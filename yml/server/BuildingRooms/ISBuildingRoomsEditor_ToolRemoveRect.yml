@@ -1,0 +1,83 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISBuildingRoomsEditor_ToolRemoveRect:
+        extends: ISBuildingObject
+        constructors:
+          - parameters:
+              - name: editor
+                type: ISBuildingRoomsEditor
+        staticFields:
+          Type:
+            defaultValue: '"ISBuildingRoomsEditor_ToolRemoveRect"'
+        fields:
+          mouseOverRect:
+            type: number
+          player:
+            type: number
+          character:
+            type: IsoPlayer
+          skipBuildAction:
+            type: boolean
+          noNeedHammer:
+            type: boolean
+          skipWalk:
+            type: boolean
+          editor:
+            type: ISBuildingRoomsEditor
+          playerNum:
+            type: integer
+          zoneColor:
+            type: umbrella.RGBA
+        methods:
+          - name: create
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+              - name: north
+              - name: sprite
+          - name: isValid
+            parameters:
+              - name: square
+                type: IsoGridSquare
+            return:
+              - type: boolean
+          - name: render
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+              - name: square
+                type: IsoGridSquare
+          - name: activate
+          - name: deactivate
+          - name: pickSquare
+            parameters:
+              - name: screenX
+              - name: screenY
+            return:
+              - type: IsoGridSquare
+              - type: integer
+              - type: integer
+              - type: integer
+          - name: reset
+          - name: getAPrompt
+            return:
+              - type: string
+                nullable: true
+          - name: getLBPrompt
+            return:
+              - type: string
+                nullable: true
+          - name: getRBPrompt
+            return:
+              - type: string
+                nullable: true

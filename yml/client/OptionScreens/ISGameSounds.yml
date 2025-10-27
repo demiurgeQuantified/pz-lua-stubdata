@@ -2,6 +2,65 @@ version: "1.1"
 languages:
   lua:
     classes:
+      ISGameSounds.MainPanel:
+        extends: ISPanelJoypad
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"GameSoundsMainPanel"'
+        fields:
+          highlightedLabel:
+            type: ISLabel
+            nullable: true
+          joypadButtons:
+            type: ISButton[]
+          stopSound:
+            type: ISSpeakerButton
+        methods:
+          - name: prerender
+          - name: render
+          - name: onResize
+            parameters:
+              - name: width
+                type: number
+              - name: height
+                type: number
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadBeforeDeactivate
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirRight
+            parameters:
+              - name: joypadData
+                type: JoypadData
       ISGameSounds:
         extends: ISPanelJoypad
         constructors:

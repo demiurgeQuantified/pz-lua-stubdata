@@ -2,4 +2,106 @@ version: "1.1"
 languages:
   lua:
     classes:
-      debugScenarios: {}
+      debugScenarios.Trailer3Scenario_Building:
+        local: true
+        staticFields:
+          name:
+            defaultValue: '"LIFE 3 - FINAL HOUSE SURVIVE"'
+          startLoc: {}
+        staticMethods:
+          - name: setSandbox
+          - name: onStart
+          - name: onLoadGS
+            parameters:
+              - name: sq
+                type: IsoGridSquare
+          - name: addFloor
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+              - name: tile
+          - name: addStairs
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+              - name: north
+          - name: addFence
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+              - name: tile
+              - name: north
+          - name: addWallFrame
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+              - name: tile
+              - name: north
+          - name: addWall
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+              - name: tile
+              - name: north
+          - name: addDoor
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+              - name: tile
+              - name: openTile
+              - name: north
+          - name: addItem
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+              - name: tile
+          - name: getSQ
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+            return:
+              - type: unknown
+          - name: removeItemsButFloor
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+      debugScenarios:
+        staticFields:
+          Trailer3Scenario_Building:
+            type: debugScenarios.Trailer3Scenario_Building

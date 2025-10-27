@@ -14,6 +14,8 @@ languages:
                 type: IsoPlayer
               - name: lure
                 type: string
+              - name: fishingRod
+                type: Fishing.FishingRod
               - name: x
                 type: number
               - name: y
@@ -27,6 +29,8 @@ languages:
             type: number
           isRiver:
             type: boolean
+          fishingRod:
+            type: Fishing.FishingRod
           lure:
             type: string
           fishingLvl:

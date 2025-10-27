@@ -1,0 +1,21 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISLootWindowFloorControlHandler_TakeAll:
+        extends: ISLootWindowFloorControlHandler
+        constructors:
+          - {}
+        staticFields:
+          Type:
+            defaultValue: '"ISLootWindowFloorControlHandler_TakeAll"'
+        fields:
+          control: {}
+        methods:
+          - name: shouldBeVisible
+            return:
+              - type: boolean
+          - name: getControl
+            return:
+              - type: unknown
+          - name: perform

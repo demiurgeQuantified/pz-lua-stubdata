@@ -29,6 +29,9 @@ languages:
             type: ISScrollingListBox
           largestTooltipWidth:
             type: number
+          pendingSelectedData:
+            type: CraftRecipe
+            nullable: true
           player:
             type: IsoPlayer
           logic:

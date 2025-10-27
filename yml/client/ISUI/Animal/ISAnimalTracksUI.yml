@@ -22,6 +22,9 @@ languages:
           Type:
             defaultValue: '"ISAnimalTracksUI"'
         fields:
+          textRight:
+            type: number
+            nullable: true
           track:
             type: IsoAnimalTrack | InventoryItem
           chr:
@@ -36,11 +39,30 @@ languages:
             type: integer
           isSprite:
             type: boolean
-          xoffset:
+          iconSize:
+            type: number
+          maxLabelWidth:
             type: number
         methods:
           - name: prerender
           - name: render
+          - name: drawText
+            parameters:
+              - name: str
+                type: string
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+              - name: a
+                type: number
+              - name: font
           - name: getAnimalType
             return:
               - type: string

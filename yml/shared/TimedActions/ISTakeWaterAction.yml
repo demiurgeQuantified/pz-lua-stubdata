@@ -37,9 +37,6 @@ languages:
           endUsedAmount:
             type: number
             nullable: true
-          maxTime:
-            type: number
-            nullable: true
         methods:
           - name: isValid
             return:

@@ -22,7 +22,6 @@ languages:
                 type: IsoObject
             return:
               - type: string
-                nullable: true
           - name: logAction
             parameters:
               - name: _action

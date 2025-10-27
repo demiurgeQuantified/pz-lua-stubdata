@@ -93,6 +93,8 @@ languages:
             nullable: true
           tooltipColor:
             type: umbrella.RGB
+          joypadNavigate:
+            type: table
           itemheightoverride:
             type: table<string, number>
           whiteBar:
@@ -152,10 +154,13 @@ languages:
               - name: y
                 type: number
                 nullable: true
+          - name: repopulateTraitLists
+          - name: addBadTrait
+          - name: addGoodTrait
           - name: addTrait
             parameters:
-              - name: bad
-                type: boolean
+              - name: trait
+                type: TraitFactory.Trait
           - name: doTestForMutuallyExclusiveTraits
             parameters:
               - name: trait
@@ -169,6 +174,9 @@ languages:
             return:
               - type: boolean
           - name: removeTrait
+            parameters:
+              - name: index
+                type: number
           - name: update
           - name: prerender
           - name: render
@@ -250,6 +258,16 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
+          - name: onJoypadNavigateStart
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadNavigateStart_Descendant
+            parameters:
+              - name: descendant
+                type: ISUIElement
+              - name: joypadData
+                type: JoypadData
           - name: onResolutionChange
             parameters:
               - name: oldw
@@ -260,6 +278,10 @@ languages:
                 type: number
               - name: newh
                 type: number
+          - name: onKeyRelease
+            parameters:
+              - name: key
+                type: integer
           - name: saveBuildValidate
             parameters:
               - name: text
@@ -292,6 +314,9 @@ languages:
           - name: randomizeTraits
           - name: resetBuild
           - name: resetTraits
+          - name: getSelectedProf
+            return:
+              - type: ProfessionFactory.Profession
         staticMethods:
           - name: initWorld
           - name: loadBuild
@@ -300,6 +325,84 @@ languages:
                 type: CharacterCreationProfession
               - name: box
                 type: ISComboBox
+      CharacterCreationProfession.CharacterCreationProfessionListBox:
+        extends: ISScrollingListBox
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"CharacterCreationProfessionListBox"'
+        methods:
+          - name: render
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadBeforeDeactivate
+            parameters:
+              - name: joypadData
+                type: JoypadData
+      CharacterCreationProfession.CharacterCreationProfessionPresetPanel:
+        extends: ISPanelJoypad
+        local: true
+        staticFields:
+          Type:
+            defaultValue: '"CharacterCreationProfessionPresetPanel"'
+        methods:
+          - name: render
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirUp
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirRight
+            parameters:
+              - name: joypadData
+                type: JoypadData
+      CharacterCreationMain:
+        staticMethods:
+          - name: sortByCost
+            parameters:
+              - name: a
+                type: umbrella.ISScrollingListBox.Item
+              - name: b
+                type: umbrella.ISScrollingListBox.Item
+            return:
+              - type: boolean
+          - name: sortByInvertCost
+            parameters:
+              - name: a
+                type: umbrella.ISScrollingListBox.Item
+              - name: b
+                type: umbrella.ISScrollingListBox.Item
+            return:
+              - type: boolean
+          - name: sort
+            parameters:
+              - name: list
+                type: umbrella.ISScrollingListBox.Item[]
+          - name: invertSort
+            parameters:
+              - name: list
+                type: umbrella.ISScrollingListBox.Item[]
       BCRC:
         staticFields:
           savefile:
@@ -357,29 +460,3 @@ languages:
             parameters:
               - name: text
                 type: unknown
-      CharacterCreationMain:
-        staticMethods:
-          - name: sortByCost
-            parameters:
-              - name: a
-                type: umbrella.ISScrollingListBox.Item
-              - name: b
-                type: umbrella.ISScrollingListBox.Item
-            return:
-              - type: boolean
-          - name: sortByInvertCost
-            parameters:
-              - name: a
-                type: umbrella.ISScrollingListBox.Item
-              - name: b
-                type: umbrella.ISScrollingListBox.Item
-            return:
-              - type: boolean
-          - name: sort
-            parameters:
-              - name: list
-                type: umbrella.ISScrollingListBox.Item[]
-          - name: invertSort
-            parameters:
-              - name: list
-                type: umbrella.ISScrollingListBox.Item[]

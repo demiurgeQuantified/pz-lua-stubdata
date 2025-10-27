@@ -11,7 +11,7 @@ languages:
               - name: body
                 type: IsoAnimal
               - name: hook
-              - name: luaHook
+              - name: luaHookUI
                 type: ISButcherHookUI
               - name: bucket
                 type: InventoryItem
@@ -20,13 +20,15 @@ languages:
           Type:
             defaultValue: '"ISGatherBloodFromAnimal"'
         fields:
-          timer:
-            type: number
           lastTimer:
             type: number
           bucket:
             type: InventoryItem
             nullable: true
+          timer:
+            type: number
+          started:
+            type: boolean
           body:
             type: IsoAnimal
           hook:
@@ -50,8 +52,17 @@ languages:
           - name: waitToStart
             return:
               - type: boolean
+          - name: updateBucket
           - name: update
           - name: start
+          - name: serverStart
+          - name: serverStop
+          - name: animEvent
+            parameters:
+              - name: event
+                type: string
+              - name: parameter
+                type: string
           - name: forceStop
           - name: stop
           - name: perform

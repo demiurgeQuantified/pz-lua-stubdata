@@ -77,6 +77,12 @@ languages:
             type: boolean
           wrapTooltipText:
             type: boolean
+          needFilterCombo:
+            type: boolean
+          needSortCombo:
+            type: boolean
+          showFilterByOutputItem:
+            type: boolean
         methods:
           - name: initialise
           - name: createChildren

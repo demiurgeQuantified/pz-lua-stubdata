@@ -44,20 +44,14 @@ languages:
             nullable: true
           progress:
             type: number
-          leather:
-            type: boolean
-            nullable: true
-          blood:
-            type: number
-            nullable: true
-          head:
-            type: boolean
-            nullable: true
-          meat:
-            type: boolean
-            nullable: true
-          animalSize:
-            type: number
+          noAnimalPanel:
+            type: ISPanel
+          originalHeight: {}
+          originalWidth: {}
+          addCorpseBtn:
+            type: ISButton
+          animalPanel:
+            type: ISPanel
           avatarX:
             type: number
           avatarY:
@@ -65,14 +59,6 @@ languages:
           avatarWidth:
             type: number
           avatarHeight:
-            type: number
-          noAnimalPanel:
-            type: ISPanel
-          addCorpseBtn:
-            type: ISButton
-          animalPanel:
-            type: ISPanel
-          originalAnimalPanelHeight:
             type: number
           removeCorpseBtn:
             type: ISButton
@@ -154,6 +140,12 @@ languages:
                 type: IsoAnimal | IsoDeadBody
                 nullable: true
           - name: onClickAddCorpse
+          - name: getAnimalCorpseItemTexture
+            parameters:
+              - name: itemOrCorpse
+            return:
+              - type: unknown
+                nullable: true
           - name: onAddedCorpse
             parameters:
               - name: corpse
@@ -222,6 +214,9 @@ languages:
             parameters:
               - name: self
                 type: ISButcherHookUI
+          - name: onHookReceivedNetUpdate
+            parameters:
+              - name: self
           - name: onReattachAnimal
             parameters:
               - name: hook

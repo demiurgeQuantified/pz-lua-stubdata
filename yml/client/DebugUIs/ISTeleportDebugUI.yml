@@ -32,6 +32,12 @@ languages:
             type: ISTextEntryBox
           entryZ:
             type: ISTextEntryBox
+          refresh:
+            type: ISButton
+          copy:
+            type: ISButton
+          paste:
+            type: ISButton
           yes:
             type: ISButton
           no:
@@ -55,8 +61,14 @@ languages:
           multipleLine:
             type: boolean
         methods:
+          - name: onCommandEntered
+          - name: onOtherKey
+            parameters:
+              - name: key
+                type: integer
           - name: initialise
           - name: destroy
+          - name: onDoubleClick
           - name: onClick
             parameters:
               - name: button
@@ -67,6 +79,28 @@ languages:
           - name: prerender
           - name: updateButtons
           - name: render
+          - name: refreshCoords
+          - name: getPlayerCoords
+            return:
+              - type: integer
+              - type: integer
+              - type: integer
+          - name: playerHasMoved
+            return:
+              - type: boolean
+          - name: extractClipboardCoords
+            return:
+              - type: integer
+                nullable: true
+              - type: integer
+                nullable: true
+              - type: integer
+                nullable: true
+          - name: isValidClipboardCoords
+            return:
+              - type: boolean
+          - name: copyCoords
+          - name: pasteCoords
           - name: onMouseMove
             parameters:
               - name: dx

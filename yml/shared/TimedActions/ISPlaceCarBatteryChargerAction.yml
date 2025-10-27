@@ -16,6 +16,9 @@ languages:
         fields:
           charger:
             type: InventoryItem
+          character:
+            type: IsoPlayer
+            nullable: true
         methods:
           - name: isValid
             return:

@@ -3,7 +3,7 @@ languages:
   lua:
     classes:
       ModListPresets:
-        extends: ISUIElement
+        extends: ISPanelJoypad
         constructors:
           - parameters:
               - name: x
@@ -38,11 +38,9 @@ languages:
             type: ISButton
           missedModsPanel:
             type: ModSelector.MissedModsWindow
-          joypadIndex:
-            type: integer
-            nullable: true
         methods:
           - name: createChildren
+          - name: render
           - name: addChild
             parameters:
               - name: child
@@ -70,29 +68,17 @@ languages:
             parameters:
               - name: combo
                 type: ISComboBox
-          - name: onJoypadDown
-            parameters:
-              - name: button
-                type: integer
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirUp
-            parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirDown
-            parameters:
-              - name: joypadData
-                type: JoypadData
           - name: onGainJoypadFocus
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDirLeft
+          - name: onLoseJoypadFocus
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDirRight
+          - name: onJoypadDown
             parameters:
+              - name: button
+                type: integer
               - name: joypadData
                 type: JoypadData

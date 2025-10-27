@@ -450,12 +450,6 @@ languages:
                 type: IsoGridSquare
             return:
               - type: boolean
-          - name: objectNoContainerOrEmpty
-            parameters:
-              - name: _object
-                type: IsoObject
-            return:
-              - type: boolean
           - name: getSpriteGridCache
             parameters:
               - name: _square
@@ -522,6 +516,12 @@ languages:
             return:
               - type: InventoryItem[] | false
                 nullable: true
+          - name: saveThumpableParameters
+            parameters:
+              - name: _table
+                type: table
+              - name: _object
+                type: IsoThumpable
           - name: pickUpMoveableInternal
             parameters:
               - name: _character
@@ -628,6 +628,8 @@ languages:
                 type: IsoGridSquare
               - name: _origSpriteName
                 type: string
+              - name: _forceAllow
+                type: boolean
             return:
               - type: boolean
                 nullable: true
@@ -642,6 +644,18 @@ languages:
             return:
               - type: IsoObject
                 nullable: true
+          - name: removeComponentsBeforePlacing
+            parameters:
+              - name: obj
+                type: IsoObject
+            return:
+              - type: FluidContainer[]
+          - name: restoreComponentsAfterPlacing
+            parameters:
+              - name: obj
+                type: IsoObject
+              - name: components
+                type: FluidContainer[]
           - name: snapFaceToSquare
             parameters:
               - name: _square
@@ -693,6 +707,15 @@ languages:
           - name: canRotateDirection
             return:
               - type: boolean
+          - name: findOriginalSquare
+            parameters:
+              - name: _gridInfo
+                type: SpriteGridCache
+                nullable: true
+              - name: _sprite
+                type: IsoSprite
+            return:
+              - type: IsoGridSquare
           - name: canRotateMoveable
             parameters:
               - name: _square
@@ -702,6 +725,7 @@ languages:
                 nullable: true
               - name: _origProps
                 type: ISMoveableSpriteProps
+                nullable: true
             return:
               - type: boolean
           - name: canRotateMoveableInternal

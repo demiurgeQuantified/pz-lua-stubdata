@@ -1,0 +1,21 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISLootWindowObjectControlHandler_TakeAll:
+        extends: ISLootWindowObjectControlHandler
+        constructors:
+          - {}
+        staticFields:
+          Type:
+            defaultValue: '"ISLootWindowObjectControlHandler_TakeAll"'
+        fields:
+          control: {}
+        methods:
+          - name: shouldBeVisible
+            return:
+              - type: boolean
+          - name: getControl
+            return:
+              - type: unknown
+          - name: perform

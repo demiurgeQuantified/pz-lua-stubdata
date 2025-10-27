@@ -138,6 +138,12 @@ languages:
                 type: Item
             return:
               - type: boolean
+          - name: filterSpawned
+            parameters:
+              - name: widget
+              - name: scriptItem
+            return:
+              - type: boolean
           - name: onOtherKey
             parameters:
               - name: key

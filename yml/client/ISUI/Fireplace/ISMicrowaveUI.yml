@@ -21,6 +21,7 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISMicrowaveUI"'
+          instance: {}
           messages: {}
         fields:
           tempKnob:
@@ -35,10 +36,13 @@ languages:
             type: ISButton[]
           character:
             type: IsoPlayer
+          playerNum:
+            type: integer
           oven:
             type: IsoStove
         methods:
           - name: initialise
+          - name: close
           - name: ChangeKnob
           - name: update
           - name: updateButtons

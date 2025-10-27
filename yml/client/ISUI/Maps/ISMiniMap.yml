@@ -34,12 +34,12 @@ languages:
             type: ISButton
           button4:
             type: ISButton
-          button5:
-            type: ISButton
           button6:
             type: ISButton
           hideInventoryX:
             nullable: true
+          optionsUI:
+            type: ISMiniMapOptionsPanel
           userPosition:
             type: boolean
           playerNum:
@@ -61,7 +61,7 @@ languages:
           - name: onButton2
           - name: onButton3
           - name: onButton4
-          - name: onButton5
+          - name: onToggleOptionsPanel
           - name: onButton6
           - name: saveSettings
           - name: restoreSettings
@@ -131,6 +131,8 @@ languages:
             type: number
           rightMouseDown:
             type: boolean
+          isTerrainImage:
+            type: boolean
           playerNum:
             type: integer
           javaObject:
@@ -139,6 +141,7 @@ languages:
               - StubGen_Extra
         methods:
           - name: instantiate
+          - name: prerender
           - name: prerenderHack
           - name: onMouseDown
             parameters:
@@ -202,6 +205,9 @@ languages:
                 type: number
               - name: y
                 type: number
+          - name: checkTerrainImage
+          - name: onToggleTerrainImage
+          - name: showTerrainImage
           - name: onTeleport
             parameters:
               - name: worldX
@@ -273,6 +279,70 @@ languages:
           - name: TitleBarHeight
             return:
               - type: number
+      ISMiniMapOptionsPanel:
+        extends: ISCollapsableWindowJoypad
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: map
+                type: ISMiniMapInner
+        staticFields:
+          Type:
+            defaultValue: '"ISMiniMapOptionsPanel"'
+        fields:
+          doubleBoxes:
+            type: table
+          tickBoxes:
+            type: table
+          showAllOptions:
+            type: boolean
+          screenHeight: {}
+          map:
+            type: ISMiniMapInner
+        methods:
+          - name: onTickBox
+            parameters:
+              - name: index
+              - name: selected
+              - name: option
+          - name: onCommandEntered
+            parameters:
+              - name: entry
+              - name: option
+          - name: createChildren
+          - name: getVisibleOptions
+            return:
+              - type: table
+          - name: isMultiplayerOption
+            parameters:
+              - name: optionName
+                type: string
+            return:
+              - type: boolean
+          - name: synchUI
+          - name: onMouseDownOutside
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
       ISMiniMap:
         staticMethods:
           - name: IsAllowed

@@ -30,8 +30,10 @@ languages:
                 type: umbrella.FeedingTroughDefinition
               - name: north
                 type: boolean
-              - name: slave
-                type: boolean
+              - name: spriteGridX
+                type: integer
+              - name: spriteGridY
+                type: integer
             return:
               - type: SFeedingTroughGlobalObject
                 nullable: true

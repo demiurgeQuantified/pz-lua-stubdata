@@ -25,6 +25,15 @@ languages:
               - name: items
                 type: ArrayList<InventoryItem>
                 nullable: true
+              - name: recipeItem
+                type: InventoryItem
+                nullable: true
+              - name: variableInputRatio
+                type: number
+                nullable: true
+              - name: eatPercentage
+                type: number
+                nullable: true
         staticFields:
           Type:
             defaultValue: '"ISHandcraftAction"'
@@ -69,6 +78,13 @@ languages:
             type: CraftRecipe
           actionScript:
             type: TimedActionScript
+          recipeItem:
+            type: InventoryItem
+            nullable: true
+          variableInputRatio:
+            type: number
+          eatPercentage:
+            type: number
         methods:
           - name: isValid
             return:
@@ -124,5 +140,8 @@ languages:
             parameters:
               - name: handcraftLogic
                 type: HandcraftLogic
+              - name: eatPercentage
+                type: number
+                nullable: true
             return:
               - type: ISHandcraftAction

@@ -51,12 +51,10 @@ languages:
             type: MapSpawnSelectInfoPanel
           seedPanel:
             type: ISPanel
-          seedLabel:
-            type: ISLabel
-          randomButton:
-            type: ISButton
           seedTextBox:
             type: ISTextEntryBox
+          randomButton:
+            type: ISButton
           backButton:
             type: ISButton
           nextButton:
@@ -138,14 +136,10 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDown_textEntry
+          - name: onJoypadNavigateStart_Descendant
             parameters:
-              - name: button
-                type: ISButton
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirDown_textEntry
-            parameters:
+              - name: descendant
+                type: ISUIElement
               - name: joypadData
                 type: JoypadData
           - name: onResolutionChange
@@ -163,6 +157,10 @@ languages:
           - name: saveGenParams
           - name: discardGenParams
           - name: create
+          - name: onKeyRelease
+            parameters:
+              - name: key
+                type: integer
       MapSpawnSelectImage:
         extends: ISUIElement
         constructors:
@@ -203,12 +201,28 @@ languages:
             type: number
           dragStartWorldY:
             type: number
+          updateMS:
+            type: integer
+            nullable: true
+          LBumperZoom:
+            type: number
+            nullable: true
+          RBumperZoom:
+            type: number
+            nullable: true
+          povXms:
+            type: integer
+            nullable: true
+          povYms:
+            type: integer
+            nullable: true
           pyramidFileName:
             type: string
             nullable: true
         methods:
           - name: instantiate
           - name: prerender
+          - name: render
           - name: onMouseDown
             parameters:
               - name: x
@@ -263,6 +277,13 @@ languages:
                 type: number
             return:
               - type: boolean
+          - name: updateJoypad
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
           - name: clear
           - name: setImagePyramid
             parameters:
@@ -288,14 +309,6 @@ languages:
                 type: number
               - name: y
                 type: number
-          - name: onJoypadDirUp
-            parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirRight
-            parameters:
-              - name: joypadData
-                type: JoypadData
           - name: onJoypadBeforeDeactivate
             parameters:
               - name: joypadData
@@ -324,11 +337,41 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadDirLeft
+          - name: onJoypadBeforeDeactivate
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: onJoypadBeforeDeactivate
+      MapSpawnSelectSeedPanel:
+        extends: ISPanelJoypad
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"MapSpawnSelectSeedPanel"'
+        fields:
+          seedLabel:
+            type: ISLabel
+          seedTextBox:
+            type: ISTextEntryBox
+          randomButton:
+            type: ISButton
+        methods:
+          - name: createChildren
+          - name: render
+          - name: generateNewSeed
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
             parameters:
               - name: joypadData
                 type: JoypadData

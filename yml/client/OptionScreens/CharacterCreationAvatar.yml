@@ -3,7 +3,7 @@ languages:
   lua:
     classes:
       CharacterCreationAvatar:
-        extends: ISPanel
+        extends: ISPanelJoypad
         constructors:
           - parameters:
               - name: x
@@ -33,6 +33,7 @@ languages:
         methods:
           - name: createChildren
           - name: prerender
+          - name: render
           - name: onTurnChar
             parameters:
               - name: button
@@ -58,3 +59,21 @@ languages:
               - name: val
                 type: boolean
           - name: rescaleAvatarViewer
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joyadData
+                type: JoypadData
+          - name: onJoypadDirLeft
+            parameters:
+              - name: joyadData
+                type: JoypadData
+          - name: onJoypadDirRight
+            parameters:
+              - name: joyadData
+                type: JoypadData
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joyadData
+                type: JoypadData

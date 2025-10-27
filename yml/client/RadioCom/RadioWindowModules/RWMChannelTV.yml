@@ -108,4 +108,3 @@ languages:
           - name: getRBPrompt
             return:
               - type: string
-                nullable: true

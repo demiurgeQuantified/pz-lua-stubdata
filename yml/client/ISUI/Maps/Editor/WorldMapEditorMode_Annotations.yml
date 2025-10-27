@@ -14,6 +14,12 @@ languages:
         fields:
           symbolsUI:
             type: ISWorldMapSymbols
+          listbox:
+            type: ISScrollingListBox
+          filter:
+            type: ISTextEntryBox
+          annotationsList:
+            type: ISScrollingListBox
           dragging:
             type: boolean
           dragMoved:
@@ -22,6 +28,7 @@ languages:
             type: number
           dragStartY:
             type: number
+          symbolCount: {}
         methods:
           - name: createChildren
           - name: onMouseDown
@@ -85,6 +92,16 @@ languages:
                 type: integer
             return:
               - type: boolean
+          - name: onFilterTextChange
+          - name: fillAnnotationsList
+          - name: onAnnotationListItemSelected
+            parameters:
+              - name: symbol
+          - name: onLoadMap
+          - name: onSaveMap
           - name: generateLuaScript
+            return:
+              - type: string
+          - name: generateLuaScript2
             return:
               - type: string

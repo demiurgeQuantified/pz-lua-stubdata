@@ -19,6 +19,8 @@ languages:
           sound:
             type: integer
             nullable: true
+          soundNoTrigger:
+            type: boolean
           item:
             type: InventoryItem
           ignoreHandsWounds:

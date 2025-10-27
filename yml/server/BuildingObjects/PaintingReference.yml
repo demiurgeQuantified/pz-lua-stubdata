@@ -8,6 +8,8 @@ languages:
           pillar: {}
           wall: {}
           windowsframe: {}
+          dblwindowframeleft: {}
+          dblwindowframeright: {}
       OtherPainting:
         staticFields:
           chair: {}
@@ -20,3 +22,5 @@ languages:
           pillar: {}
           wall: {}
           windowsframe: {}
+          dblwindowframeleft: {}
+          dblwindowframeright: {}

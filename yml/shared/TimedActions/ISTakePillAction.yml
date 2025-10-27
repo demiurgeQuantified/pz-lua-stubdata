@@ -18,6 +18,11 @@ languages:
             type: InventoryItem
           isEating:
             type: boolean
+          carLighter:
+            type: boolean
+            nullable: true
+          openFlame:
+            type: boolean
         methods:
           - name: isValid
             return:
@@ -29,6 +34,10 @@ languages:
           - name: complete
             return:
               - type: boolean
+          - name: getRequiredItem
+            return:
+              - type: InventoryItem
+                nullable: true
           - name: getDuration
             return:
               - type: number

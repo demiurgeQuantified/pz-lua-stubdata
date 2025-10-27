@@ -116,7 +116,7 @@ languages:
           - name: setInitialColor
             parameters:
               - name: initial
-                type: Color
+                type: ColorInfo
           - name: setPickedFunc
             parameters:
               - name: func

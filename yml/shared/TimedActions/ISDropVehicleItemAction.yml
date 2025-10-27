@@ -1,0 +1,49 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISDropVehicleItemAction:
+        extends: ISBaseTimedAction
+        constructors:
+          - parameters:
+              - name: character
+              - name: item
+                type: InventoryItem
+              - name: vehicle
+                type: BaseVehicle
+              - name: door
+                type: VehiclePart
+              - name: dropSquare
+                type: IsoGridSquare
+        staticFields:
+          Type:
+            defaultValue: '"ISDropVehicleItemAction"'
+        fields:
+          dropSquare:
+            type: IsoGridSquare
+          item:
+            type: InventoryItem
+          sound:
+            type: integer
+          vehicle:
+            type: BaseVehicle
+          door:
+            type: VehiclePart
+          area:
+            type: string
+          rotation:
+            type: integer
+        methods:
+          - name: isValid
+            return:
+              - type: boolean
+          - name: update
+          - name: start
+          - name: stop
+          - name: complete
+            return:
+              - type: boolean
+          - name: perform
+          - name: getDuration
+            return:
+              - type: number

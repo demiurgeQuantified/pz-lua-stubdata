@@ -1,0 +1,144 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ContextMenuCode:
+        staticFields:
+          Items:
+            type: ContextMenuCode.Items
+          Tiles: {}
+        staticMethods:
+          - name: AddDispenserBottle
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: param
+                type: umbrella.ContextMenuCode.Param
+          - name: BatteryLightSourceInteraction
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: param
+                type: umbrella.ContextMenuCode.Param
+          - name: CompostInteraction
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: option
+                type: umbrella.ISContextMenu.Option
+              - name: compost
+                type: IsoCompost
+              - name: playerObj
+                type: IsoPlayer
+              - name: param
+                type: umbrella.ContextMenuCode.Param
+          - name: OnButcherHook
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: hook
+                type: IsoButcherHook
+              - name: playerObj
+                type: IsoPlayer
+              - name: param
+                type: umbrella.ContextMenuCode.Param
+          - name: OpenCloseAmphoraLid
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: entity
+                type: IsoObject
+              - name: character
+                type: IsoPlayer
+              - name: param
+                type: umbrella.ContextMenuCode.Param
+          - name: OpenCloseLid
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: entity
+                type: IsoObject
+              - name: character
+                type: IsoPlayer
+              - name: sprite
+          - name: TakeDispenserBottle
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: entity
+                type: IsoObject
+              - name: character
+                type: IsoPlayer
+              - name: param
+                type: umbrella.ContextMenuCode.Param
+          - name: TakeBricks
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: entity
+                type: IsoObject
+              - name: character
+                type: IsoPlayer
+              - name: param
+                type: umbrella.ContextMenuCode.Param
+          - name: TakeHay
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: entity
+                type: IsoObject
+              - name: character
+              - name: param
+                type: umbrella.ContextMenuCode.Param
+          - name: TakeHayDouble
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: entity
+                type: IsoObject
+              - name: character
+                type: IsoPlayer
+              - name: param
+                type: umbrella.ContextMenuCode.Param
+          - name: TakeGoldBars
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: entity
+                type: IsoObject
+              - name: character
+                type: IsoPlayer
+              - name: param
+                type: umbrella.ContextMenuCode.Param
+          - name: TakeLogs
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: entity
+                type: IsoObject
+              - name: character
+                type: IsoPlayer
+              - name: param
+                type: umbrella.ContextMenuCode.Param
+      ContextMenuCode.Items:
+        local: true
+        staticMethods:
+          - name: PlaceCarBatteryCharger
+            parameters:
+              - name: carBatteryCharger
+                type: InventoryItem
+              - name: playerObj
+                type: IsoPlayer
+              - name: param
+                type: umbrella.ContextMenuCode.Param
+      umbrella.ContextMenuCode.Param:
+        fields:
+          option:
+            type: umbrella.ISContextMenu.Option
+          entity:
+            type: GameEntity
+          playerObj:
+            type: IsoPlayer
+          extraParam:
+            type: string
+            nullable: true

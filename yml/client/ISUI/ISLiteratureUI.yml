@@ -21,6 +21,7 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISLiteratureUI"'
+          miscRecipes: {}
         fields:
           tabs:
             type: ISTabPanel
@@ -71,6 +72,9 @@ languages:
             parameters:
               - name: button
                 type: ISButton
+          - name: onRecipeSelected
+            parameters:
+              - name: recipe
         staticMethods:
           - name: SetItemHidden
             parameters:
@@ -174,3 +178,24 @@ languages:
                 type: boolean
             return:
               - type: number
+    functions:
+      - name: doesMiscRecipeExist
+        parameters:
+          - name: recipeName
+            type: string
+        return:
+          - type: boolean
+      - name: getMiscRecipeIcon
+        parameters:
+          - name: recipeName
+            type: string
+        return:
+          - type: unknown
+            nullable: true
+      - name: getRecipeIcon
+        parameters:
+          - name: recipeName
+            type: string
+        return:
+          - type: unknown
+            nullable: true
