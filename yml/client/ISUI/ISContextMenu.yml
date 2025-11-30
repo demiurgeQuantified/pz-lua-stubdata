@@ -826,7 +826,7 @@ languages:
             type: unknown
             nullable: true
           subOption:
-            type: number
+            type: integer
             nullable: true
           toolTip:
             type: ISToolTip
