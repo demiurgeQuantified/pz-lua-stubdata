@@ -82,6 +82,11 @@ languages:
             return:
               - type: boolean
           - name: isValid
+            notes: Called every tick during the action to determine if the action should continue.
+            return:
+              - type: boolean
+                name: valid
+                notes: If non-true, the action will be cancelled.
           - name: isUsingTimeout
             return:
               - type: boolean
