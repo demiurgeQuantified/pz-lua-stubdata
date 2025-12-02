@@ -182,6 +182,7 @@ languages:
                 notes: Display name for this option
               - name: key
                 type: integer
+                nullable: true
                 notes: Initial key code
               - name: _tooltip
                 type: string
