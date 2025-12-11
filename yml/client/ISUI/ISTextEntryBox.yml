@@ -44,6 +44,11 @@ languages:
             type: UITextBox2
             tags:
               - StubGen_Extra
+          onOtherKey:
+            type: "fun(self: ISTextEntryBox, key: integer)"
+            nullable: true
+            tags:
+              - StubGen_Extra
         methods:
           - name: isMultipleLine
             return:

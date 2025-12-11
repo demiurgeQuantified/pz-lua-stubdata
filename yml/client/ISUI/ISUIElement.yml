@@ -63,6 +63,11 @@ languages:
             nullable: true
           joypadFocused:
             type: boolean
+          joypadNavigate:
+            type: table
+            nullable: true
+            tags:
+              - StubGen_Extra
           joypadNavigatePrevRect:
             type: table
             nullable: true
@@ -104,6 +109,46 @@ languages:
               - StubGen_Extra
           parent:
             type: ISUIElement
+            nullable: true
+            tags:
+              - StubGen_Extra
+          overrideBPrompt:
+            type: boolean
+            nullable: true
+            tags:
+              - StubGen_Extra
+          isValidPrompt:
+            type: "fun(self: ISUIElement): boolean"
+            nullable: true
+            tags:
+              - StubGen_Extra
+          getAPrompt:
+            type: "fun(self: ISUIElement): string?"
+            nullable: true
+            tags:
+              - StubGen_Extra
+          getBPrompt:
+            type: "fun(self: ISUIElement): string?"
+            nullable: true
+            tags:
+              - StubGen_Extra
+          getXPrompt:
+            type: "fun(self: ISUIElement): string?"
+            nullable: true
+            tags:
+              - StubGen_Extra
+          getYPrompt:
+            type: "fun(self: ISUIElement): string?"
+            nullable: true
+            tags:
+              - StubGen_Extra
+          getRBPrompt:
+            type: "fun(self: ISUIElement): string?"
+            nullable: true
+            tags:
+              - StubGen_Extra
+          getLBPrompt:
+            type: "fun(self: ISUIElement): string?"
             nullable: true
             tags:
               - StubGen_Extra

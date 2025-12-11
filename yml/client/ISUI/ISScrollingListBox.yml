@@ -34,13 +34,14 @@ languages:
             type: number
             nullable: true
           mouseoverselected:
-            type: number
+            type: integer
+            nullable: true
           count:
             type: number
           textColor:
-            type: table
+            type: umbrella.RGBA
           selectedTextColor:
-            type: table
+            type: umbrella.RGBA
           onmousedown:
             type: umbrella.ISScrollingListBox.MouseCallback
           onmousedblclick:
@@ -411,3 +412,9 @@ languages:
             nullable: true
           height:
             type: number
+          textColor:
+            type: umbrella.RGBA
+            nullable: true
+          selectedTextColor:
+            type: umbrella.RGBA
+            nullable: true

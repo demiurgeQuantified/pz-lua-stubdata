@@ -44,6 +44,11 @@ languages:
             type: boolean
           keepOnScreen:
             type: boolean
+          prevFocus:
+            type: ISUIElement
+            nullable: true
+            tags:
+              - StubGen_Extra
         methods:
           - name: createChildren
           - name: KeyFunction_Char
