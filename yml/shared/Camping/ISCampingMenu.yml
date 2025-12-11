@@ -114,20 +114,6 @@ languages:
                 type: ISBBQLightFromLiterature | ISLightFromLiterature
               - name: kindleAction
                 type: ISBBQLightFromKindle | ISLightFromKindle
-          - name: doCampingMenu
-            parameters:
-              - name: player
-                type: integer
-              - name: context
-                type: ISContextMenu
-              - name: worldobjects
-                type: IsoObject[]
-              - name: test
-                type: boolean
-                nullable: true
-            return:
-              - type: boolean
-                nullable: true
           - name: toPlayerInventory
             parameters:
               - name: playerObj
@@ -164,16 +150,6 @@ languages:
                 type: IsoGridSquare
             return:
               - type: boolean
-          - name: doSleepOption
-            parameters:
-              - name: context
-                type: ISContextMenu
-              - name: bed
-                type: IsoObject
-              - name: player
-                type: integer
-              - name: playerObj
-                type: IsoPlayer
           - name: onAddFuel
             parameters:
               - name: playerObj
@@ -208,12 +184,9 @@ languages:
                 type: ISBaseTimedAction
               - name: currentFuel
                 type: number
-          - name: onPlaceCampfire
-            parameters:
-              - name: worldobjects
-                type: IsoObject[]
-              - name: player
+              - name: count
                 type: integer
+                nullable: true
           - name: onPutOutCampfire
             parameters:
               - name: worldobjects
@@ -266,14 +239,6 @@ languages:
                 nullable: true
               - name: timedAction
                 type: ISBaseTimedAction
-          - name: onRest
-            parameters:
-              - name: worldobjects
-                type: IsoObject[]
-              - name: player
-                type: integer
-              - name: tent
-                type: IsoObject
       umbrella.ISCampingMenu.NearbyFuelInfo:
         fields:
           starters:

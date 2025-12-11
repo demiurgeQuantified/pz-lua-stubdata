@@ -115,12 +115,6 @@ languages:
                 type: IsoGridSquare
             return:
               - type: boolean
-          - name: privCanStand
-            parameters:
-              - name: test
-                type: IsoGridSquare
-            return:
-              - type: boolean
           - name: privGetNorth
             parameters:
               - name: gridSquare

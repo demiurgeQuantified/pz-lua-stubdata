@@ -3,7 +3,7 @@ languages:
   lua:
     aliases:
       umbrella.ISPlayerStatsChooseTraitUI.OnClick:
-        - type: "fun(target: unknown?, button: ISButton, trait: TraitFactory.Trait)"
+        - type: "fun(target: unknown?, button: ISButton, trait: CharacterTraitDefinition)"
     classes:
       ISPlayerStatsChooseTraitUI:
         extends: ISPanel
@@ -54,9 +54,9 @@ languages:
           zOffsetSmallFont:
             type: number
           goodTraits:
-            type: TraitFactory.Trait[]
+            type: CharacterTraitDefinition[]
           badTraits:
-            type: TraitFactory.Trait[]
+            type: CharacterTraitDefinition[]
         methods:
           - name: initialise
           - name: setVisible

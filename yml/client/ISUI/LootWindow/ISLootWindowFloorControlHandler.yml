@@ -25,6 +25,11 @@ languages:
                 type: string
             return:
               - type: ISButton
+          - name: getImageButtonControl
+            parameters:
+              - name: imagePath
+            return:
+              - type: unknown
           - name: handleJoypadContextMenu
             parameters:
               - name: context

@@ -53,6 +53,7 @@ languages:
           - name: update
           - name: start
           - name: forceStop
+          - name: serverStop
           - name: stop
           - name: perform
           - name: complete

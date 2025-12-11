@@ -37,6 +37,8 @@ languages:
             type: ISScrollingListBox
           scrollBarSpacing:
             type: number
+          minListWidth:
+            type: number
           player:
             type: IsoPlayer
           itemheight:
@@ -44,6 +46,24 @@ languages:
         methods:
           - name: initialise
           - name: populateList
+          - name: drawTextRecordWidth
+            parameters:
+              - name: text
+                type: string
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+              - name: a
+                type: number
+              - name: font
+                type: UIFont
           - name: drawDatas
             parameters:
               - name: y
@@ -59,6 +79,7 @@ languages:
               - name: _item
                 type: WarManager.War
           - name: prerender
+          - name: update
           - name: onClick
             parameters:
               - name: button

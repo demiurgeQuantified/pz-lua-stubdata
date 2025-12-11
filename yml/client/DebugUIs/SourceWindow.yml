@@ -26,6 +26,10 @@ languages:
             type: string
           sourceView:
             type: ISScrollingListBox
+          bottomPanel:
+            type: ISPanel
+          lineNumberEntry:
+            type: ISTextEntryBox
           reloadBtn:
             type: ISButton
           filename:
@@ -69,6 +73,7 @@ languages:
               - name: line
                 type: number
           - name: checkFontSize
+          - name: onLineNumberEntered
           - name: setListBoxItemHeight
             parameters:
               - name: listBox

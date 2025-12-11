@@ -38,7 +38,7 @@ languages:
             type: string
             nullable: true
           traits:
-            type: TraitFactory.Trait[]
+            type: CharacterTrait[]
             nullable: true
           perks:
             type: table<PerkFactory.Perk, integer>

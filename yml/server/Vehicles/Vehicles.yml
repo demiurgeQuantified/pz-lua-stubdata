@@ -153,6 +153,12 @@ languages:
                 type: BaseVehicle
               - name: part
                 type: VehiclePart
+          - name: Headlight_Racecar
+            parameters:
+              - name: vehicle
+                type: BaseVehicle
+              - name: part
+                type: VehiclePart
           - name: Radio
             parameters:
               - name: vehicle
@@ -160,6 +166,12 @@ languages:
               - name: part
                 type: VehiclePart
           - name: Radio_HAM
+            parameters:
+              - name: vehicle
+                type: BaseVehicle
+              - name: part
+                type: VehiclePart
+          - name: Radio_Racecar
             parameters:
               - name: vehicle
                 type: BaseVehicle
@@ -189,6 +201,10 @@ languages:
                 type: BaseVehicle
               - name: part
                 type: VehiclePart
+          - name: Seat_Racecar
+            parameters:
+              - name: vehicle
+              - name: part
       Vehicles.InstallComplete:
         local: true
         staticMethods:

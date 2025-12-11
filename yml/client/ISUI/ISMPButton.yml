@@ -1,0 +1,267 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISMPButton:
+        extends: ISPanel
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: title
+                type: string
+              - name: clicktarget
+                type: MultiplayerUI
+              - name: onclick
+              - name: onmousedown
+              - name: allowMouseUpProcessing
+        staticFields:
+          Type:
+            defaultValue: '"ISMPButton"'
+        fields:
+          joypadFocused: {}
+          pressed:
+            type: boolean
+          isJoypad:
+            type: boolean
+          joypadTexture:
+            nullable: true
+          backgroundColorPressed:
+            type: table
+          blinkBGAlpha:
+            type: number
+          blinkBGAlphaIncrease:
+            type: boolean
+          image: {}
+          forcedWidthImage:
+            type: number
+          forcedHeightImage:
+            type: number
+          overlayText: {}
+          blinkImageAlpha:
+            type: number
+          blinkImageAlphaIncrease:
+            type: boolean
+          font: {}
+          title:
+            type: string
+          onmouseover: {}
+          onmouseoutfunction: {}
+          displayBackground:
+            type: boolean
+          pressedTime:
+            nullable: true
+          tooltipUI:
+            type: ISToolTip
+          repeatWhilePressedFunc: {}
+          enable:
+            type: boolean
+          borderColorEnabled:
+            type: table
+          backgroundColorEnabled:
+            type: table
+          tooltip:
+            nullable: true
+          originalWidth:
+            type: number
+          onclick: {}
+          onClickArgs:
+            type: table
+          backgroundColorMouseOver:
+            type: table
+          textureColor:
+            type: table
+          textColor:
+            type: table
+          target:
+            type: MultiplayerUI
+          onmousedown: {}
+          ISMPButton:
+            type: boolean
+          allowMouseUpProcessing: {}
+          yoffset:
+            type: number
+          fade: {}
+          joypadTextureWH:
+            type: number
+          repeatWhilePressedTimer:
+            type: number
+          sounds:
+            type: table
+          originalHeight:
+            type: number
+          textureBackground:
+            nullable: true
+        methods:
+          - name: initialise
+          - name: onMouseMove
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+          - name: onMouseMoveOutside
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+          - name: setJoypadFocused
+            parameters:
+              - name: focused
+          - name: onMouseUp
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseUpOutside
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseDoubleClick
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: unknown
+                nullable: true
+          - name: forceClick
+            return:
+              - type: unknown
+                nullable: true
+          - name: setJoypadButton
+            parameters:
+              - name: texture
+          - name: clearJoypadButton
+          - name: prerender
+          - name: setImage
+            parameters:
+              - name: image
+          - name: forceImageSize
+            parameters:
+              - name: width
+                type: number
+              - name: height
+                type: number
+          - name: setOverlayText
+            parameters:
+              - name: text
+          - name: render
+          - name: setFont
+            parameters:
+              - name: font
+          - name: getTitle
+            return:
+              - type: string
+          - name: setTitle
+            parameters:
+              - name: title
+                type: string
+          - name: setOnMouseOverFunction
+            parameters:
+              - name: onmouseover
+          - name: setOnMouseOutFunction
+            parameters:
+              - name: onmouseout
+          - name: setDisplayBackground
+            parameters:
+              - name: background
+          - name: update
+          - name: updateTooltip
+          - name: setRepeatWhilePressed
+            parameters:
+              - name: func
+          - name: setBackgroundRGBA
+            parameters:
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+              - name: a
+                type: number
+          - name: setBackgroundColorMouseOverRGBA
+            parameters:
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+              - name: a
+                type: number
+          - name: setBorderRGBA
+            parameters:
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+              - name: a
+                type: number
+          - name: setTextureRGBA
+            parameters:
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+              - name: a
+                type: number
+          - name: enableAcceptColor
+          - name: enableCancelColor
+          - name: toggleAcceptCancel
+            parameters:
+              - name: bEnabled
+          - name: setEnable
+            parameters:
+              - name: bEnabled
+          - name: isEnabled
+            return:
+              - type: boolean
+          - name: setTooltip
+            parameters:
+              - name: tooltip
+          - name: setWidthToTitle
+            parameters:
+              - name: minWidth
+                nullable: true
+              - name: isJoypad
+                type: boolean
+                nullable: true
+          - name: setOnClick
+            parameters:
+              - name: func
+              - name: arg1
+              - name: arg2
+              - name: arg3
+              - name: arg4
+          - name: setSound
+            parameters:
+              - name: which
+              - name: soundName
+                type: string
+          - name: calculateLayout
+            parameters:
+              - name: _preferredWidth
+              - name: _preferredHeight

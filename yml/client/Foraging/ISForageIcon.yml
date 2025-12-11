@@ -51,15 +51,6 @@ languages:
           - name: onRightMouseDown
             return:
               - type: boolean
-          - name: onClickDiscard
-            parameters:
-              - name: _x
-                type: number
-              - name: _y
-                type: number
-              - name: _contextOption
-                type: ISContextMenu
-                nullable: true
           - name: doForage
             parameters:
               - name: _x

@@ -63,11 +63,6 @@ languages:
             nullable: true
           joypadFocused:
             type: boolean
-          joypadNavigate:
-            type: table
-            nullable: true
-            tags:
-              - StubGen_Extra
           joypadNavigatePrevRect:
             type: table
             nullable: true
@@ -102,6 +97,11 @@ languages:
             nullable: true
           dock:
             type: string
+          joypadNavigate:
+            type: table
+            nullable: true
+            tags:
+              - StubGen_Extra
           internal:
             type: string
             nullable: true
@@ -1026,6 +1026,34 @@ languages:
               - name: g
                 type: number
               - name: b
+                type: number
+          - name: drawPolygon
+            parameters:
+              - name: tex
+                type: Texture
+              - name: x1
+                type: number
+              - name: y1
+                type: number
+              - name: x2
+                type: number
+              - name: y2
+                type: number
+              - name: x3
+                type: number
+              - name: y3
+                type: number
+              - name: x4
+                type: number
+              - name: y4
+                type: number
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+              - name: a
                 type: number
           - name: drawTextZoomed
             parameters:

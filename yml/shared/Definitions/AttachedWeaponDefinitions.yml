@@ -15,11 +15,11 @@ languages:
           huntingKnifeBack: {}
           knifeBack: {}
           knifeBack_Special: {}
-          knifeLowQualityLeftLeg:
-            type: table
+          knifeLowQualityLeftLeg: {}
           huntingKnifeLeftLeg: {}
           knifeLeftLeg: {}
           knifeLeftLeg_Special: {}
+          knifeLowQualityRightLeg: {}
           huntingKnifeRightLeg: {}
           knifeRightLeg: {}
           knifeRightLeg_Special: {}

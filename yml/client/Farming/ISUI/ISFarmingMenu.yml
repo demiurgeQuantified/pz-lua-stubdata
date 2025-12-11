@@ -109,6 +109,20 @@ languages:
                 type: InventoryItem
             return:
               - type: boolean
+          - name: doDigMenu
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: context
+                type: ISContextMenu
+              - name: worldobjects
+                type: IsoObject[]
+              - name: test
+                type: boolean
+                nullable: true
+            return:
+              - type: boolean
+                nullable: true
           - name: doFarmingMenu2
             parameters:
               - name: player

@@ -63,6 +63,8 @@ languages:
           isoObject:
             type: IsoObject
             nullable: true
+          seeAllRecipe:
+            type: boolean
           activeTooltip:
             type: ISCraftRecipeTooltip
             nullable: true
@@ -111,6 +113,13 @@ languages:
           - name: render
           - name: update
           - name: refreshRecipeList
+            parameters:
+              - name: _forceRefresh
+                type: boolean
+          - name: setSeeAllRecipe
+            parameters:
+              - name: enabled
+                type: boolean
           - name: updateContainers
             parameters:
               - name: _forceRefresh

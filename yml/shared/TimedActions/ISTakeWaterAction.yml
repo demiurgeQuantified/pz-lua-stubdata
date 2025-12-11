@@ -60,7 +60,13 @@ languages:
             parameters:
               - name: _amount
                 type: number
-          - name: serverStop
+          - name: serverStart
+          - name: animEvent
+            parameters:
+              - name: event
+                type: string
+              - name: parameter
+                type: string
           - name: getDuration
             return:
               - type: number

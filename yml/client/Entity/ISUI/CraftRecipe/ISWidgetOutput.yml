@@ -115,3 +115,15 @@ languages:
               - name: _table
                 type: umbrella.ISWidgetInput.ScriptValues
           - name: updateValues
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseDownOutside
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number

@@ -130,6 +130,10 @@ languages:
                 type: number
               - name: dy
                 type: number
+          - name: selectOptionFromText
+            parameters:
+              - name: text
+                type: string
           - name: select
             parameters:
               - name: option

@@ -17,6 +17,9 @@ languages:
               - name: twoHands
                 type: boolean
                 nullable: true
+              - name: alwaysTurnOn
+                type: boolean
+                nullable: true
         staticFields:
           Type:
             defaultValue: '"ISEquipWeaponAction"'
@@ -33,6 +36,9 @@ languages:
             nullable: true
           ignoreHandsWounds:
             type: boolean
+          alwaysTurnOn:
+            type: boolean
+            nullable: true
           hotbar:
             type: ISHotbar
             nullable: true

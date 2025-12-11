@@ -22,7 +22,7 @@ languages:
             nullable: true
         fields:
           freeTraits:
-            type: TraitFactory.Trait[]
+            type: ArrayList<string>
           pointToSpend:
             type: integer
           tablePadX:
@@ -78,7 +78,7 @@ languages:
           deleteBuildButton:
             type: ISButton
           profession:
-            type: ProfessionFactory.Profession
+            type: CharacterProfessionDefinition
             nullable: true
           cost:
             type: integer
@@ -110,32 +110,32 @@ languages:
           - name: onSelectChosenTrait
             parameters:
               - name: item
-                type: TraitFactory.Trait
+                type: CharacterTraitDefinition
           - name: onSelectTrait
             parameters:
               - name: item
-                type: TraitFactory.Trait
+                type: CharacterTraitDefinition
           - name: onSelectBadTrait
             parameters:
               - name: item
-                type: TraitFactory.Trait
+                type: CharacterTraitDefinition
           - name: onDblClickSelectedTrait
             parameters:
               - name: item
-                type: TraitFactory.Trait
+                type: CharacterTraitDefinition
           - name: onDblClickBadTrait
             parameters:
               - name: item
-                type: TraitFactory.Trait
+                type: CharacterTraitDefinition
           - name: onDblClickTrait
             parameters:
               - name: item
-                type: TraitFactory.Trait
+                type: CharacterTraitDefinition
           - name: checkXPBoost
           - name: onSelectProf
             parameters:
-              - name: item
-                type: ProfessionFactory.Profession
+              - name: characterProfessionDefinition
+                type: CharacterProfessionDefinition
           - name: changeClothes
           - name: setVisible
             parameters:
@@ -160,17 +160,17 @@ languages:
           - name: addTrait
             parameters:
               - name: trait
-                type: TraitFactory.Trait
+                type: CharacterTraitDefinition
           - name: doTestForMutuallyExclusiveTraits
             parameters:
               - name: trait
-                type: TraitFactory.Trait
+                type: CharacterTraitDefinition
               - name: isRemovingTrait
                 type: boolean
           - name: isTraitExcluded
             parameters:
               - name: trait
-                type: TraitFactory.Trait
+                type: CharacterTraitDefinition
             return:
               - type: boolean
           - name: removeTrait
@@ -211,7 +211,7 @@ languages:
           - name: getTraitColor
             parameters:
               - name: trait
-                type: TraitFactory.Trait
+                type: CharacterTraitDefinition
             return:
               - type: umbrella.RGB
           - name: drawTraitMap
@@ -316,7 +316,7 @@ languages:
           - name: resetTraits
           - name: getSelectedProf
             return:
-              - type: ProfessionFactory.Profession
+              - type: CharacterProfessionDefinition
         staticMethods:
           - name: initWorld
           - name: loadBuild

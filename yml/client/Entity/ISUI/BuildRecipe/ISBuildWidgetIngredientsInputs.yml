@@ -25,18 +25,8 @@ languages:
           inputsLabel:
             type: ISLabel
             nullable: true
-          autoLabel:
-            type: ISLabel
-            nullable: true
-          autoToggle:
-            type: ISWidgetAutoToggle
-            nullable: true
           inputs:
             type: ISWidgetInput[]
-          joypadIndexY:
-            type: integer
-          joypadIndex:
-            type: integer
           player:
             type: IsoPlayer
           logic:
@@ -97,8 +87,4 @@ languages:
           - name: onManualSelectChanged
             parameters:
               - name: _manualSelect
-                type: boolean
-          - name: onAutoToggled
-            parameters:
-              - name: _newState
                 type: boolean

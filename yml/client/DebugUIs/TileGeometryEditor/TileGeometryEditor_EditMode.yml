@@ -527,25 +527,25 @@ languages:
             type: TileGeometryEditor_GeometryListBox
           belowList:
             type: ISPanel
-          button1:
+          buttonTranslate:
             type: ISButton
-          button2:
+          buttonHideGeom:
             type: ISButton
-          button3:
+          buttonAddXY:
             type: ISButton
-          button4:
+          buttonAddXZ:
             type: ISButton
-          button5:
+          buttonAddYZ:
             type: ISButton
-          button5_1:
+          buttonAddBox:
             type: ISButton
-          button5_2:
+          buttonAddCylinder:
             type: ISButton
-          button6:
+          buttonEditPoints:
             type: ISButton
-          button7:
+          buttonRemove:
             type: ISButton
-          button8:
+          buttonRecalcShadows:
             type: ISButton
           boxPanel:
             type: TileGeometryEditor_BoxPanel
@@ -735,11 +735,11 @@ languages:
         fields:
           buttonPanel:
             type: ISPanel
-          button1:
+          buttonTranslate:
             type: ISButton
-          button2:
+          buttonHideGeom:
             type: ISButton
-          button4:
+          buttonAddXZ:
             type: ISButton
           tilePicker3:
             type: TileGeometryEditor_TilePicker3
@@ -841,7 +841,7 @@ languages:
         fields:
           buttonPanel:
             type: ISPanel
-          button1:
+          buttonTranslate:
             type: ISButton
           tilePicker3:
             type: TileGeometryEditor_TilePicker3
@@ -905,19 +905,19 @@ languages:
             type: TileGeometryEditor_SeatingListBox
           buttonPanel:
             type: ISPanel
-          button1:
+          buttonTranslate:
             type: ISButton
-          button2:
+          buttonHideGeom:
             type: ISButton
-          button3:
+          buttonAddXY:
             type: ISButton
-          button4:
+          buttonAddXZ:
             type: ISButton
-          button5:
+          buttonAddYZ:
             type: ISButton
-          button6:
+          buttonEditPoints:
             type: ISButton
-          button7:
+          buttonRemove:
             type: ISButton
           tilePicker3:
             type: TileGeometryEditor_TilePicker3

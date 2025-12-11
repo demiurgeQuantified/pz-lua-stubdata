@@ -33,6 +33,8 @@ languages:
             type: ConnectToServer
           serverConnectPopup:
             type: ServerConnectPopup
+          multiplayer:
+            type: MultiplayerUI
           soloScreen:
             type: NewGameScreen
           loadScreen:
@@ -93,6 +95,10 @@ languages:
             type: ISLabel
           survivalOption:
             type: ISLabel
+          onlineOption:
+            type: ISLabel
+          onlineCoopOption:
+            type: ISLabel
           modsOption:
             type: ISLabel
           workshopOption:
@@ -103,16 +109,14 @@ languages:
             type: ISLabel
           maxMenuItemWidth:
             type: number
-          versionDetail:
-            type: ISButton
           reportBug:
             type: ISButton
           modListDetail:
             type: ISButton
           termsOfService:
             type: ISButton
-          versionLabel:
-            type: ISLabel
+          versionBtn:
+            type: ISButton
           seedLabel:
             type: ISLabel
           desc:
@@ -155,8 +159,6 @@ languages:
           quitToDesktopDialog:
             type: ISModalDialog
             nullable: true
-          infoRichText:
-            type: ISNewsUpdate
           infoModList:
             type: ISPauseModListUI
             nullable: true
@@ -168,6 +170,8 @@ languages:
             type: number
           inGame:
             type: boolean
+          version:
+            type: string
           logoTexture:
             type: Texture
           joypadIndexY:
@@ -183,7 +187,7 @@ languages:
               - name: visible
                 type: boolean
           - name: instantiate
-          - name: OnClickNews
+          - name: copyRev
           - name: render
           - name: calcLogoHeight
             return:
@@ -211,7 +215,6 @@ languages:
             parameters:
               - name: button
                 type: ISButton
-          - name: onClickVersionDetail
           - name: onClickTermsOfService
             parameters:
               - name: button
@@ -336,6 +339,9 @@ languages:
             parameters:
               - name: fromResetLua
                 type: boolean
+              - name: checkWorldVersion
+                type: boolean
+                nullable: true
           - name: continueLatestSave
             parameters:
               - name: gameMode
@@ -376,6 +382,7 @@ languages:
             parameters:
               - name: index
                 type: integer
+          - name: setKeyboardMouseActivated
     functions:
       - name: LoadMainScreenPanel
       - name: isPlayerDoingActionThatCanBeCancelled

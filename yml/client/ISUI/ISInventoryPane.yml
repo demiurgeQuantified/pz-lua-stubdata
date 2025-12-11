@@ -161,7 +161,10 @@ languages:
             type: Texture
           favoriteStar:
             type: Texture
-          favoriteRecipeInputStar: {}
+          noFavoriteRecipeInputStar:
+            type: Texture
+          favoriteRecipeInputStar:
+            type: Texture
           player:
             type: integer
             tags:

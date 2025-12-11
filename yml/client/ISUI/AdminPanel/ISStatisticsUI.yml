@@ -19,29 +19,11 @@ languages:
             type: ISStatisticsUI
             nullable: true
         fields:
-          showCPU:
-            type: boolean
-          showMemory:
-            type: boolean
-          showFPS:
+          showPerformance:
             type: boolean
           showNetwork:
             type: boolean
-          showVOIP:
-            type: boolean
-          showPing:
-            type: boolean
-          showTime:
-            type: boolean
-          showVersion:
-            type: boolean
-          showPlayers:
-            type: boolean
-          showAnimals:
-            type: boolean
-          showZombies:
-            type: boolean
-          showChunks:
+          showCharacters:
             type: boolean
           tickBoxLeft:
             type: ISTickBox

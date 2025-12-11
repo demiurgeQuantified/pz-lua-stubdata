@@ -26,3 +26,5 @@ languages:
           - name: update
           - name: useKeyboardMouse
           - name: renderControllerDisconnected
+        staticMethods:
+          - name: setKeyboardMouseActivated

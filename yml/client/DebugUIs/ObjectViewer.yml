@@ -30,8 +30,14 @@ languages:
             type: string
           sc:
             type: number
+          historyPrev:
+            type: ISButton
+          filter:
+            type: ISTextEntryBox
           objectView:
             type: ISScrollingListBox
+          history:
+            type: table[]
         methods:
           - name: onRightMouseDownObject
             parameters:
@@ -41,6 +47,10 @@ languages:
                 type: number
               - name: y
                 type: number
+          - name: onMouseDoubleClickListItem
+            parameters:
+              - name: item
+                type: unknown
           - name: onMouseDoubleClickOpenObject
             parameters:
               - name: item
@@ -56,9 +66,14 @@ languages:
                 type: number
             return:
               - type: boolean
+          - name: fillJavaList
+            parameters:
+              - name: list
+                type: ArrayList
           - name: fill
           - name: createChildren
           - name: prerender
+          - name: onFilterTextChange
           - name: doDrawItem
             parameters:
               - name: y
@@ -70,6 +85,8 @@ languages:
             return:
               - type: number
           - name: checkFontSize
+          - name: historyPush
+          - name: historyPop
         staticMethods:
           - name: onWatch
             parameters:

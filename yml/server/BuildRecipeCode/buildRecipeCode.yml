@@ -55,6 +55,9 @@ languages:
             parameters:
               - name: params
                 type: umbrella.BuildRecipeCode.OnCreateParams
+            return:
+              - type: table
+                nullable: true
       BuildRecipeCode.stairs:
         local: true
         staticMethods:

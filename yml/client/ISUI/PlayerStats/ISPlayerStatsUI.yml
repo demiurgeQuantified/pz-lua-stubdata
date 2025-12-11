@@ -137,13 +137,13 @@ languages:
               - name: button
                 type: ISButton
               - name: trait
-                type: TraitFactory.Trait
+                type: CharacterTraitDefinition
           - name: onChangeProfession
             parameters:
               - name: button
                 type: ISButton
               - name: prof
-                type: ProfessionFactory.Profession
+                type: CharacterProfessionDefinition
           - name: onChangeAccessLevel
             parameters:
               - name: button

@@ -76,6 +76,8 @@ languages:
           worldMarker:
             type: WorldMarkers.PlayerHomingPoint
             nullable: true
+          distanceSnapshot:
+            type: number
           isKnownPoison:
             type: boolean
           perkLevel:

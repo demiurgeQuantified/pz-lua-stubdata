@@ -14,8 +14,6 @@ languages:
                 type: string[]
               - name: targetContainer
                 type: ItemContainer
-              - name: discardItems
-                type: boolean
               - name: itemType
                 type: string
         staticFields:
@@ -26,8 +24,6 @@ languages:
             type: integer
           targetContainer:
             type: ItemContainer
-          discardItems:
-            type: boolean
           itemType:
             type: string
           itemTypeList:

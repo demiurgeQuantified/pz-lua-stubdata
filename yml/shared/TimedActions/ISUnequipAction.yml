@@ -27,15 +27,6 @@ languages:
             type: boolean
           clothingAction:
             type: boolean
-          hotbar:
-            type: ISHotbar
-            nullable: true
-          fromHotbar:
-            type: boolean
-          useProgressBar:
-            type: boolean
-          animSpeed:
-            type: number
         methods:
           - name: isValid
             return:

@@ -105,6 +105,12 @@ languages:
                 type: InventoryItem
               - name: player
                 type: IsoPlayer
+          - name: HandAxe_Old
+            parameters:
+              - name: item
+                type: InventoryItem
+              - name: player
+                type: IsoPlayer
           - name: HandScythe
             parameters:
               - name: item

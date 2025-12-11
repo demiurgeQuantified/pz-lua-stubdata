@@ -77,6 +77,7 @@ languages:
                 type: number
               - name: dy
                 type: number
+          - name: removeTooltip
           - name: activate
           - name: renderPerkRect
         staticMethods:

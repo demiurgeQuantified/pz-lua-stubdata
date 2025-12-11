@@ -98,9 +98,9 @@ languages:
           optionPool:
             type: umbrella.ISContextMenu.Option[]
           subOptionNums:
-            type: number
+            type: integer
           player:
-            type: number
+            type: integer
           scrollIndicatorHgt:
             type: number
           arrowUp:

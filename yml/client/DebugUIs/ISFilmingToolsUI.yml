@@ -1,0 +1,67 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISFilmingToolsUI:
+        extends: ISCollapsableWindow
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: player
+                type: IsoPlayer
+        staticFields:
+          Type:
+            defaultValue: '"ISFilmingToolsUI"'
+          instance:
+            type: ISFilmingToolsUI
+            nullable: true
+        fields:
+          muteUiSound_btn:
+            type: ISButton
+          cutaway_btn:
+            type: ISButton
+          no_lighting_btn:
+            type: ISButton
+          no_fade_btn:
+            type: ISButton
+          no_highlight_container_btn:
+            type: ISButton
+          no_btn:
+            type: ISButton
+          labels:
+            type: table
+          player:
+            type: IsoPlayer
+        methods:
+          - name: initialise
+          - name: update
+          - name: destroy
+          - name: onClick
+            parameters:
+              - name: button
+                type: ISButton
+          - name: prerender
+          - name: updateButtons
+          - name: render
+          - name: onKeyRelease
+            parameters:
+              - name: key
+                type: integer
+          - name: isKeyConsumed
+            parameters:
+              - name: key
+                type: integer
+            return:
+              - type: boolean
+        staticMethods:
+          - name: onKeyPressed
+            parameters:
+              - name: key
+                type: integer

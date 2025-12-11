@@ -272,6 +272,7 @@ languages:
               - name: onmousedown
                 type: umbrella.ISScrollingListBox.MouseCallback
                 nullable: true
+          - name: invokeOnMouseDownFunction
           - name: setOnMouseDoubleClick
             parameters:
               - name: target
@@ -280,6 +281,7 @@ languages:
               - name: onmousedblclick
                 type: umbrella.ISScrollingListBox.MouseCallback
                 nullable: true
+          - name: invokeOnMouseDoubleClick
           - name: doDrawItem
             parameters:
               - name: y
@@ -319,6 +321,8 @@ languages:
               - type: boolean
           - name: scrollToSelected
           - name: sort
+            parameters:
+              - name: comparator
           - name: updateTooltip
           - name: updateSmoothScrolling
           - name: parentsHaveScrollChildren

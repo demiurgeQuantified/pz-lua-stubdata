@@ -21,10 +21,6 @@ languages:
             nullable: true
           item:
             type: InventoryItem
-          started:
-            type: boolean
-          transactionId:
-            type: number
           extra:
             type: string
         methods:
@@ -37,15 +33,6 @@ languages:
           - name: update
           - name: start
           - name: stop
-          - name: perform
-          - name: performNew
-            parameters:
-              - name: playerObj
-                type: IsoPlayer
-              - name: item
-                type: InventoryItem
-              - name: extra
-                type: string
           - name: stopSound
           - name: createItem
             parameters:
@@ -63,6 +50,13 @@ languages:
                 type: InventoryItem
             return:
               - type: InventoryItem
+          - name: perform
+          - name: complete
+            return:
+              - type: boolean
+          - name: getDuration
+            return:
+              - type: number
     functions:
       - name: copyClothingItem
         parameters:

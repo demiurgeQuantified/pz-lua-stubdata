@@ -21,6 +21,9 @@ languages:
           placeItemCursor:
             type: ISPlace3DItemCursor
             nullable: true
+          debugContextNum:
+            type: integer
+            nullable: true
         methods:
           - name: onSetBombTimerClick
             parameters:
@@ -129,7 +132,9 @@ languages:
               - name: context
                 type: ISContextMenu
               - name: text
+                type: string
               - name: recipeItem
+                type: Item
               - name: playerObj
                 type: IsoPlayer
           - name: doBuildRecipeListForItem
@@ -137,7 +142,9 @@ languages:
               - name: context
                 type: ISContextMenu
               - name: text
+                type: string
               - name: recipeItem
+                type: Item
               - name: playerObj
                 type: IsoPlayer
           - name: doBandageMenu
@@ -538,6 +545,8 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: openingRecipe
+              - name: realItem
+                type: InventoryItem
           - name: doDrinkFluidMenu
             parameters:
               - name: playerObj
@@ -873,6 +882,8 @@ languages:
               - name: all
                 type: boolean
               - name: eatPercentage
+                type: number
+                nullable: true
           - name: OnNewCraftComplete
             parameters:
               - name: logic
@@ -959,6 +970,9 @@ languages:
                 type: boolean
               - name: player
                 type: integer
+              - name: alwaysTurnOn
+                type: boolean
+                nullable: true
           - name: onInformationItems
             parameters:
               - name: items
@@ -1215,10 +1229,14 @@ languages:
             parameters:
               - name: waterContainer
                 type: InventoryItem
+              - name: playerObj
+                type: IsoPlayer
           - name: AutoDrinkOff
             parameters:
               - name: waterContainer
                 type: InventoryItem
+              - name: playerObj
+                type: IsoPlayer
           - name: hasOpenFlame
             parameters:
               - name: playerObj
@@ -1276,12 +1294,56 @@ languages:
               - name: player
           - name: onWanted
             parameters:
-              - name: item
+              - name: items
+                type: InventoryItem[]
               - name: player
+                type: IsoPlayer
           - name: onUnwanted
             parameters:
-              - name: item
+              - name: items
+                type: InventoryItem[]
               - name: player
+                type: IsoPlayer
+          - name: doMoreContextMenu
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: tests
+                type: table
+              - name: moveItems
+                type: InventoryItem[]
+              - name: playerObj
+                type: IsoPlayer
+              - name: items
+                type: (InventoryItem | umbrella.ISInventoryPane.ItemRecord)[]
+              - name: c
+                type: integer
+          - name: doDebugContextMenu
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: items
+                type: (InventoryItem | umbrella.ISInventoryPane.ItemRecord)[]
+              - name: editItem
+                type: InventoryItem
+                nullable: true
+              - name: testItem
+                type: InventoryItem
+                nullable: true
+              - name: player
+                type: integer
+              - name: playerObj
+                type: IsoPlayer
+              - name: tests
+                type: table
+              - name: c
+                type: integer
+          - name: addFluidDebug
+            parameters:
+              - name: cont
+                type: FluidContainer
+              - name: fluid
+                type: FluidType
       ISRecipeTooltip:
         extends: ISToolTip
         constructors:

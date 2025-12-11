@@ -215,11 +215,10 @@ languages:
                 type: ISUIElement
               - name: joypadData
                 type: JoypadData
-        staticMethods:
-          - name: searchPrerender
+          - name: onKeyRelease
             parameters:
-              - name: self
-                type: ISTextEntryBox
+              - name: key
+                type: integer
       SandboxOptions.SandboxOptionsScreenListBox:
         extends: ISScrollingListBox
         local: true

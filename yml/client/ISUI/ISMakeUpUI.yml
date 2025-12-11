@@ -28,6 +28,8 @@ languages:
             type: number
           avatarHeight:
             type: number
+          avatarBorderSize:
+            type: number
           avatarPanel:
             type: ISUI3DModel
           avatarBackgroundTexture:

@@ -1,0 +1,94 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISMPSelectAccount:
+        extends: ISPanelJoypad
+        constructors:
+          - parameters:
+              - name: ui
+                type: MultiplayerUI
+              - name: server
+        staticFields:
+          Type:
+            defaultValue: '"ISMPSelectAccount"'
+        fields:
+          server:
+            nullable: true
+          connectBtn:
+            type: ISButton
+          addNewAccountBtn:
+            type: ISButton
+          closeBtn:
+            type: ISButton
+          accountList:
+            type: ISComboBox
+          accountAdded:
+            type: boolean
+          modal:
+            type: ISMPEditAccount
+          ui:
+            type: MultiplayerUI
+          ui_droplist: {}
+        methods:
+          - name: initialise
+          - name: destroy
+          - name: onClick
+            parameters:
+              - name: button
+                type: ISButton
+          - name: onResolutionChange
+            parameters:
+              - name: oldw
+              - name: oldh
+              - name: neww
+              - name: newh
+          - name: prerender
+          - name: render
+          - name: updateButtons
+          - name: onMouseUp
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseUpOutside
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseMoveOutside
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+          - name: onMouseMove
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadBeforeDeactivate
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer

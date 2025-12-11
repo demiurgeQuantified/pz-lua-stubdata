@@ -15,6 +15,10 @@ languages:
             type: ISToolTip[]
           tooltipsUsed:
             type: ISToolTip[]
+          tooltipInvPool:
+            type: ISToolTipInv[]
+          tooltipInvUsed:
+            type: ISToolTipInv[]
           Test:
             type: boolean
             nullable: true
@@ -1242,6 +1246,12 @@ languages:
           - name: addToolTip
             return:
               - type: ISToolTip
+          - name: addToolTipInv
+            parameters:
+              - name: item
+                type: InventoryItem
+            return:
+              - type: ISToolTipInv
           - name: doBedOption
             parameters:
               - name: context

@@ -47,6 +47,8 @@ languages:
           isDrainable:
             type: boolean
           isClothing: {}
+          isContainer: {}
+          isKey: {}
           elems:
             type: umbrella.ISItemEditPanel.Element[]
         methods:
@@ -148,6 +150,9 @@ languages:
           - name: validateMinRange
             return:
               - type: boolean
+          - name: validateHeadCondition
+            return:
+              - type: unknown
           - name: validateWeapon
             return:
               - type: boolean
@@ -155,6 +160,12 @@ languages:
             return:
               - type: boolean
           - name: validateClothing
+            return:
+              - type: unknown
+          - name: validateClothingOrContainer
+            return:
+              - type: unknown
+          - name: validateKey
             return:
               - type: unknown
           - name: validateDrainable

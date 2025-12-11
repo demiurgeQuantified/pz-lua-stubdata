@@ -4,7 +4,7 @@ languages:
     aliases:
       umbrella.ISPlayerStatsChooseProfessionUI.OnClick:
         - type: "fun(target: unknown?, button: ISButton, profession:
-            ProfessionFactory.Profession)"
+            CharacterProfessionDefinition)"
     classes:
       ISPlayerStatsChooseProfessionUI:
         extends: ISPanel
@@ -47,7 +47,7 @@ languages:
           chr:
             type: IsoPlayer
           comboList:
-            type: ProfessionFactory.Profession[]
+            type: CharacterProfessionDefinition[]
           zOffsetSmallFont:
             type: number
         methods:

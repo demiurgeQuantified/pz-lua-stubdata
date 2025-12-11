@@ -102,7 +102,7 @@ languages:
           safetyOff: {}
           warSoon:
             type: Texture
-          lockTexture:
+          clockTexture:
             type: Texture
           disableTexture:
             type: Texture

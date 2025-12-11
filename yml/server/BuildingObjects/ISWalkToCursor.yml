@@ -25,6 +25,14 @@ languages:
           skipBuildAction:
             type: boolean
         methods:
+          - name: tryBuild
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
           - name: create
             parameters:
               - name: x
@@ -39,6 +47,13 @@ languages:
                 type: string
             return:
               - type: boolean
+                nullable: true
+          - name: locateTargetSquare
+            parameters:
+              - name: square
+                type: IsoGridSquare
+            return:
+              - type: IsoGridSquare
                 nullable: true
           - name: isValid
             parameters:

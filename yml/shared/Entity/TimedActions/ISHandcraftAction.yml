@@ -129,6 +129,13 @@ languages:
               - name: _target
                 type: unknown
                 nullable: true
+          - name: stopSound
+          - name: animEvent
+            parameters:
+              - name: event
+                type: string
+              - name: parameter
+                type: string
         staticMethods:
           - name: FromLogicMultiple
             parameters:

@@ -67,6 +67,12 @@ languages:
                 type: integer
               - name: addBuffer
                 type: boolean
+          - name: checkForLearningRecipe
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: recipe
+                type: string
           - name: checkForLosingLevel
             parameters:
               - name: playerObj

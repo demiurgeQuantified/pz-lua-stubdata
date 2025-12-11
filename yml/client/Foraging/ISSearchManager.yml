@@ -55,7 +55,13 @@ languages:
             type: number
           lastUpdateY:
             type: number
+          previousDistanceSinceFind:
+            type: number
           distanceSinceFind:
+            type: number
+          maxDistanceSinceFind:
+            type: number
+          movementDelta:
             type: number
           distanceMoveExtra:
             type: number
@@ -156,6 +162,12 @@ languages:
             type: number
           distanceMoveThreshold:
             type: number
+          lastSpottedX:
+            type: number
+          lastSpottedY:
+            type: number
+          maxDistanceBonus:
+            type: number
           movedIcons:
             type: table<string, string>
           movedIconsSquares:
@@ -164,6 +176,8 @@ languages:
             type: table<IsoGridSquare, boolean>
           spriteCheckedSquares:
             type: table<IsoGridSquare, boolean>
+          affinityAddedChunks:
+            type: table<IsoChunk, boolean>
           squareStack:
             type: table<IsoGridSquare, boolean>
           squareCheckRate:
@@ -357,7 +371,6 @@ languages:
                 type: IsoObject
           - name: checkSquares
           - name: createIconsForCell
-          - name: checkShouldForceIcon
           - name: getIsSeen
             parameters:
               - name: _icon
@@ -369,7 +382,8 @@ languages:
             parameters:
               - name: _icon
                 type: ISBaseIcon
-          - name: updateForceFindSystem
+          - name: updateLocationTracking
+          - name: checkShouldForceIcon
           - name: resetForceFindSystem
           - name: doMoveIconNearPlayer
           - name: doMoveIcon

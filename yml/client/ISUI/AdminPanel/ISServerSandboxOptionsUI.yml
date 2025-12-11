@@ -78,11 +78,6 @@ languages:
           - name: destroy
           - name: onButtonApply
           - name: onButtonClose
-        staticMethods:
-          - name: searchPrerender
-            parameters:
-              - name: self
-                type: ISTextEntryBox
       ISServerSandboxOptionsUI.SandboxOptionsScreenListBox:
         extends: ISScrollingListBox
         local: true

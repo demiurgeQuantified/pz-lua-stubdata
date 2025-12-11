@@ -12,8 +12,8 @@ languages:
                 type: IsoObject
               - name: item
                 type: InventoryItem
-              - name: resource
-                type: Resource
+              - name: itemSlot
+                type: ISItemSlot
         staticFields:
           Type:
             defaultValue: '"ISItemSlotAddAction"'
@@ -32,6 +32,10 @@ languages:
           canAddItem:
             type: "fun(self: ISItemSlotAddAction): boolean"
             nullable: true
+          actionAnimVariables:
+            type: table<string, string>
+          actionAnim:
+            type: string
         methods:
           - name: isValid
             return:

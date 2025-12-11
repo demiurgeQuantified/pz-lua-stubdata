@@ -36,6 +36,17 @@ languages:
             return:
               - type: boolean
           - name: update
+          - name: serverStart
+          - name: animEvent
+            parameters:
+              - name: event
+                type: string
+              - name: parameter
+                type: string
+          - name: updateAdd
+            parameters:
+              - name: delta
+                type: number
           - name: start
           - name: stop
           - name: perform

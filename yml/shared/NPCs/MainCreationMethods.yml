@@ -3,6 +3,10 @@ languages:
   lua:
     classes:
       BaseGameCharacterDetails:
+        staticFields:
+          professionsDone:
+            type: boolean
+            nullable: true
         staticMethods:
           - name: CreateCharacterInstance
             parameters:
@@ -15,26 +19,17 @@ languages:
           - name: DoTraits
           - name: SetTraitDescription
             parameters:
-              - name: trait
-                type: TraitFactory.Trait
+              - name: characterTraitDefinition
+                type: CharacterTraitDefinition
           - name: DoObservations
           - name: DoProfessions
           - name: SetProfessionDescription
             parameters:
-              - name: prof
-                type: ProfessionFactory.Profession
+              - name: professionDefinition
+                type: CharacterProfessionDefinition
           - name: DoSurname
           - name: DoFemaleForename
           - name: DoMaleForename
           - name: DoSpawnPoint
           - name: DoTrouserColor
           - name: DoHairColor
-    functions:
-      - name: doMetalWorkerRecipes
-        parameters:
-          - name: metalworker
-            type: TraitFactory.Trait
-      - name: doTailorRecipes
-        parameters:
-          - name: tailor
-            type: TraitFactory.Trait

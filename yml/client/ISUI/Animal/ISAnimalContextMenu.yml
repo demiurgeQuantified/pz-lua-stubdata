@@ -5,7 +5,7 @@ languages:
       AnimalContextMenu:
         staticFields:
           cheat:
-            defaultValue: getDebug()
+            defaultValue: "false"
         methods:
           - name: onSetStressClick
             parameters:

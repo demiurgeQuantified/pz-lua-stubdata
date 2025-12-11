@@ -23,7 +23,7 @@ languages:
             defaultValue: '"ISFitnessUI"'
           instance:
             type: table<integer, ISFitnessUI>
-          enduranceLevelTreshold:
+          enduranceLevelThreshold:
             defaultValue: "2"
         fields:
           ok:

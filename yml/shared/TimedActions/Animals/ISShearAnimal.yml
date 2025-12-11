@@ -41,6 +41,7 @@ languages:
           - name: start
           - name: forceStop
           - name: stop
+          - name: serverStop
           - name: perform
           - name: complete
             return:

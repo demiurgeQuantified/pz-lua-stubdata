@@ -64,6 +64,9 @@ languages:
             type: boolean
           maxColumns:
             type: number
+          actionAnim:
+            type: string
+            nullable: true
         methods:
           - name: initialise
           - name: createChildren

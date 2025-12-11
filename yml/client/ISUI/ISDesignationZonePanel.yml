@@ -97,3 +97,4 @@ languages:
             parameters:
               - name: playerNum
                 type: number
+          - name: OnDesignationZoneUpdatedNetwork

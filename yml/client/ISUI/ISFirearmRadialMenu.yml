@@ -77,6 +77,12 @@ languages:
             parameters:
               - name: key
                 type: integer
+          - name: sharpenWeapon
+            parameters:
+              - name: item
+                type: InventoryItem
+              - name: playerObj
+                type: IsoPlayer
       ISFirearmRadialMenu.BaseCommand:
         extends: ISBaseObject
         local: true

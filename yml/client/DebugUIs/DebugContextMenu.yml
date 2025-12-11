@@ -27,6 +27,10 @@ languages:
             return:
               - type: boolean
                 nullable: true
+          - name: onFilmingToolsUI
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
           - name: onShowPlayerModel
             parameters:
               - name: playerObj
@@ -569,3 +573,4 @@ languages:
                 type: boolean
               - name: playerObj
                 type: IsoPlayer
+          - name: doCSV

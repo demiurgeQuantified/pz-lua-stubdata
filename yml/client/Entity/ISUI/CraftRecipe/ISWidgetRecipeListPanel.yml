@@ -66,8 +66,8 @@ languages:
                 type: CraftRecipe
           - name: setDataList
             parameters:
-              - name: _recipeList
-                type: ArrayList<CraftRecipe>
+              - name: _recipeCollection
+                type: CraftRecipeListNodeCollection
           - name: setInternalDimensions
             parameters:
               - name: _x

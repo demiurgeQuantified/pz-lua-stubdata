@@ -39,6 +39,10 @@ languages:
             return:
               - type: boolean
           - name: update
+          - name: updateUse
+            parameters:
+              - name: delta
+                type: number
           - name: start
           - name: stop
           - name: perform
@@ -46,7 +50,12 @@ languages:
             return:
               - type: boolean
           - name: serverStart
+          - name: animEvent
+            parameters:
+              - name: event
+                type: string
+              - name: parameter
+                type: string
           - name: getDuration
             return:
               - type: number
-          - name: init

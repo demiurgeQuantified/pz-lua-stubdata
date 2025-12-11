@@ -19,6 +19,7 @@ languages:
           owner:
             type: ISUIElement
             nullable: true
+          contextMenu: {}
           tooltip:
             type: ObjectTooltip
             nullable: true
@@ -120,3 +121,6 @@ languages:
             parameters:
               - name: chr
                 type: IsoGameCharacter
+          - name: setContextMenu
+            parameters:
+              - name: contextMenu

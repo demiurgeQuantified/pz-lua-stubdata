@@ -184,6 +184,9 @@ languages:
           itemTypeFilter:
             type: Item
             nullable: true
+          actionAnim:
+            type: string
+            nullable: true
         methods:
           - name: initialise
           - name: createChildren

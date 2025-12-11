@@ -50,8 +50,6 @@ languages:
             defaultValue: "0.0000003333"
           AngerDecrease:
             defaultValue: "0.0001"
-          BroodingAngerDecreaseMultiplier:
-            defaultValue: "0.3"
           SleepFatigueReduction:
             defaultValue: "0.000003"
           DistanceFromContainersToPickup:
@@ -69,6 +67,8 @@ languages:
           PoisonHealthReduction:
             defaultValue: "0.0465"
           FoodSicknessDecrease:
+            defaultValue: "0.0015"
+          SicknessDecrease:
             defaultValue: "0.0015"
           BurnCorpsePetrolAmount:
             defaultValue: "0.1"

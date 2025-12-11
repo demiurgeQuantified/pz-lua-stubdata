@@ -37,8 +37,6 @@ languages:
             type: Fishing.ISTensionUI
           onTickFunc:
             type: function
-          onSave:
-            type: function
           fishingRod:
             type: Fishing.FishingRod
             nullable: true

@@ -1,0 +1,138 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISMPEditAccount:
+        extends: ISPanelJoypad
+        constructors:
+          - parameters:
+              - name: ui
+                type: ISMPSelectAccount | MultiplayerUI
+              - name: server
+              - name: account
+                nullable: true
+        staticFields:
+          Type:
+            defaultValue: '"ISMPEditAccount"'
+          instance:
+            type: ISMPEditAccount
+            nullable: true
+        fields:
+          login:
+            type: ISTextEntryBox
+          authType:
+            type: ISComboBox
+          password:
+            type: ISTextEntryBox
+          seePasswordBtn:
+            type: ISButton
+          rememberPasswordTickBox:
+            type: ISTickBox
+          steamRelayTickBox:
+            type: ISTickBox
+          googleAuthPopup:
+            type: ISPanel
+          googleAuthLabel:
+            type: ISLabel
+          googleAuthButton:
+            type: ISButton
+          googleKey:
+            type: string
+          cancelBtn:
+            type: ISButton
+          saveBtn:
+            type: ISButton
+          originalHeight:
+            type: number
+          isPasswordModified:
+            type: boolean
+          servers_serveripmessage_lines: {}
+          servers_serveripwarning_lines: {}
+          ui_password_eye: {}
+          ui_droplist: {}
+          ui:
+            type: ISMPSelectAccount | MultiplayerUI
+          server: {}
+          account:
+            nullable: true
+          accountLoginList:
+            type: table
+        methods:
+          - name: initialise
+          - name: onComboAuthType
+          - name: destroy
+          - name: onClick
+            parameters:
+              - name: button
+                type: ISButton
+          - name: onResolutionChange
+            parameters:
+              - name: oldw
+              - name: oldh
+              - name: neww
+              - name: newh
+          - name: prerender
+          - name: render
+          - name: onOtherKey
+            parameters:
+              - name: key
+                type: integer
+          - name: onCommandEntered
+          - name: onMouseUp
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseUpOutside
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseMoveOutside
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+          - name: onMouseMove
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadBeforeDeactivate
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+        staticMethods:
+          - name: onLoginTextChange
+            parameters:
+              - name: txtEntry
+          - name: OnConnectFailed
+            parameters:
+              - name: message
+              - name: detail
+          - name: OnConnected
+          - name: OnQRReceived
+            parameters:
+              - name: message

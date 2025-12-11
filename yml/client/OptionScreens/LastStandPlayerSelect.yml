@@ -104,6 +104,10 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
+          - name: onKeyRelease
+            parameters:
+              - name: key
+                type: integer
         staticMethods:
           - name: initWorld
           - name: newGame

@@ -21,7 +21,7 @@ languages:
           Type:
             defaultValue: '"ISWidgetRecipeFilterPanel"'
         fields:
-          entryBox:
+          searchEntryBox:
             type: ISTextEntryBox
           filterTypeCombo:
             type: ISComboBox
@@ -32,12 +32,12 @@ languages:
           sortCombo:
             type: ISComboBox
             nullable: true
-          buttonViewMode:
+          viewModeButton:
             type: ISButton
-            nullable: true
-          tickbox:
+          showAllRecipeTickBox:
             type: ISTickBox
-            nullable: true
+          tickBoxShowAllVersion:
+            type: ISTickBox
           searchInfoText:
             type: string
           callbackTarget:
@@ -85,12 +85,24 @@ languages:
           - name: updateViewModeButton
           - name: populateComboList
           - name: populateSortList
-          - name: OnShowAllClick
+          - name: onShowAllVersionClick
             parameters:
               - name: clickedOption
                 type: integer
               - name: enabled
                 type: boolean
+          - name: onShowAllRecipeClick
+            parameters:
+              - name: clickedOption
+                type: integer
+              - name: enabled
+                type: boolean
+          - name: filter
+            parameters:
+              - name: textFilter
+                type: string
+              - name: selectedCombo
+                type: string
           - name: onButtonClick
             parameters:
               - name: _button

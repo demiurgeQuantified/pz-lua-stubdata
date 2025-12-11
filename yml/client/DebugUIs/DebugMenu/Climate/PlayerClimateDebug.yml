@@ -154,4 +154,3 @@ languages:
             return:
               - type: PlayerClimateDebug
                 nullable: true
-          - name: onClimateTickDebug

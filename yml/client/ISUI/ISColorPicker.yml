@@ -25,16 +25,6 @@ languages:
             type: boolean
           index:
             type: integer
-          pickedTarget:
-            type: unknown
-            nullable: true
-            tags:
-              - StubGen_Extra
-          otherFct:
-            type: boolean
-            nullable: true
-            tags:
-              - StubGen_Extra
           pickedFunc:
             type: umbrella.ISColorPicker.PickedFunction
             nullable: true
@@ -50,6 +40,16 @@ languages:
             type: number
           buttonSize:
             type: number
+          pickedTarget:
+            type: unknown
+            nullable: true
+            tags:
+              - StubGen_Extra
+          otherFct:
+            type: boolean
+            nullable: true
+            tags:
+              - StubGen_Extra
         methods:
           - name: render
           - name: onMouseDown

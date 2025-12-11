@@ -23,7 +23,7 @@ languages:
           alphaOverlayInc:
             defaultValue: "true"
           cheat:
-            defaultValue: getDebug()
+            defaultValue: "false"
           ghs:
             defaultValue: '"<GHC>"'
           bhs:

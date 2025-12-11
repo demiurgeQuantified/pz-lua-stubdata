@@ -395,9 +395,6 @@ languages:
                 type: ItemContainer
               - name: _items
                 type: ArrayList<InventoryItem>
-              - name: _discardItems
-                type: boolean
-                nullable: true
             return:
               - type: ArrayList<InventoryItem>
           - name: isValidFloor
@@ -713,15 +710,15 @@ languages:
                 type: IsoPlayer
               - name: _itemType
                 type: string
-              - name: _amount
+              - name: _distanceTravelled
                 type: number
-          - name: giveItemXP
+          - name: giveXP
             parameters:
               - name: _character
                 type: IsoPlayer
               - name: _itemDef
                 type: umbrella.Foraging.ItemDefinition
-              - name: _amount
+              - name: _distanceTravelled
                 type: number
           - name: doEndurancePenalty
             parameters:

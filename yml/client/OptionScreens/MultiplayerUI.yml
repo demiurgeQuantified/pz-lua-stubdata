@@ -1,0 +1,305 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      MultiplayerUI:
+        extends: ISPanel
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"MultiplayerUI"'
+          startRefreshTime:
+            type: number
+            nullable: true
+          serverCount:
+            nullable: true
+          received:
+            type: number
+            nullable: true
+          refreshTime:
+            nullable: true
+          done:
+            defaultValue: "false"
+          instance:
+            type: MultiplayerUI
+            nullable: true
+        fields:
+          screenShading:
+            type: ISMPScreenShading
+          backButton:
+            type: ISButton
+          refreshBtn:
+            type: ISButton
+          connectBtn:
+            type: ISButton
+          tabs:
+            type: ISMPTabPanel
+          leftFavoritesPanel:
+            type: ISPanel
+          leftInternetPanel:
+            type: ISPanel
+          rightPanel:
+            type: ISPanel
+          rightPanelInternal:
+            type: ISPanel
+          rightPanelFavouritesButton:
+            type: ISMPButton
+          serverDescription:
+            type: ISRichTextPanel
+          accountList:
+            type: ISScrollingListBox
+          filter:
+            type: ISTextEntryBox
+          filterVersion:
+            type: ISTickBox
+          filterEmptyServer:
+            type: ISTickBox
+          filterWhitelistServer:
+            type: ISTickBox
+          filterPwdProtected:
+            type: ISTickBox
+          filterFullServer:
+            type: ISTickBox
+          filterModdedServer:
+            type: ISTickBox
+          internetList:
+            type: ISScrollingListBox
+          buttonSortName:
+            type: ISButton
+          buttonSortPlayer:
+            type: ISButton
+          buttonSortPing:
+            type: ISButton
+          created:
+            type: boolean
+          sortDown:
+            type: boolean
+          sortType:
+            type: string
+          serversInList:
+            type: boolean
+          selectedInternetServer:
+            nullable: true
+          selectedInternetServerFeatured:
+            type: boolean
+          selectedInternetServerName1:
+            type: string
+          selectedInternetServerName2:
+            type: string
+          selectedAccount:
+            nullable: true
+          modal:
+            type: table
+            nullable: true
+          listChanged:
+            type: boolean
+          filterUpdateTimer:
+            type: number
+          ui_details_icon: {}
+          ui_icon_bg: {}
+          ui_details_ping: {}
+          ui_details_players: {}
+          ui_circle: {}
+          default_banner: {}
+          default_bottom_background: {}
+          ui_ping: {}
+          ui_players: {}
+          ui_separator: {}
+          ui_online: {}
+          ui_offline: {}
+          ui_subitem_first: {}
+          ui_subitem_other: {}
+          ui_add_icon: {}
+          ui_feature: {}
+          ui_feature_enabled: {}
+          ui_open: {}
+          ui_closed: {}
+          ui_filters_allversions: {}
+          ui_filters_haveplayers: {}
+          ui_filters_4: {}
+          ui_filters_closed: {}
+          ui_filters_feature: {}
+          ui_filters_mods: {}
+          ui_filters_mods_off: {}
+          ui_separator_filter: {}
+          serverInfoBluePanelColor:
+            type: table
+          serverInfoBlueTextColor:
+            type: table
+          serverInfoGrayTextColor:
+            type: table
+          serverListSelected:
+            type: table
+          serverListItem:
+            type: table
+          progressBarColor:
+            type: table
+          rightPanelMargin:
+            type: number
+          arrowUp: {}
+          arrowDown: {}
+          sortListUpdateTicks:
+            type: number
+          serverList:
+            type: table
+        methods:
+          - name: initialise
+          - name: instantiate
+          - name: create
+          - name: onClickSort
+            parameters:
+              - name: button
+                type: ISButton
+          - name: onChangeFilter
+          - name: drawAccountListItem
+            parameters:
+              - name: y
+              - name: item
+              - name: alt
+            return:
+              - type: number
+          - name: drawInternetListItem
+            parameters:
+              - name: y
+              - name: item
+              - name: alt
+            return:
+              - type: number
+          - name: getServerFeatured
+            parameters:
+              - name: server
+            return:
+              - type: unknown
+                nullable: true
+          - name: onSelectInternetServer
+            parameters:
+              - name: server
+          - name: selectInternetServer
+            parameters:
+              - name: server
+          - name: onDoubleClickInternetList
+            parameters:
+              - name: server
+          - name: onSelectAccount
+            parameters:
+              - name: _item
+                nullable: true
+          - name: onDeleteAccount
+            parameters:
+              - name: button
+                type: ISButton
+              - name: account
+          - name: onDeleteServer
+            parameters:
+              - name: button
+                type: ISButton
+              - name: server
+          - name: onPressButtonOnAccountList
+            parameters:
+              - name: button
+                type: ISButton
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: connectToServer
+            parameters:
+              - name: server
+              - name: account
+          - name: refreshList
+          - name: requestServerList
+          - name: analyzeServerData
+            parameters:
+              - name: server
+          - name: serverInfoBluePanelHeight
+            return:
+              - type: number
+          - name: onResolutionChange
+            parameters:
+              - name: oldw
+              - name: oldh
+              - name: neww
+              - name: newh
+          - name: prerender
+          - name: updateButtons
+          - name: render
+          - name: updateListSort
+          - name: sortInternetList
+          - name: sortServerList
+            parameters:
+              - name: a
+              - name: b
+            return:
+              - type: boolean
+                nullable: true
+          - name: renderSortButtons
+          - name: onMouseDown_Tabs
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onOptionMouseDown
+            parameters:
+              - name: button
+                type: ISButton
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: connectFromBrowser
+            parameters:
+              - name: server
+          - name: checkServerIsPwdProtected
+            parameters:
+              - name: server
+              - name: connectAfter
+              - name: addToFavAfter
+            return:
+              - type: boolean
+                nullable: true
+        staticMethods:
+          - name: onTextFilterChange
+            parameters:
+              - name: box
+          - name: onDoubleClickAccount
+            parameters:
+              - name: accountList
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: ServerPinged
+            parameters:
+              - name: ip
+              - name: users
+          - name: OnSteamServerResponded
+            parameters:
+              - name: serverIndex
+          - name: OnSteamServerResponded2
+            parameters:
+              - name: host
+              - name: port
+              - name: server2
+          - name: OnSteamServerFailedToRespond2
+            parameters:
+              - name: host
+              - name: port
+          - name: OnSteamRulesRefreshComplete
+            parameters:
+              - name: host
+              - name: port
+              - name: rules
+          - name: OnSteamRefreshInternetServers
+          - name: onResetLua
+            parameters:
+              - name: reason

@@ -25,6 +25,8 @@ languages:
             type: boolean
           item:
             type: Food
+          container:
+            type: ItemContainer
           percentage:
             type: number
           carLighter:

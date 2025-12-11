@@ -47,10 +47,16 @@ languages:
                 type: boolean
               - name: sprite
                 type: string
+            return:
+              - type: boolean
+                nullable: true
           - name: onTimedActionStart
             parameters:
               - name: action
                 type: ISBaseTimedAction
+            return:
+              - type: boolean
+                nullable: true
           - name: isValid
             parameters:
               - name: square

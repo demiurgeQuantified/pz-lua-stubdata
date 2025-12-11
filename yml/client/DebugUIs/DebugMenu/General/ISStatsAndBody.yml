@@ -28,6 +28,15 @@ languages:
         methods:
           - name: initialise
           - name: createChildren
+          - name: addSliderOptionEnum
+            parameters:
+              - name: _enum
+                type: CharacterStat
+              - name: _step
+                type: number
+                nullable: true
+            return:
+              - type: table
           - name: addSliderOption
             parameters:
               - name: _java
@@ -66,7 +75,7 @@ languages:
           - name: prerender
           - name: onSliderChange
             parameters:
-              - name: _newval
+              - name: _newVal
                 type: number
               - name: _slider
                 type: ISSliderPanel

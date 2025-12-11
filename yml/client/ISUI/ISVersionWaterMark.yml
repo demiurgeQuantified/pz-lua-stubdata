@@ -21,8 +21,16 @@ languages:
           Type:
             defaultValue: '"WaterMarkUI"'
         fields:
+          revButton:
+            type: ISButton
           refreshNeeded:
             type: boolean
+          chr:
+            type: IsoPlayer
+          version:
+            type: string
         methods:
           - name: render
           - name: initialise
+          - name: createChildren
+          - name: copyRev

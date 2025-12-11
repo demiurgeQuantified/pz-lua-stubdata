@@ -11,7 +11,7 @@ languages:
             defaultValue: '"ISInventoryWindowControlHandler"'
         fields:
           control:
-            type: ISButton
+            type: ISUIElement
           altColor:
             type: boolean
         methods:
@@ -20,10 +20,16 @@ languages:
               - type: boolean
           - name: getControl
             return:
-              - type: unknown
+              - type: ISUIElement
           - name: getButtonControl
             parameters:
               - name: title
+                type: string
+            return:
+              - type: ISButton
+          - name: getImageButtonControl
+            parameters:
+              - name: imagePath
                 type: string
             return:
               - type: ISButton
@@ -36,6 +42,7 @@ languages:
               - name: context
                 type: ISContextMenu
               - name: text
+                type: string
             return:
-              - type: unknown
+              - type: umbrella.ISContextMenu.Option
           - name: perform

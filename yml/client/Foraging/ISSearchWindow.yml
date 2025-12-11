@@ -116,12 +116,6 @@ languages:
             parameters:
               - name: _character
                 type: IsoPlayer
-          - name: OnFillWorldObjectContextMenu
-            parameters:
-              - name: _player
-                type: integer
-              - name: _context
-                type: ISContextMenu
           - name: onEnableSearchMode
             parameters:
               - name: _character

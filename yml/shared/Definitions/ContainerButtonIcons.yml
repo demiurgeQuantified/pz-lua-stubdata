@@ -12,6 +12,8 @@ languages:
             defaultValue: getTexture("media/ui/Container_Garbage.png")
           campfire:
             defaultValue: getTexture("media/ui/Container_Campfire.png")
+          brazier:
+            defaultValue: getTexture("media/ui/Container_Campfire.png")
           cardboardbox:
             defaultValue: getTexture("media/ui/Container_Crate.png")
           clothingdryer:

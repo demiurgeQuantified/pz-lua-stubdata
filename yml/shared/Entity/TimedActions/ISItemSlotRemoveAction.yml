@@ -10,8 +10,8 @@ languages:
                 type: IsoPlayer
               - name: entity
                 type: IsoObject
-              - name: resource
-                type: ResourceItem
+              - name: itemSlot
+                type: ISItemSlot
               - name: item
                 type: InventoryItem
                 nullable: true
@@ -33,6 +33,10 @@ languages:
             nullable: true
           targetItem:
             nullable: true
+          actionAnimVariables:
+            type: table<string, string>
+          actionAnim:
+            type: string
         methods:
           - name: isValid
             return:

@@ -49,6 +49,10 @@ languages:
           - name: perform
           - name: startLoadingPrintMediaTextures
           - name: displayPrintMedia
+          - name: revealPrintMediaLocationsOnMap
+            parameters:
+              - name: mediaID
+                type: string
           - name: complete
             return:
               - type: boolean

@@ -65,7 +65,7 @@ languages:
           traits:
             type: ISImage[]
           displayedTraits:
-            type: TraitFactory.Trait[]
+            type: CharacterTraitDefinition[]
         methods:
           - name: initialise
           - name: setVisible

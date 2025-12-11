@@ -201,6 +201,12 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
+          - name: recordJoypadState
+            return:
+              - type: table
+          - name: restoreJoypadState
+            parameters:
+              - name: state
           - name: doRightJoystickScrolling
             parameters:
               - name: dx

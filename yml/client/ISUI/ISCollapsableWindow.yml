@@ -142,6 +142,9 @@ languages:
           - name: resizeWidgetHeight
             return:
               - type: number
+          - name: minTitleBarWidth
+            return:
+              - type: number
           - name: setResizable
             parameters:
               - name: resizable

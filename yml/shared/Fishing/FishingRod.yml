@@ -17,6 +17,8 @@ languages:
         fields:
           player:
             type: IsoPlayer
+          playerIndex:
+            type: integer
           skillLevel:
             type: integer
           strengthSkill:

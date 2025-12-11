@@ -1,0 +1,120 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISRecipeScrollingListBox:
+        extends: ISScrollingListBox
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: player
+                type: IsoPlayer
+              - name: logic
+                type: BaseCraftingLogic
+        staticFields:
+          Type:
+            defaultValue: '"ISRecipeScrollingListBox"'
+        fields:
+          selected:
+            type: number
+          player:
+            type: IsoPlayer
+          logic:
+            type: BaseCraftingLogic
+          starUnsetTexture:
+            type: Texture
+          starSetTexture:
+            type: Texture
+          groupOpenTexture:
+            type: Texture
+          groupPartialTexture:
+            type: Texture
+          groupClosedTexture:
+            type: Texture
+          itemheight:
+            type: number
+        methods:
+          - name: initialise
+          - name: doDrawItem
+            parameters:
+              - name: y
+                type: number
+              - name: item
+                type: umbrella.ISScrollingListBox.Item
+              - name: _alt
+                type: boolean
+            return:
+              - type: number
+          - name: isCraftable
+            parameters:
+              - name: _craftRecipe
+                type: CraftRecipe
+            return:
+              - type: boolean
+          - name: doDrawNode
+            parameters:
+              - name: y
+                type: number
+              - name: item
+                type: umbrella.ISScrollingListBox.Item
+              - name: _alt
+                type: boolean
+            return:
+              - type: number
+          - name: doDrawGroup
+            parameters:
+              - name: y
+                type: number
+              - name: item
+                type: umbrella.ISScrollingListBox.Item
+              - name: _alt
+                type: boolean
+            return:
+              - type: number
+          - name: addGroup
+            parameters:
+              - name: _groupNode
+                type: CraftRecipeListNode
+                nullable: true
+              - name: _nodes
+                type: ArrayList<CraftRecipeListNode>
+              - name: _recipeToSelect
+                type: CraftRecipe
+              - name: _enabledShowAllFilter
+                type: boolean
+            return:
+              - type: number
+          - name: onMouseDoubleClick
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: unknown
+                nullable: true
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: toggleGroup
+            parameters:
+              - name: _groupNode
+                type: CraftRecipeListNode
+          - name: onJoypadDirUp
+          - name: onJoypadDirDown
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData

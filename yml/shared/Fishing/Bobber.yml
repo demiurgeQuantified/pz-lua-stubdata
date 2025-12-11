@@ -25,18 +25,20 @@ languages:
             type: IsoPlayer
           fishingRod:
             type: Fishing.FishingRod
+          catchFishStarted:
+            type: boolean
           sq:
             type: IsoGridSquare
-          dx:
+          x:
             type: number
-          dy:
+          y:
             type: number
           z:
             type: number
           id:
             type: integer
-          item:
-            type: InventoryItem
+          renderFunc:
+            type: function
           attractTimer:
             type: integer
           nibbleTimer:

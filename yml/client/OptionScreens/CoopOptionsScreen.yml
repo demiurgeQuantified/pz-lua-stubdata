@@ -237,7 +237,7 @@ languages:
           memory:
             type: number
             nullable: true
-            defaultValue: is64bit() and 4096 or 1024
+            defaultValue: "4096"
           serverPassword:
             type: string
             nullable: true

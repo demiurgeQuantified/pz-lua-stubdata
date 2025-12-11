@@ -4,10 +4,4 @@ languages:
     classes:
       PrintMediaDefinitions:
         staticFields:
-          Brochures: {}
-          Fliers: {}
           MiscDetails: {}
-          Newspapers: {}
-          NewspaperDetails: {}
-          OldNewspapers: {}
-          RegionalPapers: {}

@@ -249,6 +249,9 @@ languages:
           - name: createChildren
           - name: prerender
           - name: render
+          - name: getPrintMediaIconSize
+            return:
+              - type: unknown
           - name: renderPrintMedia
           - name: drawMapRect
             parameters:

@@ -1,0 +1,102 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISMPEditServer:
+        extends: ISPanelJoypad
+        constructors:
+          - parameters:
+              - name: ui
+                type: MultiplayerUI
+              - name: server
+                nullable: true
+        staticFields:
+          Type:
+            defaultValue: '"ISMPEditServer"'
+        fields:
+          serverName:
+            type: ISTextEntryBox
+          serverAddress:
+            type: ISTextEntryBox
+          serverPort:
+            type: ISTextEntryBox
+          serverPassword:
+            type: ISTextEntryBox
+          seePasswordBtn:
+            type: ISButton
+          cancelBtn:
+            type: ISButton
+          saveBtn:
+            type: ISButton
+          isPasswordModified:
+            type: boolean
+          ui_password_eye: {}
+          ui:
+            type: MultiplayerUI
+          server:
+            nullable: true
+        methods:
+          - name: initialise
+          - name: destroy
+          - name: onClick
+            parameters:
+              - name: button
+                type: ISButton
+          - name: onResolutionChange
+            parameters:
+              - name: oldw
+              - name: oldh
+              - name: neww
+              - name: newh
+          - name: prerender
+          - name: render
+          - name: onMouseUp
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseUpOutside
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseMoveOutside
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+          - name: onMouseMove
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+          - name: onOtherKey
+            parameters:
+              - name: key
+                type: integer
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadBeforeDeactivate
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer

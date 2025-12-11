@@ -2,20 +2,22 @@ version: "1.1"
 languages:
   lua:
     classes:
-      ISSitOnChairAction:
+      ISRemoveFishingNetAction:
         extends: ISBaseTimedAction
         constructors:
           - parameters:
               - name: character
                 type: IsoPlayer
-              - name: item
-                type: unknown
+              - name: trap
+                type: IsoObject
+                nullable: true
         staticFields:
           Type:
-            defaultValue: '"ISSitOnChairAction"'
+            defaultValue: '"ISRemoveFishingNetAction"'
         fields:
-          item:
-            type: unknown
+          trap:
+            type: IsoObject
+            nullable: true
         methods:
           - name: isValid
             return:
@@ -24,3 +26,9 @@ languages:
           - name: start
           - name: stop
           - name: perform
+          - name: complete
+            return:
+              - type: boolean
+          - name: getDuration
+            return:
+              - type: number

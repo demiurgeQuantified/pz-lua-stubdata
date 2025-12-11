@@ -16,6 +16,9 @@ languages:
           Type:
             defaultValue: '"ISRemoveCampfireAction"'
         fields:
+          sound:
+            type: integer
+            nullable: true
           character:
             type: IsoPlayer
           campfire:
@@ -37,3 +40,4 @@ languages:
           - name: getDuration
             return:
               - type: number
+          - name: stopSound

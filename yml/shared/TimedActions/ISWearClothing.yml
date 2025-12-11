@@ -13,6 +13,8 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISWearClothing"'
+          WalkBodyLocations:
+            type: ItemBodyLocation[]
         fields:
           equipSound:
             type: integer
@@ -49,55 +51,11 @@ languages:
             return:
               - type: number
           - name: stopSound
-      WearClothingAnimations:
-        staticFields:
-          Belt:
-            defaultValue: '"Waist"'
-          BeltExtra:
-            defaultValue: '"Waist"'
-          Dress:
-            defaultValue: '"Legs"'
-          Ears:
-            defaultValue: '"Face"'
-          EarTop:
-            defaultValue: '"Face"'
-          Eyes:
-            defaultValue: '"Face"'
-          FannyPackBack:
-            defaultValue: '"Waist"'
-          FannyPackFront:
-            defaultValue: '"Waist"'
-          FullHat:
-            defaultValue: '"Face"'
-          Hat:
-            defaultValue: '"Face"'
-          Jacket:
-            defaultValue: '"Jacket"'
-          JacketHat:
-            defaultValue: '"Jacket"'
-          Legs1:
-            defaultValue: '"Legs"'
-          Mask:
-            defaultValue: '"Face"'
-          MaskEyes:
-            defaultValue: '"Face"'
-          Nose:
-            defaultValue: '"Face"'
-          Pants:
-            defaultValue: '"Legs"'
-          Shoes:
-            defaultValue: '"Feet"'
-          Skirt:
-            defaultValue: '"Legs"'
-          Socks:
-            defaultValue: '"Feet"'
-          Shirt:
-            defaultValue: '"Jacket"'
-          ShortSleeveShirt:
-            defaultValue: '"Jacket"'
-          TankTop:
-            defaultValue: '"Pullover"'
-          Tshirt:
-            defaultValue: '"Pullover"'
-          "[string]":
-            type: string
+        staticMethods:
+          - name: isStopOnWalk
+            parameters:
+              - name: item
+                type: InventoryItem
+            return:
+              - type: boolean
+      WearClothingAnimations: {}
