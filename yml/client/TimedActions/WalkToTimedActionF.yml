@@ -9,7 +9,7 @@ languages:
               - name: character
                 type: IsoPlayer
               - name: location
-                type: IsoGridSquare
+                type: IsoGridSquare|Position3D
               - name: additionalTest
                 type: umbrella.ISWalkToTimedAction.AdditionalTest
                 nullable: true
@@ -30,7 +30,7 @@ languages:
             type: table
             nullable: true
           location:
-            type: IsoGridSquare
+            type: IsoGridSquare|Position3D
           pathIndex:
             type: number
           additionalTest:
